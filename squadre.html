@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WEC 2026 – Le Squadre</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background-color: #0b0c10;
+      color: #ffffff;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: linear-gradient(90deg, #004c99, #0099ff);
+      padding: 15px 80px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.4);
+    }
+
+    header img {
+      height: 120px;
+      width: auto;
+      transition: transform 0.3s ease;
+      filter: drop-shadow(0 0 6px rgba(0,0,0,0.4));
+    }
+
+    header img:hover {
+      transform: scale(1.05);
+    }
+
+    header h1 {
+      flex: 1;
+      text-align: center;
+      font-size: 2.8em;
+      letter-spacing: 2px;
+      margin: 0;
+      color: #ffffff;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+    }
+
+    /* ===== NAVBAR ===== */
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      background-color: #0e1118;
+      padding: 20px 0;
+      box-shadow: inset 0 -2px 0 #00aaff;
+    }
+
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1em;
+      background: linear-gradient(180deg, #0099ff, #0066cc);
+      padding: 12px 28px;
+      border-radius: 30px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    nav a:hover {
+      background: linear-gradient(180deg, #00c8ff, #0088ff);
+      transform: scale(1.05);
+      box-shadow: 0 6px 14px rgba(0, 170, 255, 0.5);
+    }
+
+    /* ===== MAIN ===== */
+    main {
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    h2 {
+      color: #00aaff;
+      font-size: 2em;
+      margin-bottom: 40px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 25px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .team {
+      background-color: #11161c;
+      border-radius: 15px;
+      padding: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+      transition: transform 0.3s ease;
+    }
+
+    .team:hover {
+      transform: translateY(-5px);
+    }
+
+    .team img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      margin-bottom: 10px;
+    }
+
+    .team span {
+      display: block;
+      font-weight: 600;
+      font-size: 1.1em;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="images/logo.png" alt="Logo sinistra">
+    <h1>WORLD ELIMINATION CUP</h1>
+    <img src="images/logo.png" alt="Logo destra">
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="squadre.html">Le squadre</a>
+    <a href="regolamento.html">Il regolamento</a>
+  </nav>
+
+  <main>
+    <h2>Le squadre partecipanti</h2>
+
+    <div class="grid">
+      <div class="team">
+        <img src="images/ita.png" alt="Italia">
+        <span>Italia</span>
+      </div>
+      <div class="team">
+        <img src="images/fra.png" alt="Francia">
+        <span>Francia</span>
+      </div>
+      <div class="team">
+        <img src="images/eng.png" alt="Inghilterra">
+        <span>Inghilterra</span>
+      </div>
+      <div class="team">
+        <img src=
