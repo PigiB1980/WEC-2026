@@ -97,7 +97,7 @@ function creaTabellaVuota(id) {
 }
 
 // Prova a caricare il JSON, se fallisce crea tabelle vuote
-fetch('data/fase1.json')
+fetch('fase1.json')
   .then(res => res.json())
   .then(data => {
     const container = document.getElementById('tabella-quadrangolari');
