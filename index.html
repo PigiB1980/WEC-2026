@@ -6,28 +6,29 @@
   <title>WORLD ELIMINATION CUP 2026</title>
   <style>
     body {
-      margin: 0;
-      font-family: "Segoe UI", Arial, sans-serif;
-      background-color: #0b0c10;
-      color: #ffffff;
-      background-image: url('images/field.jpg'); /* <-- immagine campo da calcio */
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      background-repeat: no-repeat;
-    }
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #ffffff;
+  background-image: url('images/field.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  position: relative;
+  z-index: 0;
+}
 
-    /* Overlay scuro per migliorare leggibilità */
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.6);
-      z-index: -1;
-    }
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* scurisce l’immagine */
+  z-index: -1; /* va dietro al contenuto ma sopra l’immagine */
+  pointer-events: none;
+}
 
     /* ===== HEADER ===== */
     header {
