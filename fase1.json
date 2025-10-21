@@ -3,8 +3,8 @@
     {
       "id": 1,
       "semifinali": [
-        { "squadra1": "TBD1", "squadra2": "TBD2", "andata": "", "ritorno": "" },
-        { "squadra1": "TBD3", "squadra2": "TBD4", "andata": "", "ritorno": "" }
+        { "squadra1": "TBD1", "squadra2": "TBD2", "andata": "2-0", "ritorno": "1-1" },
+        { "squadra1": "TBD3", "squadra2": "TBD4", "andata": "0-2", "ritorno": "1-4" }
       ],
       "finale": { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "" },
       "qualificata": ""
