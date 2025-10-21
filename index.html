@@ -6,29 +6,28 @@
   <title>WORLD ELIMINATION CUP 2026</title>
   <style>
     body {
-  margin: 0;
-  font-family: "Segoe UI", Arial, sans-serif;
-  color: #ffffff;
-  background-image: url('images/field.jpg');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  position: relative;
-  z-index: 0;
-}
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background-color: #0b0c10;
+      color: #ffffff;
+      background-image: url('images/field.jpg'); /* immagine campo da calcio */
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+    }
 
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6); /* scurisce l’immagine */
-  z-index: -1; /* va dietro al contenuto ma sopra l’immagine */
-  pointer-events: none;
-}
+    /* Overlay scuro per migliorare leggibilità */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: -1;
+    }
 
     /* ===== HEADER ===== */
     header {
@@ -111,6 +110,38 @@ body::before {
       margin: 20px auto;
       text-shadow: 0 0 8px rgba(0,0,0,0.5);
     }
+
+    /* ===== PULSANTI FASI ===== */
+    .fasi-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      max-width: 800px;
+      margin: 60px auto 0;
+    }
+
+    .fase-btn {
+      display: block;
+      text-align: center;
+      background: linear-gradient(180deg, #00aaff, #0066cc);
+      color: white;
+      text-decoration: none;
+      font-size: 1.5em;
+      font-weight: bold;
+      padding: 40px 0;
+      border-radius: 20px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .fase-btn:hover {
+      background: linear-gradient(180deg, #00ccff, #0077ff);
+      transform: scale(1.05);
+      box-shadow: 0 10px 25px rgba(0,170,255,0.6);
+    }
+
   </style>
 </head>
 <body>
@@ -131,6 +162,15 @@ body::before {
       Il torneo mondiale più emozionante dell'anno è pronto a cominciare.<br>
       Scopri le squadre, il regolamento e segui la corsa verso la gloria!
     </p>
+
+    <div class="fasi-container">
+      <a href="fase1.html" class="fase-btn">1ª Fase</a>
+      <a href="fase2.html" class="fase-btn">2ª Fase</a>
+      <a href="fase3.html" class="fase-btn">3ª Fase</a>
+      <a href="fase4.html" class="fase-btn">4ª Fase</a>
+      <a href="fase5.html" class="fase-btn">5ª Fase</a>
+      <a href="fase6.html" class="fase-btn">6ª Fase</a>
+    </div>
   </main>
 </body>
 </html>
