@@ -15,12 +15,12 @@ body {
 }
 h1 { color: #00aaff; margin-bottom: 40px; }
 table { width: 90%; margin: 30px auto; border-collapse: collapse; background: rgba(255,255,255,0.05); border-radius: 12px; overflow: hidden; }
-th, td { padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+th, td { padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.1); text-align: center; }
 th { background-color: rgba(0,170,255,0.2); text-transform: uppercase; }
 tr:hover { background-color: rgba(0,170,255,0.1); }
 img.flag { width: 24px; height: auto; vertical-align: middle; margin-right: 6px; }
 .qualificata { margin-top: 10px; font-weight: bold; color: #00ffcc; }
-.sezione { text-align: left; font-weight: bold; background: rgba(0,170,255,0.1); }
+.sezione { text-align: center; font-weight: bold; background: rgba(0,170,255,0.1); }
 </style>
 </head>
 <body>
@@ -29,65 +29,69 @@ img.flag { width: 24px; height: auto; vertical-align: middle; margin-right: 6px;
 <div id="tabella-quadrangolari"></div>
 
 <script>
+// Funzione per creare le tabelle dai dati JSON
+function creaTabella(q) {
+  const table = document.createElement('table');
+
+  // Intestazione
+  const thead = document.createElement('thead');
+  thead.innerHTML = `<tr><th colspan="4">Quadrangolare ${q.id}</th></tr>`;
+  table.appendChild(thead);
+
+  const tbody = document.createElement('tbody');
+
+  // Semifinali
+  const sfRow = document.createElement('tr');
+  sfRow.innerHTML = `<td class="sezione" colspan="4">Semifinali</td>`;
+  tbody.appendChild(sfRow);
+
+  q.semifinali.forEach(s => {
+    const row = document.createElement('tr');
+
+    row.innerHTML = `
+      <td>${s.squadra1 && s.squadra1.startsWith("TBD") ? s.squadra1 : (s.squadra1 ? `<img class="flag" src="flags/${s.squadra1.toLowerCase()}.png" alt="">${s.squadra1}` : "-")}</td>
+      <td>${s.squadra2 && s.squadra2.startsWith("TBD") ? s.squadra2 : (s.squadra2 ? `<img class="flag" src="flags/${s.squadra2.toLowerCase()}.png" alt="">${s.squadra2}` : "-")}</td>
+      <td>${s.andata || "-"}</td>
+      <td>${s.ritorno || "-"}</td>
+    `;
+    tbody.appendChild(row);
+  });
+
+  // Finale
+  const fRow = document.createElement('tr');
+  fRow.innerHTML = `<td class="sezione" colspan="4">Finale</td>`;
+  tbody.appendChild(fRow);
+
+  const finalRow = document.createElement('tr');
+  finalRow.innerHTML = `
+      <td>${q.finale.squadra1 && q.finale.squadra1.startsWith("TBD") ? q.finale.squadra1 : (q.finale.squadra1 ? `<img class="flag" src="flags/${q.finale.squadra1.toLowerCase()}.png" alt="">${q.finale.squadra1}` : "-")}</td>
+      <td>${q.finale.squadra2 && q.finale.squadra2.startsWith("TBD") ? q.finale.squadra2 : (q.finale.squadra2 ? `<img class="flag" src="flags/${q.finale.squadra2.toLowerCase()}.png" alt="">${q.finale.squadra2}` : "-")}</td>
+      <td>${q.finale.andata || "-"}</td>
+      <td>${q.finale.ritorno || "-"}</td>
+  `;
+  tbody.appendChild(finalRow);
+
+  table.appendChild(tbody);
+
+  // Qualificata
+  const qual = document.createElement('div');
+  qual.className = 'qualificata';
+  qual.textContent = `Qualificata alla 2° fase: ${q.qualificata || "-"}`;
+
+  const container = document.getElementById('tabella-quadrangolari');
+  container.appendChild(table);
+  container.appendChild(qual);
+}
+
 // Carica JSON
 fetch('fase1.json?' + new Date().getTime())
-.then(res => res.json())
-.then(data => {
-  const container = document.getElementById('tabella-quadrangolari');
-
-  data.quadrangolari.forEach(q => {
-    const table = document.createElement('table');
-
-    // Intestazione quadrangolare
-    const thead = document.createElement('thead');
-    thead.innerHTML = `<tr><th colspan="4">Quadrangolare ${q.id}</th></tr>`;
-    table.appendChild(thead);
-
-    const tbody = document.createElement('tbody');
-
-    // Semifinali
-    const sfRow = document.createElement('tr');
-    sfRow.innerHTML = `<td class="sezione" colspan="4">Semifinali</td>`;
-    tbody.appendChild(sfRow);
-
-    q.semifinali.forEach(s => {
-      const row = document.createElement('tr');
-      row.innerHTML = `
-        <td>${s.squadra1.startsWith("TBD") ? s.squadra1 : `<img class="flag" src="flags/${s.squadra1.toLowerCase()}.png" alt="">${s.squadra1}`}</td>
-        <td>${s.squadra2.startsWith("TBD") ? s.squadra2 : `<img class="flag" src="flags/${s.squadra2.toLowerCase()}.png" alt="">${s.squadra2}`}</td>
-        <td>${s.andata}</td>
-        <td>${s.ritorno}</td>
-      `;
-      tbody.appendChild(row);
-    });
-
-    // Finale
-    const fRow = document.createElement('tr');
-    fRow.innerHTML = `<td class="sezione" colspan="4">Finale</td>`;
-    tbody.appendChild(fRow);
-
-    const finalRow = document.createElement('tr');
-    finalRow.innerHTML = `
-      <td>${q.finale.squadra1.startsWith("TBD") ? q.finale.squadra1 : `<img class="flag" src="flags/${q.finale.squadra1.toLowerCase()}.png" alt="">${q.finale.squadra1}`}</td>
-      <td>${q.finale.squadra2.startsWith("TBD") ? q.finale.squadra2 : `<img class="flag" src="flags/${q.finale.squadra2.toLowerCase()}.png" alt="">${q.finale.squadra2}`}</td>
-      <td>${q.finale.andata}</td>
-      <td>${q.finale.ritorno}</td>
-    `;
-    tbody.appendChild(finalRow);
-
-    table.appendChild(tbody);
-    container.appendChild(table);
-
-    // Squadra qualificata
-    const qual = document.createElement('div');
-    qual.className = 'qualificata';
-    qual.textContent = `Qualificata alla 2° fase: ${q.qualificata || "-"}`;
-    container.appendChild(qual);
+  .then(res => res.json())
+  .then(data => {
+    data.quadrangolari.forEach(q => creaTabella(q));
+  })
+  .catch(err => {
+    console.warn('Errore nel caricamento del JSON', err);
   });
-})
-.catch(err => {
-  console.error('Errore nel caricamento JSON', err);
-});
 </script>
 
 </body>
