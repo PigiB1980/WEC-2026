@@ -29,26 +29,7 @@ img.flag { width: 24px; height: auto; vertical-align: middle; margin-right: 6px;
 <div id="tabella-quadrangolari"></div>
 
 <script>
-// Funzione per calcolare vincitore (anche se i dati sono vuoti)
-function calcolaVincitore(partita) {
-  if (!partita || !partita.andata || !partita.ritorno) return '-';
-  const [a1, a2] = partita.andata.split('-').map(Number);
-  const [r1, r2] = partita.ritorno.split('-').map(Number);
-
-  const tot1 = a1 + r2;
-  const tot2 = a2 + r1;
-
-  if (tot1 > tot2) return partita.squadra1;
-  if (tot2 > tot1) return partita.squadra2;
-
-  if (r2 > r1) return partita.squadra1;
-  if (r1 > r2) return partita.squadra2;
-
-  return 'Parità';
-}
-
-// Carica il JSON dei quadrangolari
-fetch('fase1.json')
+fetch('fase1.json?' + new Date().getTime())
   .then(res => res.json())
   .then(data => {
     const container = document.getElementById('tabella-quadrangolari');
@@ -70,8 +51,8 @@ fetch('fase1.json')
       q.semifinali.forEach(s => {
         const row = document.createElement('tr');
         row.innerHTML = `
-          <td>${s.squadra1}</td>
-          <td>${s.squadra2}</td>
+          <td><img class="flag" src="flags/${s.squadra1.toLowerCase()}.png" alt="">${s.squadra1}</td>
+          <td><img class="flag" src="flags/${s.squadra2.toLowerCase()}.png" alt="">${s.squadra2}</td>
           <td>${s.andata || '-'}</td>
           <td>${s.ritorno || '-'}</td>
         `;
@@ -83,22 +64,10 @@ fetch('fase1.json')
       fRow.innerHTML = `<td class="sezione" colspan="4">Finale</td>`;
       tbody.appendChild(fRow);
 
-      // Calcola la finale se entrambe le semifinali hanno risultato
-      let finaleSquadra1 = q.finale.squadra1;
-      let finaleSquadra2 = q.finale.squadra2;
-
-      // Se finale vuota, prova a calcolarla dai vincitori delle semifinali
-      if (!finaleSquadra1 || !finaleSquadra2) {
-        const v1 = calcolaVincitore(q.semifinali[0]);
-        const v2 = calcolaVincitore(q.semifinali[1]);
-        finaleSquadra1 = v1 !== '-' ? v1 : '';
-        finaleSquadra2 = v2 !== '-' ? v2 : '';
-      }
-
       const finalRow = document.createElement('tr');
       finalRow.innerHTML = `
-        <td>${finaleSquadra1 || '-'}</td>
-        <td>${finaleSquadra2 || '-'}</td>
+        <td><img class="flag" src="flags/${q.finale.squadra1?.toLowerCase() || ''}.png" alt="">${q.finale.squadra1 || '-'}</td>
+        <td><img class="flag" src="flags/${q.finale.squadra2?.toLowerCase() || ''}.png" alt="">${q.finale.squadra2 || '-'}</td>
         <td>${q.finale.andata || '-'}</td>
         <td>${q.finale.ritorno || '-'}</td>
       `;
@@ -107,18 +76,13 @@ fetch('fase1.json')
       table.appendChild(tbody);
       container.appendChild(table);
 
-      // Qualificata
       const qual = document.createElement('div');
       qual.className = 'qualificata';
-      // Se finale vuota, lascia - ; altrimenti calcola vincitore
-      qual.textContent = 'Qualificata alla 2° fase: ' +
-        (q.qualificata || calcolaVincitore(q.finale) || '-');
+      qual.textContent = 'Qualificata alla 2° fase: ' + (q.qualificata || '-');
       container.appendChild(qual);
     });
   })
-  .catch(err => {
-    console.error('Errore caricamento JSON:', err);
-  });
+  .catch(err => console.error('Errore caricamento JSON:', err));
 </script>
 
 </body>
