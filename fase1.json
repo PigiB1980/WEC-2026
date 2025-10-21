@@ -1,12 +1,76 @@
 {
   "quadrangolari": [
-    { "id": 1, "semifinali": [ {"squadra1":"", "squadra2":"", "andata":"","ritorno":""}, {"squadra1":"", "squadra2":"", "andata":"","ritorno":""} ], "finale":{"squadra1":"","squadra2":"","andata":"","ritorno":""}, "qualificata":"" },
-    { "id": 2, "semifinali": [ {"squadra1":"", "squadra2":"", "andata":"","ritorno":""}, {"squadra1":"", "squadra2":"", "andata":"","ritorno":""} ], "finale":{"squadra1":"","squadra2":"","andata":"","ritorno":""}, "qualificata":"" },
-    { "id": 3, "semifinali": [ {"squadra1":"", "squadra2":"", "andata":"","ritorno":""}, {"squadra1":"", "squadra2":"", "andata":"","ritorno":""} ], "finale":{"squadra1":"","squadra2":"","andata":"","ritorno":""}, "qualificata":"" },
-    { "id": 4, "semifinali": [ {"squadra1":"", "squadra2":"", "andata":"","ritorno":""}, {"squadra1":"", "squadra2":"", "andata":"","ritorno":""} ], "finale":{"squadra1":"","squadra2":"","andata":"","ritorno":""}, "qualificata":"" },
-    { "id": 5, "semifinali": [ {"squadra1":"", "squadra2":"", "andata":"","ritorno":""}, {"squadra1":"", "squadra2":"", "andata":"","ritorno":""} ], "finale":{"squadra1":"","squadra2":"","andata":"","ritorno":""}, "qualificata":"" },
-    { "id": 6, "semifinali": [ {"squadra1":"", "squadra2":"", "andata":"","ritorno":""}, {"squadra1":"", "squadra2":"", "andata":"","ritorno":""} ], "finale":{"squadra1":"","squadra2":"","andata":"","ritorno":""}, "qualificata":"" },
-    { "id": 7, "semifinali": [ {"squadra1":"", "squadra2":"", "andata":"","ritorno":""}, {"squadra1":"", "squadra2":"", "andata":"","ritorno":""} ], "finale":{"squadra1":"","squadra2":"","andata":"","ritorno":""}, "qualificata":"" },
-    { "id": 8, "semifinali": [ {"squadra1":"", "squadra2":"", "andata":"","ritorno":""}, {"squadra1":"", "squadra2":"", "andata":"","ritorno":""} ], "finale":{"squadra1":"","squadra2":"","andata":"","ritorno":""}, "qualificata":"" }
+    {
+      "id": 1,
+      "semifinali": [
+        { "squadra1": "Afghanistan", "squadra2": "Andorra", "andata": "", "ritorno": "" },
+        { "squadra1": "Bangladesh", "squadra2": "Corea del Nord", "andata": "", "ritorno": "" }
+      ],
+      "finale": { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "" },
+      "qualificata": ""
+    },
+    {
+      "id": 2,
+      "semifinali": [
+        { "squadra1": "El Salvador", "squadra2": "Estonia", "andata": "", "ritorno": "" },
+        { "squadra1": "Filippine", "squadra2": "Gibilterra", "andata": "", "ritorno": "" }
+      ],
+      "finale": { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "" },
+      "qualificata": ""
+    },
+    {
+      "id": 3,
+      "semifinali": [
+        { "squadra1": "Haiti", "squadra2": "India", "andata": "", "ritorno": "" },
+        { "squadra1": "Indonesia", "squadra2": "Libano", "andata": "", "ritorno": "" }
+      ],
+      "finale": { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "" },
+      "qualificata": ""
+    },
+    {
+      "id": 4,
+      "semifinali": [
+        { "squadra1": "Liechtenstein", "squadra2": "Lituania", "andata": "", "ritorno": "" },
+        { "squadra1": "Malagasy", "squadra2": "Malta", "andata": "", "ritorno": "" }
+      ],
+      "finale": { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "" },
+      "qualificata": ""
+    },
+    {
+      "id": 5,
+      "semifinali": [
+        { "squadra1": "Myanmar", "squadra2": "Nepal", "andata": "", "ritorno": "" },
+        { "squadra1": "Oman", "squadra2": "Pakistan", "andata": "", "ritorno": "" }
+      ],
+      "finale": { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "" },
+      "qualificata": ""
+    },
+    {
+      "id": 6,
+      "semifinali": [
+        { "squadra1": "Palestina", "squadra2": "San Marino", "andata": "", "ritorno": "" },
+        { "squadra1": "Tanzania", "squadra2": "Tajikistan", "andata": "", "ritorno": "" }
+      ],
+      "finale": { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "" },
+      "qualificata": ""
+    },
+    {
+      "id": 7,
+      "semifinali": [
+        { "squadra1": "Lettonia", "squadra2": "Singapore", "andata": "", "ritorno": "" },
+        { "squadra1": "Vietnam", "squadra2": "Malaysia", "andata": "", "ritorno": "" }
+      ],
+      "finale": { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "" },
+      "qualificata": ""
+    },
+    {
+      "id": 8,
+      "semifinali": [
+        { "squadra1": "Far Oer", "squadra2": "Cambogia", "andata": "", "ritorno": "" },
+        { "squadra1": "Q8", "squadra2": "Q8", "andata": "", "ritorno": "" }
+      ],
+      "finale": { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "" },
+      "qualificata": ""
+    }
   ]
 }
