@@ -110,7 +110,7 @@ function creaTabella(q) {
 }
 
 // Carica JSON e genera tabelle
-fetch('fase1.json')
+fetch('fase1.json?' + new Date().getTime())
   .then(res => res.json())
   .then(data => {
     data.quadrangolari.forEach(q => creaTabella(q));
