@@ -29,21 +29,9 @@ img.flag { width: 24px; height: auto; vertical-align: middle; margin-right: 6px;
 <div id="tabella-quadrangolari"></div>
 
 <script>
-// Mappa codici bandiera
-const codiciBandiera = {
-  "Afghanistan": "af", "Andorra": "ad", "Bangladesh": "bd", "Corea del Nord": "kp",
-  "El Salvador": "sv", "Estonia": "ee", "Filippine": "ph", "Gibilterra": "gi",
-  "Haiti": "ht", "India": "in", "Indonesia": "id", "Libano": "lb",
-  "Liechtenstein": "li", "Lituania": "lt", "Madagascar": "mg", "Malta": "mt",
-  "Myanmar": "mm", "Nepal": "np", "Oman": "om", "Pakistan": "pk",
-  "Palestina": "ps", "San Marino": "sm", "Tanzania": "tz", "Tajikistan": "tj",
-  "Lettonia": "lv", "Singapore": "sg", "Vietnam": "vn", "Malaysia": "my",
-  "Far Oer": "fo", "Cambogia": "kh"
-};
-
-// Funzione per calcolare il vincitore di una partita
-function calcolaVincitorePartita(partita) {
-  if (!partita || !partita.andata || !partita.ritorno) return null;
+// Calcola il vincitore di una partita
+function calcolaVincitore(partita) {
+  if (!partita || !partita.andata || !partita.ritorno) return '-';
   const [a1, a2] = partita.andata.split('-').map(Number);
   const [r1, r2] = partita.ritorno.split('-').map(Number);
 
@@ -53,69 +41,93 @@ function calcolaVincitorePartita(partita) {
   if (tot1 > tot2) return partita.squadra1;
   if (tot2 > tot1) return partita.squadra2;
 
-  // Gol in trasferta
+  // Pareggio, decide gol in trasferta
   if (r2 > r1) return partita.squadra1;
   if (r1 > r2) return partita.squadra2;
 
-  return "Parità";
+  return 'Parità';
 }
 
-// Funzione per calcolare il vincitore del quadrangolare
-function calcolaVincitoreQuadrangolare(q) {
-  const vincitoreSemi1 = calcolaVincitorePartita(q.semifinali[0]) || "-";
-  const vincitoreSemi2 = calcolaVincitorePartita(q.semifinali[1]) || "-";
+// Crea la riga di una partita con bandiere
+function creaRigaPartita(squadra1, squadra2, andata, ritorno) {
+  const flag1 = squadra1.startsWith('TBD') ? '' : `flags/${squadra1.slice(0,2).toLowerCase()}.png`;
+  const flag2 = squadra2.startsWith('TBD') ? '' : `flags/${squadra2.slice(0,2).toLowerCase()}.png`;
 
-  const finale = { squadra1: vincitoreSemi1, squadra2: vincitoreSemi2, andata: q.finale.andata, ritorno: q.finale.ritorno };
-  const vincitoreFinale = calcolaVincitorePartita(finale) || "-";
-  return vincitoreFinale;
+  return `
+    <tr>
+      <td><img class="flag" src="${flag1}" alt="">${squadra1}</td>
+      <td><img class="flag" src="${flag2}" alt="">${squadra2}</td>
+      <td>${andata || '-'}</td>
+      <td>${ritorno || '-'}</td>
+    </tr>
+  `;
 }
 
-// Carica JSON e crea le tabelle
+// Crea una tabella completa per un quadrangolare
+function creaTabellaQuadrangolare(q) {
+  const table = document.createElement('table');
+
+  const thead = document.createElement('thead');
+  thead.innerHTML = `<tr><th colspan="4">Quadrangolare ${q.id}</th></tr>`;
+  table.appendChild(thead);
+
+  const tbody = document.createElement('tbody');
+
+  // Semifinali
+  const sfRow = document.createElement('tr');
+  sfRow.innerHTML = `<td class="sezione" colspan="4">Semifinali</td>`;
+  tbody.appendChild(sfRow);
+
+  q.semifinali.forEach(semifinale => {
+    tbody.innerHTML += creaRigaPartita(semifinale.squadra1, semifinale.squadra2, semifinale.andata, semifinale.ritorno);
+  });
+
+  // Finale
+  const fRow = document.createElement('tr');
+  fRow.innerHTML = `<td class="sezione" colspan="4">Finale</td>`;
+  tbody.appendChild(fRow);
+
+  // Calcolo vincitori semifinali
+  const vincitoriSemi = q.semifinali.map(calcolaVincitore);
+  tbody.innerHTML += creaRigaPartita(vincitoriSemi[0], vincitoriSemi[1], q.finale.andata, q.finale.ritorno);
+
+  table.appendChild(tbody);
+
+  // Qualificata
+  const vincitoreFinale = calcolaVincitore({
+    squadra1: vincitoriSemi[0],
+    squadra2: vincitoriSemi[1],
+    andata: q.finale.andata,
+    ritorno: q.finale.ritorno
+  });
+
+  const qual = document.createElement('div');
+  qual.className = 'qualificata';
+  qual.textContent = `Qualificata alla 2° fase: ${vincitoreFinale}`;
+
+  const container = document.getElementById('tabella-quadrangolari');
+  container.appendChild(table);
+  container.appendChild(qual);
+}
+
+// Carica JSON
 fetch('fase1.json')
   .then(res => res.json())
   .then(data => {
-    const container = document.getElementById('tabella-quadrangolari');
-    data.quadrangolari.forEach(q => {
-      const table = document.createElement('table');
-      table.innerHTML = `<thead><tr><th colspan="4">Quadrangolare ${q.id}</th></tr></thead>`;
-      const tbody = document.createElement('tbody');
-
-      // Semifinali
-      tbody.innerHTML += `<tr><td class="sezione" colspan="4">Semifinali</td></tr>`;
-      q.semifinali.forEach(sf => {
-        tbody.innerHTML += `
-          <tr>
-            <td><img class="flag" src="flags/${codiciBandiera[sf.squadra1] || ''}.png" alt="${sf.squadra1}"> ${sf.squadra1}</td>
-            <td><img class="flag" src="flags/${codiciBandiera[sf.squadra2] || ''}.png" alt="${sf.squadra2}"> ${sf.squadra2}</td>
-            <td>${sf.andata || '-'}</td>
-            <td>${sf.ritorno || '-'}</td>
-          </tr>
-        `;
-      });
-
-      // Finale
-      tbody.innerHTML += `<tr><td class="sezione" colspan="4">Finale</td></tr>`;
-      const f = q.finale;
-      tbody.innerHTML += `
-        <tr>
-          <td><img class="flag" src="flags/${codiciBandiera[f.squadra1] || ''}.png" alt="${f.squadra1 || ''}"> ${f.squadra1 || '-'}</td>
-          <td><img class="flag" src="flags/${codiciBandiera[f.squadra2] || ''}.png" alt="${f.squadra2 || ''}"> ${f.squadra2 || '-'}</td>
-          <td>${f.andata || '-'}</td>
-          <td>${f.ritorno || '-'}</td>
-        </tr>
-      `;
-
-      table.appendChild(tbody);
-      container.appendChild(table);
-
-      const qual = document.createElement('div');
-      qual.className = 'qualificata';
-      qual.textContent = `Qualificata alla 2° fase: ${calcolaVincitoreQuadrangolare(q)}`;
-      container.appendChild(qual);
-    });
+    data.quadrangolari.forEach(q => creaTabellaQuadrangolare(q));
   })
   .catch(err => {
-    console.warn('JSON non trovato o errore, creo tabelle vuote.');
+    console.warn('JSON non trovato, creo tabelle vuote.');
+    for (let i=1; i<=8; i++) {
+      creaTabellaQuadrangolare({
+        id: i,
+        semifinali: [
+          { squadra1: `TBD${i*2-1}`, squadra2: `TBD${i*2}`, andata: '', ritorno: '' },
+          { squadra1: `TBD${i*2+1}`, squadra2: `TBD${i*2+2}`, andata: '', ritorno: '' }
+        ],
+        finale: { squadra1: '', squadra2: '', andata: '', ritorno: '' }
+      });
+    }
   });
 </script>
 
