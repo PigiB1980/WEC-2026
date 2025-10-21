@@ -3,37 +3,38 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fase 1 - World Elimination Cup 2026</title>
+<title>Fase 1 - WEC 2026</title>
 <style>
 body {
-  font-family: "Segoe UI", Arial, sans-serif;
+  font-family: Arial, sans-serif;
   background-color: #0b0c10;
   color: white;
-  margin: 0;
-  padding: 40px;
+  padding: 20px;
   text-align: center;
 }
-h1 { color: #00aaff; margin-bottom: 40px; }
-table { width: 90%; margin: 30px auto; border-collapse: collapse; background: rgba(255,255,255,0.05); border-radius: 12px; overflow: hidden; }
-th, td { padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.1); text-align: center; }
-th { background-color: rgba(0,170,255,0.2); text-transform: uppercase; }
-tr:hover { background-color: rgba(0,170,255,0.1); }
-img.flag { width: 24px; height: auto; vertical-align: middle; margin-right: 6px; }
-.qualificata { margin-top: 10px; font-weight: bold; color: #00ffcc; }
-.sezione { text-align: center; font-weight: bold; background: rgba(0,170,255,0.1); }
+h1 { color: #00aaff; margin-bottom: 30px; }
+table { width: 80%; margin: 20px auto; border-collapse: collapse; background: rgba(255,255,255,0.05); }
+th, td { padding: 10px; border: 1px solid rgba(255,255,255,0.1); }
+th { background-color: rgba(0,170,255,0.2); }
+img.flag { width: 24px; vertical-align: middle; margin-right: 6px; }
+.qualificata { margin-top: 5px; font-weight: bold; color: #00ffcc; }
+.sezione { font-weight: bold; background: rgba(0,170,255,0.1); text-align: left; }
 </style>
 </head>
 <body>
 
 <h1>Fase 1 - World Elimination Cup 2026</h1>
+
 <div id="tabella-quadrangolari"></div>
 
 <script>
-// Funzione per creare le tabelle dai dati JSON
+// Funzione per creare una tabella dal JSON
 function creaTabella(q) {
+  const container = document.getElementById('tabella-quadrangolari');
+
   const table = document.createElement('table');
 
-  // Intestazione
+  // Intestazione quadrangolare
   const thead = document.createElement('thead');
   thead.innerHTML = `<tr><th colspan="4">Quadrangolare ${q.id}</th></tr>`;
   table.appendChild(thead);
@@ -45,14 +46,13 @@ function creaTabella(q) {
   sfRow.innerHTML = `<td class="sezione" colspan="4">Semifinali</td>`;
   tbody.appendChild(sfRow);
 
-  q.semifinali.forEach(s => {
+  q.semifinali.forEach(sf => {
     const row = document.createElement('tr');
-
     row.innerHTML = `
-      <td>${s.squadra1 && s.squadra1.startsWith("TBD") ? s.squadra1 : (s.squadra1 ? `<img class="flag" src="flags/${s.squadra1.toLowerCase()}.png" alt="">${s.squadra1}` : "-")}</td>
-      <td>${s.squadra2 && s.squadra2.startsWith("TBD") ? s.squadra2 : (s.squadra2 ? `<img class="flag" src="flags/${s.squadra2.toLowerCase()}.png" alt="">${s.squadra2}` : "-")}</td>
-      <td>${s.andata || "-"}</td>
-      <td>${s.ritorno || "-"}</td>
+      <td><img class="flag" src="flags/${sf.squadra1.toLowerCase()}.png" onerror="this.style.display='none'">${sf.squadra1}</td>
+      <td><img class="flag" src="flags/${sf.squadra2.toLowerCase()}.png" onerror="this.style.display='none'">${sf.squadra2}</td>
+      <td>${sf.andata}</td>
+      <td>${sf.ritorno}</td>
     `;
     tbody.appendChild(row);
   });
@@ -64,33 +64,32 @@ function creaTabella(q) {
 
   const finalRow = document.createElement('tr');
   finalRow.innerHTML = `
-      <td>${q.finale.squadra1 && q.finale.squadra1.startsWith("TBD") ? q.finale.squadra1 : (q.finale.squadra1 ? `<img class="flag" src="flags/${q.finale.squadra1.toLowerCase()}.png" alt="">${q.finale.squadra1}` : "-")}</td>
-      <td>${q.finale.squadra2 && q.finale.squadra2.startsWith("TBD") ? q.finale.squadra2 : (q.finale.squadra2 ? `<img class="flag" src="flags/${q.finale.squadra2.toLowerCase()}.png" alt="">${q.finale.squadra2}` : "-")}</td>
-      <td>${q.finale.andata || "-"}</td>
-      <td>${q.finale.ritorno || "-"}</td>
+    <td><img class="flag" src="flags/${q.finale.squadra1.toLowerCase()}.png" onerror="this.style.display='none'">${q.finale.squadra1}</td>
+    <td><img class="flag" src="flags/${q.finale.squadra2.toLowerCase()}.png" onerror="this.style.display='none'">${q.finale.squadra2}</td>
+    <td>${q.finale.andata}</td>
+    <td>${q.finale.ritorno}</td>
   `;
   tbody.appendChild(finalRow);
 
   table.appendChild(tbody);
+  container.appendChild(table);
 
-  // Qualificata
+  // Squadra qualificata
   const qual = document.createElement('div');
   qual.className = 'qualificata';
-  qual.textContent = `Qualificata alla 2° fase: ${q.qualificata || "-"}`;
-
-  const container = document.getElementById('tabella-quadrangolari');
-  container.appendChild(table);
+  qual.textContent = `Qualificata alla 2° fase: ${q.qualificata || '-'}`;
   container.appendChild(qual);
 }
 
 // Carica JSON
-fetch('fase1.json?' + new Date().getTime())
+fetch('fase1.json')
   .then(res => res.json())
   .then(data => {
     data.quadrangolari.forEach(q => creaTabella(q));
   })
   .catch(err => {
-    console.warn('Errore nel caricamento del JSON', err);
+    console.error('Errore nel caricamento JSON:', err);
+    document.getElementById('tabella-quadrangolari').textContent = "Errore: JSON non trovato o server non attivo.";
   });
 </script>
 
