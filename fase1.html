@@ -29,14 +29,14 @@ img.flag { width: 24px; height: auto; vertical-align: middle; margin-right: 6px;
 <div id="tabella-quadrangolari"></div>
 
 <script>
-// Funzione per calcolare il vincitore con regola gol in trasferta
+// Funzione per calcolare vincitore con regola gol in trasferta
 function calcolaVincitore(partita) {
   if (!partita || !partita.andata || !partita.ritorno) return '-';
-  const [a1, a2] = partita.andata.split('-').map(Number); // casa squadra1, trasferta squadra2
-  const [r1, r2] = partita.ritorno.split('-').map(Number); // trasferta squadra1, casa squadra2
+  const [a1, a2] = partita.andata.split('-').map(Number);
+  const [r1, r2] = partita.ritorno.split('-').map(Number);
 
-  const gol1 = a1 + r1; // gol totali squadra1
-  const gol2 = a2 + r2; // gol totali squadra2
+  const gol1 = a1 + r1;
+  const gol2 = a2 + r2;
 
   if (gol1 > gol2) return partita.squadra1;
   if (gol2 > gol1) return partita.squadra2;
@@ -63,9 +63,12 @@ function creaTabella(q) {
   sfRow.innerHTML = `<td class="sezione" colspan="4">Semifinali</td>`;
   tbody.appendChild(sfRow);
 
+  const vincitoriSF = [];
   q.semifinali.forEach(partita => {
-    const row = document.createElement('tr');
     const vincitore = calcolaVincitore(partita);
+    vincitoriSF.push(vincitore);
+
+    const row = document.createElement('tr');
     row.innerHTML = `
       <td>${partita.squadra1}</td>
       <td>${partita.squadra2}</td>
@@ -74,6 +77,10 @@ function creaTabella(q) {
     `;
     tbody.appendChild(row);
   });
+
+  // Aggiorna finale con vincitori semifinali
+  q.finale.squadra1 = vincitoriSF[0];
+  q.finale.squadra2 = vincitoriSF[1];
 
   // Finale
   const fRow = document.createElement('tr');
