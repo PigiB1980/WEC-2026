@@ -82,24 +82,24 @@ function creaTabellaQuadrangolare(q) {
     tbody.innerHTML += creaRigaPartita(semifinale.squadra1, semifinale.squadra2, semifinale.andata, semifinale.ritorno);
   });
 
+  // Calcolo vincitori semifinali
+  const vincitoriSemi = q.semifinali.map(calcolaVincitore);
+
+  // Aggiorna finale nel JSON con vincitori semifinali
+  q.finale.squadra1 = vincitoriSemi[0];
+  q.finale.squadra2 = vincitoriSemi[1];
+
   // Finale
   const fRow = document.createElement('tr');
   fRow.innerHTML = `<td class="sezione" colspan="4">Finale</td>`;
   tbody.appendChild(fRow);
 
-  // Calcolo vincitori semifinali
-  const vincitoriSemi = q.semifinali.map(calcolaVincitore);
-  tbody.innerHTML += creaRigaPartita(vincitoriSemi[0], vincitoriSemi[1], q.finale.andata, q.finale.ritorno);
+  tbody.innerHTML += creaRigaPartita(q.finale.squadra1, q.finale.squadra2, q.finale.andata, q.finale.ritorno);
 
   table.appendChild(tbody);
 
-  // Qualificata
-  const vincitoreFinale = calcolaVincitore({
-    squadra1: vincitoriSemi[0],
-    squadra2: vincitoriSemi[1],
-    andata: q.finale.andata,
-    ritorno: q.finale.ritorno
-  });
+  // Calcolo vincitore finale
+  const vincitoreFinale = calcolaVincitore(q.finale);
 
   const qual = document.createElement('div');
   qual.className = 'qualificata';
