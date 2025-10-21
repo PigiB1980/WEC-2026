@@ -29,102 +29,95 @@ img.flag { width: 24px; height: auto; vertical-align: middle; margin-right: 6px;
 <div id="tabella-quadrangolari"></div>
 
 <script>
-// Funzione per calcolare vincitore con regola gol in trasferta
+// Funzione per calcolare vincitore (anche se i dati sono vuoti)
 function calcolaVincitore(partita) {
   if (!partita || !partita.andata || !partita.ritorno) return '-';
   const [a1, a2] = partita.andata.split('-').map(Number);
   const [r1, r2] = partita.ritorno.split('-').map(Number);
 
-  const gol1 = a1 + r1;
-  const gol2 = a2 + r2;
+  const tot1 = a1 + r2;
+  const tot2 = a2 + r1;
 
-  if (gol1 > gol2) return partita.squadra1;
-  if (gol2 > gol1) return partita.squadra2;
+  if (tot1 > tot2) return partita.squadra1;
+  if (tot2 > tot1) return partita.squadra2;
 
-  // Parità: decide chi ha più gol in trasferta
-  if (r1 > a2) return partita.squadra1;
-  if (a2 > r1) return partita.squadra2;
+  if (r2 > r1) return partita.squadra1;
+  if (r1 > r2) return partita.squadra2;
 
   return 'Parità';
 }
 
-// Funzione per creare tabella di un quadrangolare
-function creaTabella(q) {
-  const table = document.createElement('table');
-
-  const thead = document.createElement('thead');
-  thead.innerHTML = `<tr><th colspan="4">Quadrangolare ${q.id}</th></tr>`;
-  table.appendChild(thead);
-
-  const tbody = document.createElement('tbody');
-
-  // Semifinali
-  const sfRow = document.createElement('tr');
-  sfRow.innerHTML = `<td class="sezione" colspan="4">Semifinali</td>`;
-  tbody.appendChild(sfRow);
-
-  const vincitoriSF = [];
-  q.semifinali.forEach(partita => {
-    const vincitore = calcolaVincitore(partita);
-    vincitoriSF.push(vincitore);
-
-    const row = document.createElement('tr');
-    row.innerHTML = `
-      <td>${partita.squadra1}</td>
-      <td>${partita.squadra2}</td>
-      <td>${partita.andata || '-'}</td>
-      <td>${partita.ritorno || '-'}</td>
-    `;
-    tbody.appendChild(row);
-  });
-
-  // Aggiorna finale con vincitori semifinali
-  q.finale.squadra1 = vincitoriSF[0];
-  q.finale.squadra2 = vincitoriSF[1];
-
-  // Finale
-  const fRow = document.createElement('tr');
-  fRow.innerHTML = `<td class="sezione" colspan="4">Finale</td>`;
-  tbody.appendChild(fRow);
-
-  const finalRow = document.createElement('tr');
-  finalRow.innerHTML = `
-      <td>${q.finale.squadra1 || '-'}</td>
-      <td>${q.finale.squadra2 || '-'}</td>
-      <td>${q.finale.andata || '-'}</td>
-      <td>${q.finale.ritorno || '-'}</td>
-  `;
-  tbody.appendChild(finalRow);
-
-  table.appendChild(tbody);
-
-  // Qualificata
-  const qual = document.createElement('div');
-  const vincitoreFinale = calcolaVincitore(q.finale);
-  qual.className = 'qualificata';
-  qual.textContent = 'Qualificata alla 2° fase: ' + (vincitoreFinale || '-');
-
-  const container = document.getElementById('tabella-quadrangolari');
-  container.appendChild(table);
-  container.appendChild(qual);
-}
-
-// Carica JSON e genera tabelle
-fetch('fase1.json?' + new Date().getTime())
+// Carica il JSON dei quadrangolari
+fetch('fase1.json')
   .then(res => res.json())
   .then(data => {
-    data.quadrangolari.forEach(q => creaTabella(q));
+    const container = document.getElementById('tabella-quadrangolari');
+
+    data.quadrangolari.forEach(q => {
+      const table = document.createElement('table');
+
+      const thead = document.createElement('thead');
+      thead.innerHTML = `<tr><th colspan="4">Quadrangolare ${q.id}</th></tr>`;
+      table.appendChild(thead);
+
+      const tbody = document.createElement('tbody');
+
+      // Semifinali
+      const sfRow = document.createElement('tr');
+      sfRow.innerHTML = `<td class="sezione" colspan="4">Semifinali</td>`;
+      tbody.appendChild(sfRow);
+
+      q.semifinali.forEach(s => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${s.squadra1}</td>
+          <td>${s.squadra2}</td>
+          <td>${s.andata || '-'}</td>
+          <td>${s.ritorno || '-'}</td>
+        `;
+        tbody.appendChild(row);
+      });
+
+      // Finale
+      const fRow = document.createElement('tr');
+      fRow.innerHTML = `<td class="sezione" colspan="4">Finale</td>`;
+      tbody.appendChild(fRow);
+
+      // Calcola la finale se entrambe le semifinali hanno risultato
+      let finaleSquadra1 = q.finale.squadra1;
+      let finaleSquadra2 = q.finale.squadra2;
+
+      // Se finale vuota, prova a calcolarla dai vincitori delle semifinali
+      if (!finaleSquadra1 || !finaleSquadra2) {
+        const v1 = calcolaVincitore(q.semifinali[0]);
+        const v2 = calcolaVincitore(q.semifinali[1]);
+        finaleSquadra1 = v1 !== '-' ? v1 : '';
+        finaleSquadra2 = v2 !== '-' ? v2 : '';
+      }
+
+      const finalRow = document.createElement('tr');
+      finalRow.innerHTML = `
+        <td>${finaleSquadra1 || '-'}</td>
+        <td>${finaleSquadra2 || '-'}</td>
+        <td>${q.finale.andata || '-'}</td>
+        <td>${q.finale.ritorno || '-'}</td>
+      `;
+      tbody.appendChild(finalRow);
+
+      table.appendChild(tbody);
+      container.appendChild(table);
+
+      // Qualificata
+      const qual = document.createElement('div');
+      qual.className = 'qualificata';
+      // Se finale vuota, lascia - ; altrimenti calcola vincitore
+      qual.textContent = 'Qualificata alla 2° fase: ' +
+        (q.qualificata || calcolaVincitore(q.finale) || '-');
+      container.appendChild(qual);
+    });
   })
   .catch(err => {
-    console.warn('JSON non trovato, creo tabelle vuote.');
-    for (let i=1; i<=8; i++) creaTabella({
-      id: i,
-      semifinali: [
-        { squadra1: 'TBD', squadra2: 'TBD', andata:'', ritorno:'' },
-        { squadra1: 'TBD', squadra2: 'TBD', andata:'', ritorno:'' }
-      ],
-      finale: { squadra1:'', squadra2:'', andata:'', ritorno:'' }
-    });
+    console.error('Errore caricamento JSON:', err);
   });
 </script>
 
