@@ -1,0 +1,12 @@
+{
+  "quadrangolari": [
+    { "id": 1, "semifinali": [ {"squadra1":"", "squadra2":"", "andata":"","ritorno":""}, {"squadra1":"", "squadra2":"", "andata":"","ritorno":""} ], "finale":{"squadra1":"","squadra2":"","andata":"","ritorno":""}, "qualificata":"" },
+    { "id": 2, "semifinali": [ {"squadra1":"", "squadra2":"", "andata":"","ritorno":""}, {"squadra1":"", "squadra2":"", "andata":"","ritorno":""} ], "finale":{"squadra1":"","squadra2":"","andata":"","ritorno":""}, "qualificata":"" },
+    { "id": 3, "semifinali": [ {"squadra1":"", "squadra2":"", "andata":"","ritorno":""}, {"squadra1":"", "squadra2":"", "andata":"","ritorno":""} ], "finale":{"squadra1":"","squadra2":"","andata":"","ritorno":""}, "qualificata":"" },
+    { "id": 4, "semifinali": [ {"squadra1":"", "squadra2":"", "andata":"","ritorno":""}, {"squadra1":"", "squadra2":"", "andata":"","ritorno":""} ], "finale":{"squadra1":"","squadra2":"","andata":"","ritorno":""}, "qualificata":"" },
+    { "id": 5, "semifinali": [ {"squadra1":"", "squadra2":"", "andata":"","ritorno":""}, {"squadra1":"", "squadra2":"", "andata":"","ritorno":""} ], "finale":{"squadra1":"","squadra2":"","andata":"","ritorno":""}, "qualificata":"" },
+    { "id": 6, "semifinali": [ {"squadra1":"", "squadra2":"", "andata":"","ritorno":""}, {"squadra1":"", "squadra2":"", "andata":"","ritorno":""} ], "finale":{"squadra1":"","squadra2":"","andata":"","ritorno":""}, "qualificata":"" },
+    { "id": 7, "semifinali": [ {"squadra1":"", "squadra2":"", "andata":"","ritorno":""}, {"squadra1":"", "squadra2":"", "andata":"","ritorno":""} ], "finale":{"squadra1":"","squadra2":"","andata":"","ritorno":""}, "qualificata":"" },
+    { "id": 8, "semifinali": [ {"squadra1":"", "squadra2":"", "andata":"","ritorno":""}, {"squadra1":"", "squadra2":"", "andata":"","ritorno":""} ], "finale":{"squadra1":"","squadra2":"","andata":"","ritorno":""}, "qualificata":"" }
+  ]
+}
