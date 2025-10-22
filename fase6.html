@@ -134,16 +134,19 @@ function disegnaLinee(){
     for(let c=0;c<rounds.length-1;c++){
         const currentRound = rounds[c].children;
         const nextRound = rounds[c+1].children;
+        const parentRect = bracket.getBoundingClientRect();
+
         for(let i=0;i<Math.min(currentRound.length,nextRound.length*2);i++){
             const curr = currentRound[i].getBoundingClientRect();
             const next = nextRound[Math.floor(i/2)].getBoundingClientRect();
-            // Verticale
-            const parentRect = bracket.getBoundingClientRect();
-            const x = curr.right - parentRect.left;
+
+            // Verticale: dal centro del match corrente al centro del match successivo
+            const x = curr.right - parentRect.left + 1; // piccolo offset
             const y = curr.top + curr.height/2 - parentRect.top;
-            const height = next.top + next.height/2 - y;
+            const height = Math.max(next.top + next.height/2 - y, 0);
             creaLinea(bracket,x,y,0,height,true);
-            // Orizzontale
+
+            // Orizzontale: dal centro del match successivo verso la colonna corrente
             const y2 = next.top + next.height/2 - parentRect.top;
             const width = 40; // gap tra colonne
             creaLinea(bracket,x,y2,width,0,false);
@@ -154,7 +157,6 @@ function disegnaLinee(){
 // Disegna le linee dopo render
 window.onload = disegnaLinee;
 window.onresize = ()=>{
-    // Rimuovi linee vecchie
     document.querySelectorAll('.line-vertical, .line-horizontal').forEach(l=>l.remove());
     disegnaLinee();
 };
