@@ -3,8 +3,8 @@
     {
       "id": 1,
       "semifinali": [
-        { "squadra1": "India", "squadra2": "Nepal", "andata": "", "ritorno": "" },
-        { "squadra1": "Oman", "squadra2": "San Marino", "andata": "", "ritorno": "" }
+        { "squadra1": "India", "squadra2": "Nepal", "andata": "3-1", "ritorno": "1-2" },
+        { "squadra1": "Oman", "squadra2": "San Marino", "andata": "4-0", "ritorno": "2-0" }
       ],
       "finale": { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "" },
       "qualificata": ""
