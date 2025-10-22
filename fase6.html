@@ -53,7 +53,7 @@ bracket.appendChild(round16);
 const ottavi = document.createElement('div'); ottavi.className='round';
 for(let i=0;i<16;i+=2){
     const wrapper = document.createElement('div'); wrapper.className='match-wrapper';
-    wrapper.style.marginTop='50px'; // spostamento per centrare (aggiustabile)
+    wrapper.style.marginTop='80px'; // spostamento per centrare (aggiustabile)
     wrapper.innerHTML += creaMatch("-", "-");
     ottavi.appendChild(wrapper);
 }
@@ -63,7 +63,7 @@ bracket.appendChild(ottavi);
 const quarti = document.createElement('div'); quarti.className='round';
 for(let i=0;i<8;i+=2){
     const wrapper = document.createElement('div'); wrapper.className='match-wrapper';
-    wrapper.style.marginTop='30px'; // più spazio per centrare
+    wrapper.style.marginTop='160px'; // più spazio per centrare
     wrapper.innerHTML += creaMatch("-", "-");
     quarti.appendChild(wrapper);
 }
@@ -73,7 +73,7 @@ bracket.appendChild(quarti);
 const semi = document.createElement('div'); semi.className='round';
 for(let i=0;i<4;i+=2){
     const wrapper = document.createElement('div'); wrapper.className='match-wrapper';
-    wrapper.style.marginTop='60px';
+    wrapper.style.marginTop='300px';
     wrapper.innerHTML += creaMatch("-", "-");
     semi.appendChild(wrapper);
 }
@@ -82,7 +82,7 @@ bracket.appendChild(semi);
 // --- Finale ---
 const finale = document.createElement('div'); finale.className='round';
 const wrapperF = document.createElement('div'); wrapperF.className='match-wrapper';
-wrapperF.style.marginTop='120px';
+wrapperF.style.marginTop='500px';
 wrapperF.innerHTML += creaMatch("-", "-");
 finale.appendChild(wrapperF);
 bracket.appendChild(finale);
