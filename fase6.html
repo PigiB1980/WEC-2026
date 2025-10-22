@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fase 6 - World Elimination Cup 2026</title>
+<style>
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background-color: #0b0c10;
+  color: white;
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #00aaff;
+  margin-bottom: 30px;
+}
+
+.home-button {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background-color: rgba(0,170,255,0.2);
+  color: white;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background 0.3s;
+  z-index: 1000;
+}
+.home-button:hover {
+  background-color: rgba(0,170,255,0.4);
+}
+
+/* Bracket verticale */
+.bracket {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  overflow-x: auto;
+  padding-bottom: 40px;
+}
+
+.round {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.match {
+  background: rgba(0,170,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 8px;
+  padding: 6px 10px;
+  width: 140px;
+  text-align: center;
+  position: relative;
+}
+
+.team {
+  margin: 4px 0;
+}
+
+.line-down {
+  position: absolute;
+  right: -20px;
+  top: 50%;
+  width: 20px;
+  height: 2px;
+  background: rgba(255,255,255,0.2);
+}
+
+.line-vertical {
+  position: absolute;
+  right: -20px;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: rgba(255,255,255,0.2);
+}
+</style>
+</head>
+<body>
+
+<a href="index.html" class="home-button">🏠 Home</a>
+<h1>Fase 6 - World Elimination Cup 2026</h1>
+
+<div class="bracket" id="bracket"></div>
+
+<script>
+// Generiamo 32 squadre TBD
+const squadre = [];
+for(let i=1; i<=32; i++){
+  squadre.push("TBD"+i);
+}
+
+// Funzione per creare i match
+function creaMatch(team1, team2){
+  return `<div class="match"><div class="team">${team1}</div><div class="team">${team2}</div></div>`;
+}
+
+// Costruiamo le colonne: Ottavi, Quarti, Semifinali, Finale
+const bracket = document.getElementById('bracket');
+
+// Ottavi - 16 partite
+const ottavi = document.createElement('div');
+ottavi.className = 'round';
+for(let i=0; i<32; i+=2){
+  ottavi.innerHTML += creaMatch(squadre[i], squadre[i+1]);
+}
+bracket.appendChild(ottavi);
+
+// Quarti - 8 partite placeholder
+const quarti = document.createElement('div');
+quarti.className = 'round';
+for(let i=0; i<8; i++){
+  quarti.innerHTML += creaMatch("-", "-");
+}
+bracket.appendChild(quarti);
+
+// Semifinali - 4 partite placeholder
+const semi = document.createElement('div');
+semi.className = 'round';
+for(let i=0; i<4; i++){
+  semi.innerHTML += creaMatch("-", "-");
+}
+bracket.appendChild(semi);
+
+// Finale - 2 partite placeholder
+const finale = document.createElement('div');
+finale.className = 'round';
+for(let i=0; i<2; i++){
+  finale.innerHTML += creaMatch("-", "-");
+}
+bracket.appendChild(finale);
+
+// Vittoria - 1 match
+const winner = document.createElement('div');
+winner.className = 'round';
+winner.innerHTML += creaMatch("Vincitore", "");
+bracket.appendChild(winner);
+</script>
+
+</body>
+</html>
