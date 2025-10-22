@@ -1,0 +1,40 @@
+{
+  "quadrangolari": [
+    {
+      "id": 1,
+      "semifinali": [
+        { "squadra1": "TBD", "squadra2": "TBD", "andata": "-", "ritorno": "-" },
+        { "squadra1": "TBD", "squadra2": "TBD", "andata": "-", "ritorno": "-" }
+      ],
+      "finale": { "squadra1": "TBD", "squadra2": "TBD", "andata": "-", "ritorno": "-" },
+      "qualificata": "TBD"
+    },
+    {
+      "id": 2,
+      "semifinali": [
+        { "squadra1": "TBD", "squadra2": "TBD", "andata": "-", "ritorno": "-" },
+        { "squadra1": "TBD", "squadra2": "TBD", "andata": "-", "ritorno": "-" }
+      ],
+      "finale": { "squadra1": "TBD", "squadra2": "TBD", "andata": "-", "ritorno": "-" },
+      "qualificata": "TBD"
+    },
+    {
+      "id": 3,
+      "semifinali": [
+        { "squadra1": "TBD", "squadra2": "TBD", "andata": "-", "ritorno": "-" },
+        { "squadra1": "TBD", "squadra2": "TBD", "andata": "-", "ritorno": "-" }
+      ],
+      "finale": { "squadra1": "TBD", "squadra2": "TBD", "andata": "-", "ritorno": "-" },
+      "qualificata": "TBD"
+    },
+    {
+      "id": 4,
+      "semifinali": [
+        { "squadra1": "TBD", "squadra2": "TBD", "andata": "-", "ritorno": "-" },
+        { "squadra1": "TBD", "squadra2": "TBD", "andata": "-", "ritorno": "-" }
+      ],
+      "finale": { "squadra1": "TBD", "squadra2": "TBD", "andata": "-", "ritorno": "-" },
+      "qualificata": "TBD"
+    }
+  ]
+}
