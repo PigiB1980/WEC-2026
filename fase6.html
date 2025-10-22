@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fase 6 - Bracket centrato</title>
+<title>Fase 6 - Bracket Annidato</title>
 <style>
 body {
   font-family: "Segoe UI", Arial, sans-serif;
@@ -12,7 +12,6 @@ body {
   margin: 0;
   padding: 20px;
 }
-
 h1 { text-align: center; color: #00aaff; margin-bottom: 30px; }
 .home-button {
   position: fixed; top: 20px; left: 20px;
@@ -22,18 +21,19 @@ h1 { text-align: center; color: #00aaff; margin-bottom: 30px; }
 }
 .home-button:hover { background-color: rgba(0,170,255,0.4); }
 
-.bracket { display: flex; justify-content: center; gap: 40px; overflow-x: auto; padding-bottom: 40px; }
-.round { display: flex; flex-direction: column; }
-.match-wrapper { display: flex; flex-direction: column; }
+.bracket { display: flex; justify-content: center; gap: 60px; overflow-x: auto; }
+.round { display: flex; flex-direction: column; align-items: center; gap: 20px; }
 .match { background: rgba(0,170,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 6px;
-       padding: 6px 10px; width: 140px; text-align: center; margin-bottom: 20px; }
+       padding: 6px 10px; width: 140px; text-align: center; }
 .team { margin: 4px 0; }
+.match-wrapper { display: flex; flex-direction: column; align-items: center; gap: 40px; }
 </style>
 </head>
 <body>
 
 <a href="index.html" class="home-button">🏠 Home</a>
-<h1>Fase 6 - Bracket centrato</h1>
+<h1>Fase 6 - Bracket Annidato</h1>
+
 <div class="bracket" id="bracket"></div>
 
 <script>
@@ -44,45 +44,41 @@ function creaMatch(team1, team2){ return `<div class="match"><div class="team">$
 
 const bracket = document.getElementById('bracket');
 
-// --- Sedicesimi (16 match) ---
+// --- Sedicesimi ---
 const round16 = document.createElement('div'); round16.className='round';
 for(let i=0;i<32;i+=2){ round16.innerHTML += creaMatch(squadre[i], squadre[i+1]); }
 bracket.appendChild(round16);
 
-// --- Ottavi (8 match centrati sui sedicesimi) ---
+// --- Ottavi (8 match annidati) ---
 const ottavi = document.createElement('div'); ottavi.className='round';
 for(let i=0;i<16;i+=2){
     const wrapper = document.createElement('div'); wrapper.className='match-wrapper';
-    wrapper.style.marginTop='80px'; // spostamento per centrare (aggiustabile)
     wrapper.innerHTML += creaMatch("-", "-");
     ottavi.appendChild(wrapper);
 }
 bracket.appendChild(ottavi);
 
-// --- Quarti (4 match centrati sugli ottavi) ---
+// --- Quarti (4 match annidati) ---
 const quarti = document.createElement('div'); quarti.className='round';
 for(let i=0;i<8;i+=2){
     const wrapper = document.createElement('div'); wrapper.className='match-wrapper';
-    wrapper.style.marginTop='200px'; // più spazio per centrare
     wrapper.innerHTML += creaMatch("-", "-");
     quarti.appendChild(wrapper);
 }
 bracket.appendChild(quarti);
 
-// --- Semifinali (2 match centrati sui quarti) ---
+// --- Semifinali (2 match) ---
 const semi = document.createElement('div'); semi.className='round';
 for(let i=0;i<4;i+=2){
     const wrapper = document.createElement('div'); wrapper.className='match-wrapper';
-    wrapper.style.marginTop='400px';
     wrapper.innerHTML += creaMatch("-", "-");
     semi.appendChild(wrapper);
 }
 bracket.appendChild(semi);
 
-// --- Finale ---
+// --- Finale (1 match) ---
 const finale = document.createElement('div'); finale.className='round';
 const wrapperF = document.createElement('div'); wrapperF.className='match-wrapper';
-wrapperF.style.marginTop='800px';
 wrapperF.innerHTML += creaMatch("-", "-");
 finale.appendChild(wrapperF);
 bracket.appendChild(finale);
