@@ -32,12 +32,10 @@ h1 {
   transition: background 0.3s;
   z-index: 1000;
 }
-
 .home-button:hover {
   background-color: rgba(0,170,255,0.4);
 }
 
-/* Bracket verticale con gruppi */
 .bracket {
   display: flex;
   justify-content: center;
@@ -51,6 +49,12 @@ h1 {
   flex-direction: column;
 }
 
+.match-group {
+  display: flex;
+  flex-direction: column;
+  gap: 40px; /* spazio tra i match raggruppati */
+}
+
 .match {
   background: rgba(0,170,255,0.1);
   border: 1px solid rgba(255,255,255,0.2);
@@ -58,14 +62,6 @@ h1 {
   padding: 6px 10px;
   width: 140px;
   text-align: center;
-  position: relative;
-  margin-bottom: 20px; /* spazio tra i match */
-}
-
-.match-group {
-  display: flex;
-  flex-direction: column;
-  gap: 40px; /* gap maggiore tra i gruppi per centrare ottavi rispetto ai sedicesimi */
 }
 
 .team {
@@ -87,12 +83,11 @@ for(let i=1; i<=32; i++){
   squadre.push("TBD"+i);
 }
 
-// Creiamo un match
+// Funzione per creare un match
 function creaMatch(team1, team2){
   return `<div class="match"><div class="team">${team1}</div><div class="team">${team2}</div></div>`;
 }
 
-// Bracket container
 const bracket = document.getElementById('bracket');
 
 // --- Sedicesimi (16 match) ---
@@ -103,46 +98,43 @@ for(let i=0;i<32;i+=2){
 }
 bracket.appendChild(round16);
 
-// --- Ottavi (8 match, raggruppati) ---
+// --- Ottavi (8 match) ---
 const ottavi = document.createElement('div');
 ottavi.className = 'round';
 for(let i=0;i<16;i+=2){
   const group = document.createElement('div');
   group.className = 'match-group';
-  group.innerHTML += creaMatch("-", "-"); // primo ottavo per 2 sedicesimi
-  group.innerHTML += creaMatch("-", "-"); // secondo ottavo placeholder
+  group.innerHTML += creaMatch("-", "-"); // primo ottavo per i 2 sedicesimi
   ottavi.appendChild(group);
 }
 bracket.appendChild(ottavi);
 
-// --- Quarti (4 match, raggruppati) ---
+// --- Quarti (4 match) ---
 const quarti = document.createElement('div');
 quarti.className = 'round';
 for(let i=0;i<8;i+=2){
   const group = document.createElement('div');
   group.className = 'match-group';
   group.innerHTML += creaMatch("-", "-"); // primo quarto per 2 ottavi
-  group.innerHTML += creaMatch("-", "-"); // secondo quarto placeholder
   quarti.appendChild(group);
 }
 bracket.appendChild(quarti);
 
-// --- Semifinali (2 match, raggruppati) ---
+// --- Semifinali (2 match) ---
 const semi = document.createElement('div');
 semi.className = 'round';
 for(let i=0;i<4;i+=2){
   const group = document.createElement('div');
   group.className = 'match-group';
-  group.innerHTML += creaMatch("-", "-"); 
-  group.innerHTML += creaMatch("-", "-"); 
+  group.innerHTML += creaMatch("-", "-"); // semifinale
   semi.appendChild(group);
 }
 bracket.appendChild(semi);
 
-// --- Finale ---
+// --- Finale (1 match) ---
 const finale = document.createElement('div');
 finale.className = 'round';
-finale.innerHTML += creaMatch("-", "-"); // finale
+finale.innerHTML += creaMatch("-", "-");
 bracket.appendChild(finale);
 
 // --- Vincitore ---
@@ -150,7 +142,6 @@ const winner = document.createElement('div');
 winner.className = 'round';
 winner.innerHTML += creaMatch("Vincitore", "");
 bracket.appendChild(winner);
-
 </script>
 
 </body>
