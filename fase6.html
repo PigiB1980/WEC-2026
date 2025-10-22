@@ -22,7 +22,7 @@ h1 { text-align: center; color: #00aaff; margin-bottom: 30px; }
 .home-button:hover { background-color: rgba(0,170,255,0.4); }
 
 /* Bracket container */
-.bracket { display: flex; gap: 60px; overflow-x: auto; align-items: flex-start; }
+.bracket { display: flex; gap: 60px; overflow-x: auto; align-items: flex-start; position: relative; }
 
 /* Colonne per turno */
 .round { display: flex; flex-direction: column; align-items: flex-start; position: relative; }
@@ -32,7 +32,7 @@ h1 { text-align: center; color: #00aaff; margin-bottom: 30px; }
        padding: 6px 10px; width: 140px; text-align: center; margin-bottom: 20px; position: relative; }
 .team { margin: 4px 0; }
 
-/* Linee orizzontali e verticali per collegare i match */
+/* Linee */
 .line-vertical {
   position: absolute;
   width: 2px;
@@ -57,25 +57,43 @@ const bracket = document.getElementById('bracket');
 const squadre = [];
 for(let i=1;i<=32;i++){ squadre.push("TBD"+i); }
 
-function creaMatch(team1, team2){ return `<div class="match"><div class="team">${team1}</div><div class="team">${team2}</div></div>`; }
+function creaMatch(team1, team2){ 
+    return `<div class="match"><div class="team">${team1}</div><div class="team">${team2}</div></div>`; 
+}
+
+// Helper per creare linee
+function creaLinea(parent, x, y, width, height, vertical=true){
+    const div = document.createElement('div');
+    div.className = vertical ? 'line-vertical' : 'line-horizontal';
+    if(vertical){
+        div.style.left = x + 'px';
+        div.style.top = y + 'px';
+        div.style.height = height + 'px';
+    } else {
+        div.style.left = x + 'px';
+        div.style.top = y + 'px';
+        div.style.width = width + 'px';
+    }
+    parent.appendChild(div);
+}
 
 /* --- Sedicesimi --- */
 const round16 = document.createElement('div'); round16.className='round';
 for(let i=0;i<32;i+=2){ round16.innerHTML += creaMatch(squadre[i], squadre[i+1]); }
 bracket.appendChild(round16);
 
-/* --- Ottavi (8 match) centrati sui sedicesimi */
+/* --- Ottavi --- */
 const ottavi = document.createElement('div'); ottavi.className='round';
-let marginOttavi = [50,85,85,85,85,85,85,85]; // centering manuale
+let marginOttavi = [50,85,85,85,85,85,85,85];
 for(let i=0;i<8;i++){
     const match = document.createElement('div');
     match.innerHTML = creaMatch("-", "-");
-    match.style.marginTop = marginOttavi[i] + "px";
+    match.style.marginTop = marginOttavi[i]+"px";
     ottavi.appendChild(match);
 }
 bracket.appendChild(ottavi);
 
-/* --- Quarti (4 match) centrati sugli ottavi */
+/* --- Quarti --- */
 const quarti = document.createElement('div'); quarti.className='round';
 let marginQuarti = [130,260,260,260]; 
 for(let i=0;i<4;i++){
@@ -86,7 +104,7 @@ for(let i=0;i<4;i++){
 }
 bracket.appendChild(quarti);
 
-/* --- Semifinali (2 match) centrati sui quarti */
+/* --- Semifinali --- */
 const semi = document.createElement('div'); semi.className='round';
 let marginSemi = [300,600];
 for(let i=0;i<2;i++){
@@ -108,8 +126,38 @@ bracket.appendChild(finale);
 /* --- Vincitore --- */
 const winner = document.createElement('div'); winner.className='round';
 winner.innerHTML += creaMatch("Vincitore", "");
-  matchF.style.marginTop="600px";
 bracket.appendChild(winner);
+
+/* --- Linee tra i match --- */
+function disegnaLinee(){
+    const rounds = bracket.children;
+    for(let c=0;c<rounds.length-1;c++){
+        const currentRound = rounds[c].children;
+        const nextRound = rounds[c+1].children;
+        for(let i=0;i<Math.min(currentRound.length,nextRound.length*2);i++){
+            const curr = currentRound[i].getBoundingClientRect();
+            const next = nextRound[Math.floor(i/2)].getBoundingClientRect();
+            // Verticale
+            const parentRect = bracket.getBoundingClientRect();
+            const x = curr.right - parentRect.left;
+            const y = curr.top + curr.height/2 - parentRect.top;
+            const height = next.top + next.height/2 - y;
+            creaLinea(bracket,x,y,0,height,true);
+            // Orizzontale
+            const y2 = next.top + next.height/2 - parentRect.top;
+            const width = 40; // gap tra colonne
+            creaLinea(bracket,x,y2,width,0,false);
+        }
+    }
+}
+
+// Disegna le linee dopo render
+window.onload = disegnaLinee;
+window.onresize = ()=>{
+    // Rimuovi linee vecchie
+    document.querySelectorAll('.line-vertical, .line-horizontal').forEach(l=>l.remove());
+    disegnaLinee();
+};
 </script>
 
 </body>
