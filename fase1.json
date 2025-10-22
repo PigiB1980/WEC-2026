@@ -3,8 +3,8 @@
     {
       "id": 1,
       "semifinali": [
-        { "squadra1": "TBD1", "squadra2": "TBD2", "andata": "", "ritorno": "" },
-        { "squadra1": "TBD3", "squadra2": "TBD4", "andata": "", "ritorno": "" }
+        { "squadra1": "India", "squadra2": "Nepal", "andata": "", "ritorno": "" },
+        { "squadra1": "Oman", "squadra2": "San Marino", "andata": "", "ritorno": "" }
       ],
       "finale": { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "" },
       "qualificata": ""
