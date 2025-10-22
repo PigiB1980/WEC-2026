@@ -13,17 +13,69 @@ body {
   padding: 40px;
   text-align: center;
 }
-h1 { color: #00aaff; margin-bottom: 40px; }
-table { width: 90%; margin: 30px auto; border-collapse: collapse; background: rgba(255,255,255,0.05); border-radius: 12px; overflow: hidden; }
-th, td { padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.1); }
-th { background-color: rgba(0,170,255,0.2); text-transform: uppercase; }
-tr:hover { background-color: rgba(0,170,255,0.1); }
-img.flag { width: 24px; height: auto; vertical-align: middle; margin-right: 6px; }
-.qualificata { margin-top: 10px; font-weight: bold; color: #00ffcc; }
-.sezione { text-align: left; font-weight: bold; background: rgba(0,170,255,0.1); }
+
+/* Pulsante Home */
+.home-button {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background-color: rgba(0,170,255,0.2);
+  color: white;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background 0.3s;
+  z-index: 1000;
+}
+.home-button:hover {
+  background-color: rgba(0,170,255,0.4);
+}
+
+h1 {
+  color: #00aaff;
+  margin-bottom: 40px;
+}
+table {
+  width: 90%;
+  margin: 30px auto;
+  border-collapse: collapse;
+  background: rgba(255,255,255,0.05);
+  border-radius: 12px;
+  overflow: hidden;
+}
+th, td {
+  padding: 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+th {
+  background-color: rgba(0,170,255,0.2);
+  text-transform: uppercase;
+}
+tr:hover {
+  background-color: rgba(0,170,255,0.1);
+}
+img.flag {
+  width: 24px;
+  height: auto;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+.qualificata {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #00ffcc;
+}
+.sezione {
+  text-align: left;
+  font-weight: bold;
+  background: rgba(0,170,255,0.1);
+}
 </style>
 </head>
 <body>
+
+<a href="index.html" class="home-button">🏠 Home</a>
 
 <h1>Fase 1 - World Elimination Cup 2026</h1>
 <div id="tabella-quadrangolari"></div>
