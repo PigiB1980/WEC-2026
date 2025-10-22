@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fase 2 - World Elimination Cup 2026</title>
+<style>
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background-color: #0b0c10;
+  color: white;
+  margin: 0;
+  padding: 40px;
+  text-align: center;
+}
+
+/* Pulsante Home */
+.home-button {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background-color: rgba(0,170,255,0.2);
+  color: white;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background 0.3s;
+  z-index: 1000;
+}
+.home-button:hover {
+  background-color: rgba(0,170,255,0.4);
+}
+
+h1 {
+  color: #00aaff;
+  margin-bottom: 40px;
+}
+table {
+  width: 90%;
+  margin: 30px auto;
+  border-collapse: collapse;
+  background: rgba(255,255,255,0.05);
+  border-radius: 12px;
+  overflow: hidden;
+}
+th, td {
+  padding: 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+th {
+  background-color: rgba(0,170,255,0.2);
+  text-transform: uppercase;
+}
+tr:hover {
+  background-color: rgba(0,170,255,0.1);
+}
+img.flag {
+  width: 24px;
+  height: auto;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+.qualificata {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #00ffcc;
+}
+.sezione {
+  text-align: left;
+  font-weight: bold;
+  background: rgba(0,170,255,0.1);
+}
+</style>
+</head>
+<body>
+
+<a href="index.html" class="home-button">🏠 Home</a>
+
+<h1>Fase 2 - World Elimination Cup 2026</h1>
+<div id="tabella-quadrangolari"></div>
+
+<script>
+// Mappa codici bandiera (rimane per compatibilità, anche se qui TBD)
+const codiciBandiera = {
+  "TBD1": "tbd", "TBD2": "tbd", "TBD3": "tbd", "TBD4": "tbd",
+  "TBD5": "tbd", "TBD6": "tbd", "TBD7": "tbd", "TBD8": "tbd",
+  "TBD9": "tbd", "TBD10": "tbd", "TBD11": "tbd", "TBD12": "tbd",
+  "TBD13": "tbd", "TBD14": "tbd", "TBD15": "tbd", "TBD16": "tbd",
+  "TBD17": "tbd", "TBD18": "tbd", "TBD19": "tbd", "TBD20": "tbd",
+  "TBD21": "tbd", "TBD22": "tbd", "TBD23": "tbd", "TBD24": "tbd",
+  "TBD25": "tbd", "TBD26": "tbd", "TBD27": "tbd", "TBD28": "tbd",
+  "TBD29": "tbd", "TBD30": "tbd", "TBD31": "tbd", "TBD32": "tbd"
+};
+
+// Legge il file JSON e costruisce le tabelle
+fetch('fase2.json')
+  .then(res => res.json())
+  .then(data => {
+    const container = document.getElementById('tabella-quadrangolari');
+    data.quadrangolari.forEach(q => {
+      const table = document.createElement('table');
+      table.innerHTML = `<thead><tr><th colspan="4">Quadrangolare ${q.id}</th></tr></thead>`;
+      const tbody = document.createElement('tbody');
+
+      // Semifinali
+      tbody.innerHTML += `<tr><td class="sezione" colspan="4">Semifinali</td></tr>`;
+      q.semifinali.forEach(sf => {
+        tbody.innerHTML += `
+          <tr>
+            <td><img class="flag" src="flags/${codiciBandiera[sf.squadra1] || 'tbd'}.png" alt="${sf.squadra1}"> ${sf.squadra1}</td>
+            <td><img class="flag" src="flags/${codiciBandiera[sf.squadra2] || 'tbd'}.png" alt="${sf.squadra2}"> ${sf.squadra2}</td>
+            <td>${sf.andata || '-'}</td>
+            <td>${sf.ritorno || '-'}</td>
+          </tr>
+        `;
+      });
+
+      // Finale
+      tbody.innerHTML += `<tr><td class="sezione" colspan="4">Finale</td></tr>`;
+      const f = q.finale;
+      tbody.innerHTML += `
+        <tr>
+          <td><img class="flag" src="flags/${codiciBandiera[f.squadra1] || 'tbd'}.png" alt="${f.squadra1 || ''}"> ${f.squadra1 || '-'}</td>
+          <td><img class="flag" src="flags/${codiciBandiera[f.squadra2] || 'tbd'}.png" alt="${f.squadra2 || ''}"> ${f.squadra2 || '-'}</td>
+          <td>${f.andata || '-'}</td>
+          <td>${f.ritorno || '-'}</td>
+        </tr>
+      `;
+
+      table.appendChild(tbody);
+      container.appendChild(table);
+
+      const qual = document.createElement('div');
+      qual.className = 'qualificata';
+      qual.textContent = `Qualificata alla 3° fase: ${q.qualificata || '-'}`;
+      container.appendChild(qual);
+    });
+  })
+  .catch(err => {
+    console.warn('JSON non trovato o errore, creo tabelle vuote.');
+  });
+</script>
+
+</body>
+</html>
