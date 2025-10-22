@@ -53,7 +53,7 @@ bracket.appendChild(round16);
 const ottavi = document.createElement('div'); ottavi.className='round';
 for(let i=0;i<16;i+=2){
     const wrapper = document.createElement('div'); wrapper.className='match-wrapper';
-    wrapper.style.marginTop='10px'; // spostamento per centrare (aggiustabile)
+    wrapper.style.marginTop='50px'; // spostamento per centrare (aggiustabile)
     wrapper.innerHTML += creaMatch("-", "-");
     ottavi.appendChild(wrapper);
 }
