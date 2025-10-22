@@ -88,7 +88,7 @@ bracket.appendChild(quarti);
 
 /* --- Semifinali (2 match) centrati sui quarti */
 const semi = document.createElement('div'); semi.className='round';
-let marginSemi = [300,620];
+let marginSemi = [300,600];
 for(let i=0;i<2;i++){
     const match = document.createElement('div');
     match.innerHTML = creaMatch("-", "-");
@@ -101,7 +101,7 @@ bracket.appendChild(semi);
 const finale = document.createElement('div'); finale.className='round';
 const matchF = document.createElement('div');
 matchF.innerHTML = creaMatch("-", "-");
-matchF.style.marginTop="730px";
+matchF.style.marginTop="770px";
 finale.appendChild(matchF);
 bracket.appendChild(finale);
 
