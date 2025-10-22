@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fase 5 - World Elimination Cup 2026</title>
+<style>
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background-color: #0b0c10;
+  color: white;
+  margin: 0;
+  padding: 40px;
+  text-align: center;
+}
+
+/* Pulsante Home */
+.home-button {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background-color: rgba(0,170,255,0.2);
+  color: white;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background 0.3s;
+  z-index: 1000;
+}
+.home-button:hover {
+  background-color: rgba(0,170,255,0.4);
+}
+
+h1 {
+  color: #00aaff;
+  margin-bottom: 40px;
+}
+
+table {
+  width: 90%;
+  margin: 30px auto;
+  border-collapse: collapse;
+  background: rgba(255,255,255,0.05);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+th, td {
+  padding: 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+th {
+  background-color: rgba(0,170,255,0.2);
+  text-transform: uppercase;
+}
+
+tr:hover {
+  background-color: rgba(0,170,255,0.1);
+}
+
+img.flag {
+  width: 24px;
+  height: auto;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+.qualificata {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #00ffcc;
+}
+</style>
+</head>
+<body>
+
+<a href="index.html" class="home-button">🏠 Home</a>
+
+<h1>Fase 5 - World Elimination Cup 2026</h1>
+<div id="tabella-eliminazione"></div>
+
+<script>
+const codiciBandiera = {};
+
+fetch('fase5.json')
+  .then(res => res.json())
+  .then(data => {
+    const container = document.getElementById('tabella-eliminazione');
+    const table = document.createElement('table');
+    table.innerHTML = `<thead><tr><th>Partita</th><th>Squadra 1</th><th>Squadra 2</th><th>Andata</th><th>Ritorno</th><th>Qualificata</th></tr></thead>`;
+    const tbody = document.createElement('tbody');
+
+    data.partite.forEach(p => {
+      tbody.innerHTML += `
+        <tr>
+          <td>${p.id}</td>
+          <td><img class="flag" src="flags/${codiciBandiera[p.squadra1] || ''}.png" alt="${p.squadra1}"> ${p.squadra1}</td>
+          <td><img class="flag" src="flags/${codiciBandiera[p.squadra2] || ''}.png" alt="${p.squadra2}"> ${p.squadra2 || '-'}</td>
+          <td>${p.andata || '-'}</td>
+          <td>${p.ritorno || '-'}</td>
+          <td class="qualificata">${p.qualificata || '-'}</td>
+        </tr>
+      `;
+    });
+
+    table.appendChild(tbody);
+    container.appendChild(table);
+  })
+  .catch(err => {
+    console.warn('Errore nel caricamento del JSON della fase 5');
+  });
+</script>
+
+</body>
+</html>
