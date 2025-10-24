@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fase 6 - Bracket + Tabelle</title>
+<title>Fase 6 - Bracket + Tabelle (Andata e Ritorno)</title>
 <style>
 body {
   font-family: "Segoe UI", Arial, sans-serif;
@@ -27,8 +27,9 @@ h2 { color: #00aaff; margin-top: 60px; }
 .bracket { display: flex; gap: 60px; overflow-x: auto; align-items: flex-start; position: relative; margin-bottom: 80px; }
 .round { display: flex; flex-direction: column; align-items: flex-start; position: relative; }
 .match { background: rgba(0,170,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 6px;
-       padding: 6px 10px; width: 140px; text-align: center; margin-bottom: 20px; position: relative; }
+       padding: 6px 10px; width: 150px; text-align: center; margin-bottom: 20px; position: relative; }
 .team { margin: 4px 0; }
+.agg { font-size: 0.8em; color: #88ccff; }
 
 /* Linee */
 .line-vertical, .line-horizontal {
@@ -56,19 +57,22 @@ th { background-color: rgba(0,170,255,0.2); color: #00ccff; }
 <body>
 
 <a href="index.html" class="home-button">🏠 Home</a>
-<h1>Fase 6 - Bracket Professionale</h1>
+<h1>Fase 6 - Bracket (Andata e Ritorno)</h1>
 
 <div class="bracket" id="bracket"></div>
 
 <div id="tables"></div>
 
 <script>
-// --- Funzioni comuni ---
 const bracket = document.getElementById('bracket');
 const tablesDiv = document.getElementById('tables');
 
-function creaMatch(team1, team2){ 
-  return `<div class="match"><div class="team">${team1}</div><div class="team">${team2}</div></div>`; 
+function creaMatch(team1, team2, agg){ 
+  return `<div class="match">
+            <div class="team">${team1}</div>
+            <div class="team">${team2}</div>
+            ${agg ? `<div class="agg">${agg}</div>` : ""}
+          </div>`; 
 }
 
 function creaLinea(parent, x, y, width, height, vertical=true){
@@ -101,32 +105,44 @@ function disegnaLinee(){
   }
 }
 
-// --- Crea tabella ---
+// Tabella con andata/ritorno
 function creaTabella(titolo, partite){
-  let html = `<h2>${titolo}</h2><table><tr><th>Match</th><th>Squadra 1</th><th>Squadra 2</th><th>Risultato</th></tr>`;
+  let html = `<h2>${titolo}</h2><table><tr><th>#</th><th>Squadra 1</th><th>Squadra 2</th><th>Andata</th><th>Ritorno</th><th>Totale</th></tr>`;
   partite.forEach((p, i)=>{
-    html += `<tr><td>${i+1}</td><td>${p.team1}</td><td>${p.team2}</td><td>${p.result || "-"}</td></tr>`;
+    const andata = p.andata || "-";
+    const ritorno = p.ritorno || "-";
+    let tot = "-";
+    if(andata.includes('-') && ritorno.includes('-')){
+      const [a1,a2] = andata.split('-').map(n=>parseInt(n)||0);
+      const [r1,r2] = ritorno.split('-').map(n=>parseInt(n)||0);
+      tot = `${a1+r1}–${a2+r2}`;
+    }
+    html += `<tr><td>${i+1}</td><td>${p.team1}</td><td>${p.team2}</td><td>${andata}</td><td>${ritorno}</td><td>${tot}</td></tr>`;
   });
   html += `</table>`;
   return html;
 }
 
-// --- Carica JSON ---
 fetch("fase6.json")
 .then(res => res.json())
 .then(data => {
-  // Crea round dinamicamente nel bracket
   const rounds = ["sedicesimi", "ottavi", "quarti", "semifinali", "finale"];
   rounds.forEach((round, idx) => {
     const div = document.createElement('div');
     div.className = 'round';
     data[round].forEach(m => {
-      div.innerHTML += creaMatch(m.team1, m.team2);
+      // Calcolo punteggio aggregato
+      let agg = "";
+      if(m.andata && m.ritorno){
+        const [a1,a2] = m.andata.split('-').map(n=>parseInt(n)||0);
+        const [r1,r2] = m.ritorno.split('-').map(n=>parseInt(n)||0);
+        agg = `${a1+r1}–${a2+r2}`;
+      }
+      div.innerHTML += creaMatch(m.team1, m.team2, agg);
     });
     bracket.appendChild(div);
   });
 
-  // Aggiungi tabella sotto per ogni turno
   tablesDiv.innerHTML = `
     ${creaTabella("Sedicesimi di finale", data.sedicesimi)}
     ${creaTabella("Ottavi di finale", data.ottavi)}
@@ -135,12 +151,9 @@ fetch("fase6.json")
     ${creaTabella("Finale", data.finale)}
   `;
 
-  // Dopo render
   setTimeout(disegnaLinee, 300);
 })
-.catch(err => {
-  console.error("Errore nel caricamento del JSON", err);
-});
+.catch(err => console.error("Errore nel caricamento del JSON", err));
 </script>
 
 </body>
