@@ -159,4 +159,12 @@ videoData.forEach(q => {
   q.partite.slice(4,6).forEach(v => {
     const iframe = document.createElement('iframe');
     iframe.src = v.url;
-    iframe.title
+    iframe.title = v.descr;
+    finalGrid.appendChild(iframe);
+  });
+  container.appendChild(finalGrid);
+});
+</script>
+
+</body>
+</html>
