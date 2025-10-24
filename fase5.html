@@ -38,7 +38,7 @@ h1 {
 }
 
 table {
-  width: 90%;
+  width: 95%;
   margin: 30px auto;
   border-collapse: collapse;
   background: rgba(255,255,255,0.05);
@@ -47,7 +47,7 @@ table {
 }
 
 th, td {
-  padding: 12px;
+  padding: 8px;
   border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
@@ -68,7 +68,6 @@ img.flag {
 }
 
 .qualificata {
-  margin-top: 10px;
   font-weight: bold;
   color: #00ffcc;
 }
@@ -77,27 +76,43 @@ img.flag {
 <body>
 
 <a href="index.html" class="home-button">🏠 Home</a>
-
 <h1>Fase 5 - World Elimination Cup 2026</h1>
+
 <div id="tabella-eliminazione"></div>
 
 <script>
-const codiciBandiera = {};
+// Inserisci qui i codici bandiera quando li conosci
+const codiciBandiera = {
+  "Italia": "it",
+  "Brasile": "br"
+};
 
+// JSON Fase 5
 fetch('fase5.json')
   .then(res => res.json())
   .then(data => {
     const container = document.getElementById('tabella-eliminazione');
     const table = document.createElement('table');
-    table.innerHTML = `<thead><tr><th>Partita</th><th>Squadra 1</th><th>Squadra 2</th><th>Andata</th><th>Ritorno</th><th>Qualificata</th></tr></thead>`;
+    table.innerHTML = `
+      <thead>
+        <tr>
+          <th style="width:40px">#</th>
+          <th>Squadra 1</th>
+          <th>Squadra 2</th>
+          <th style="width:60px">Andata</th>
+          <th style="width:60px">Ritorno</th>
+          <th style="width:100px">Qualificata</th>
+        </tr>
+      </thead>
+    `;
     const tbody = document.createElement('tbody');
 
     data.partite.forEach(p => {
       tbody.innerHTML += `
         <tr>
           <td>${p.id}</td>
-          <td><img class="flag" src="flags/${codiciBandiera[p.squadra1] || ''}.png" alt="${p.squadra1}"> ${p.squadra1}</td>
-          <td><img class="flag" src="flags/${codiciBandiera[p.squadra2] || ''}.png" alt="${p.squadra2}"> ${p.squadra2 || '-'}</td>
+          <td><img class="flag" src="flags/${codiciBandiera[p.squadra1] || 'tbd'}.png" alt="${p.squadra1}"> ${p.squadra1}</td>
+          <td><img class="flag" src="flags/${codiciBandiera[p.squadra2] || 'tbd'}.png" alt="${p.squadra2}"> ${p.squadra2}</td>
           <td>${p.andata || '-'}</td>
           <td>${p.ritorno || '-'}</td>
           <td class="qualificata">${p.qualificata || '-'}</td>
@@ -108,9 +123,7 @@ fetch('fase5.json')
     table.appendChild(tbody);
     container.appendChild(table);
   })
-  .catch(err => {
-    console.warn('Errore nel caricamento del JSON della fase 5');
-  });
+  .catch(err => console.warn('Errore nel caricamento del JSON della fase 5', err));
 </script>
 
 </body>
