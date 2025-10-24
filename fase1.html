@@ -36,40 +36,55 @@ h1 {
   color: #00aaff;
   margin-bottom: 40px;
 }
+
 table {
-  width: 90%;
+  width: 95%;
   margin: 30px auto;
   border-collapse: collapse;
   background: rgba(255,255,255,0.05);
   border-radius: 12px;
   overflow: hidden;
 }
+
 th, td {
   padding: 12px;
   border-bottom: 1px solid rgba(255,255,255,0.1);
 }
+
 th {
   background-color: rgba(0,170,255,0.2);
   text-transform: uppercase;
 }
+
 tr:hover {
   background-color: rgba(0,170,255,0.1);
 }
+
 img.flag {
   width: 24px;
   height: auto;
   vertical-align: middle;
   margin-right: 6px;
 }
+
 .qualificata {
   margin-top: 10px;
   font-weight: bold;
   color: #00ffcc;
 }
+
 .sezione {
   text-align: left;
   font-weight: bold;
   background: rgba(0,170,255,0.1);
+}
+
+.video-link {
+  font-size: 18px;
+  text-decoration: none;
+}
+.video-link:hover {
+  color: #00ffcc;
 }
 </style>
 </head>
@@ -93,18 +108,19 @@ const codiciBandiera = {
   "Far Oer": "fo", "Cambogia": "kh"
 };
 
-// Funzione per creare le tabelle dai dati JSON
+// Caricamento JSON e costruzione tabelle
 fetch('fase1.json')
   .then(res => res.json())
   .then(data => {
     const container = document.getElementById('tabella-quadrangolari');
+
     data.quadrangolari.forEach(q => {
       const table = document.createElement('table');
-      table.innerHTML = `<thead><tr><th colspan="4">Quadrangolare ${q.id}</th></tr></thead>`;
+      table.innerHTML = `<thead><tr><th colspan="5">Quadrangolare ${q.id}</th></tr></thead>`;
       const tbody = document.createElement('tbody');
 
       // Semifinali
-      tbody.innerHTML += `<tr><td class="sezione" colspan="4">Semifinali</td></tr>`;
+      tbody.innerHTML += `<tr><td class="sezione" colspan="5">Semifinali</td></tr>`;
       q.semifinali.forEach(sf => {
         tbody.innerHTML += `
           <tr>
@@ -112,12 +128,13 @@ fetch('fase1.json')
             <td><img class="flag" src="flags/${codiciBandiera[sf.squadra2] || ''}.png" alt="${sf.squadra2}"> ${sf.squadra2}</td>
             <td>${sf.andata || '-'}</td>
             <td>${sf.ritorno || '-'}</td>
+            <td><a class="video-link" href="fase1_videos.html#quadrangolare${q.id}" target="_blank">📺</a></td>
           </tr>
         `;
       });
 
       // Finale
-      tbody.innerHTML += `<tr><td class="sezione" colspan="4">Finale</td></tr>`;
+      tbody.innerHTML += `<tr><td class="sezione" colspan="5">Finale</td></tr>`;
       const f = q.finale;
       tbody.innerHTML += `
         <tr>
@@ -125,12 +142,14 @@ fetch('fase1.json')
           <td><img class="flag" src="flags/${codiciBandiera[f.squadra2] || ''}.png" alt="${f.squadra2 || ''}"> ${f.squadra2 || '-'}</td>
           <td>${f.andata || '-'}</td>
           <td>${f.ritorno || '-'}</td>
+          <td><a class="video-link" href="fase1_videos.html#quadrangolare${q.id}" target="_blank">📺</a></td>
         </tr>
       `;
 
       table.appendChild(tbody);
       container.appendChild(table);
 
+      // Qualificata
       const qual = document.createElement('div');
       qual.className = 'qualificata';
       qual.textContent = `Qualificata alla 2° fase: ${q.qualificata || '-'}`;
