@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fase 2 - World Elimination Cup 2026 - Video</title>
+<style>
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background-color: #0b0c10;
+  color: white;
+  margin: 0;
+  padding: 40px;
+  text-align: center;
+}
+
+.home-button {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background-color: rgba(0,170,255,0.2);
+  color: white;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background 0.3s;
+  z-index: 1000;
+}
+.home-button:hover {
+  background-color: rgba(0,170,255,0.4);
+}
+
+h1 {
+  color: #00aaff;
+  margin-bottom: 40px;
+}
+.quadrangolare {
+  margin-bottom: 50px;
+}
+.quadrangolare h2 {
+  color: #00aaff;
+  margin-bottom: 20px;
+}
+.video-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 15px;
+}
+.video-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.video-container iframe {
+  width: 300px;
+  height: 170px;
+  border: none;
+  border-radius: 8px;
+}
+.video-container span {
+  margin-top: 6px;
+  font-size: 14px;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+<a href="fase2.html" class="home-button">🏠 Torna alla Fase 2</a>
+
+<h1>Fase 2 - World Elimination Cup 2026 - Video</h1>
+
+<div id="video-quadrangolari"></div>
+
+<script>
+// Tutti gli 8 quadrangolari con 6 video ciascuno
+const videoData = [
+  {
+    id: 1,
+    partite: [
+      {descr: "Semifinale 1 - Andata", url: "https://www.youtube.com/embed/XXXXX"},
+      {descr: "Semifinale 1 - Ritorno", url: "https://www.youtube.com/embed/XXXXX"},
+      {descr: "Semifinale 2 - Andata", url: "https://www.youtube.com/embed/XXXXX"},
+      {descr: "Semifinale 2 - Ritorno", url: "https://www.youtube.com/embed/XXXXX"},
+      {descr: "Finale - Andata", url: "https://www.youtube.com/embed/XXXXX"},
+      {descr: "Finale - Ritorno", url: "https://www.youtube.com/embed/XXXXX"}
+    ]
+  },
+  {
+    id: 2,
+    partite: [
+      {descr: "Semifinale 1 - Andata", url: "https://www.youtube.com/embed/XXXXX"},
+      {descr: "Semifinale 1 - Ritorno", url: "https://www.youtube.com/embed/XXXXX"},
+      {descr: "Semifinale 2 - Andata", url: "https://www.youtube.com/embed/XXXXX"},
+      {descr: "Semifinale 2 - Ritorno", url: "https://www.youtube.com/embed/XXXXX"},
+      {descr: "Finale - Andata", url: "https://www.youtube.com/embed/XXXXX"},
+      {descr: "Finale - Ritorno", url: "https://www.youtube.com/embed/XXXXX"}
+    ]
+  },
+  {
+    id: 3,
+    partite: [
+      {descr: "Semifinale 1 - Andata", url: "https://www.youtube.com/embed/XXXXX"},
+      {descr: "Semifinale 1 - Ritorno", url: "https://www.youtube.com/embed/XXXXX"},
+      {descr: "Semifinale 2 - Andata", url: "https://www.youtube.com/embed/XXXXX"},
+      {descr: "Semifinale 2 - Ritorno", url: "https://www.youtube.com/embed/XXXXX"},
+      {descr: "Finale - Andata", url: "https://www.youtube.com/embed/XXXXX"},
+      {descr: "Finale - Ritorno", url: "https://www.youtube.com/embed/XXXXX"}
+    ]
+  },
+  {
+    id: 4,
+    partite: [
+      {descr: "Semifinale 1 - Andata", url: "https://www.youtube.com/embed/XXXXX"},
+      {descr: "Semifinale 1 - Ritorno", url: "https://www.youtube.com/embed/XXXXX"},
+      {descr: "Semifinale 2 - Andata", url: "https://www.youtube.com/embed/XXXXX"},
+      {descr: "Semifinale 2 - Ritorno", url: "https://www.youtube.com/embed/XXXXX"},
+      {descr: "Finale - Andata", url: "https://www.youtube.com/embed/XXXXX"},
+      {descr: "Finale - Ritorno", url: "https://www.youtube.com/embed/XXXXX"}
+    ]
+  },
+  {
+    id: 5,
+    partite: [
+      {descr: "Semifinale 1 - Andata", url: "https://www.youtube.com/embed/XXXXX"},
+      {descr: "Semifinale 1 - Ritorno", url: "https://www.youtube.com/embed/XXXXX"},
+      {descr: "Semifinale 2 - Andata", url: "https://www.youtube.com/embed/XXXXX"},
+      {descr: "Semifinale 2 - Ritorno", url: "https://www.youtube.com/embed/XXXXX"},
+      {descr: "Finale - Andata", url: "https://www.youtube.com/embed/XXXXX"},
+      {descr: "Finale - Ritorno", url: "https://www.youtube.com/embed/XXXXX"}
+    ]
+  },
+  {
+    id: 6,
+    partite: [
+      {descr: "Semifinale 1 - Andata", url: "https://www.youtube.com/embed/XXXXX"},
+      {descr: "Semifinale 1 - Ritorno", url: "https://www.youtube.com/embed/XXXXX"},
+      {descr: "Semifinale 2 - Andata", url: "https://www.youtube.com/embed/XXXXX"},
+      {descr: "Semifinale 2 - Ritorno", url: "https://www.youtube.com/embed/XXXXX"},
+      {descr: "Finale - Andata", url: "https://www.youtube.com/embed/XXXXX"},
+      {descr: "Finale - Ritorno", url: "https://www.youtube.com/embed/XXXXX"}
+    ]
+  },
+  {
+    id: 7,
+    partite: [
+      {descr: "Semifinale 1 - Andata", url: "https://www.youtube.com/embed/XXXXX"},
+      {descr: "Semifinale 1 - Ritorno", url: "https://www.youtube.com/embed/XXXXX"},
+      {descr: "Semifinale 2 - Andata", url: "https://www.youtube.com/embed/XXXXX"},
+      {descr: "Semifinale 2 - Ritorno", url: "https://www.youtube.com/embed/XXXXX"},
+      {descr: "Finale - Andata", url: "https://www.youtube.com/embed/XXXXX"},
+      {descr: "Finale - Ritorno", url: "https://www.youtube.com/embed/XXXXX"}
+    ]
+  },
+  {
+    id: 8,
+    partite: [
+      {descr: "Semifinale 1 - Andata", url: "https://www.youtube.com/embed/XXXXX"},
+      {descr: "Semifinale 1 - Ritorno", url: "https://www.youtube.com/embed/XXXXX"},
+      {descr: "Semifinale 2 - Andata", url: "https://www.youtube.com/embed/XXXXX"},
+      {descr: "Semifinale 2 - Ritorno", url: "https://www.youtube.com/embed/XXXXX"},
+      {descr: "Finale - Andata", url: "https://www.youtube.com/embed/XXXXX"},
+      {descr: "Finale - Ritorno", url: "https://www.youtube.com/embed/XXXXX"}
+    ]
+  }
+];
+
+// Costruzione HTML dei video
+const container = document.getElementById('video-quadrangolari');
+
+videoData.forEach(q => {
+  const divQ = document.createElement('div');
+  divQ.className = 'quadrangolare';
+  divQ.id = `quadrangolare${q.id}`;
+  divQ.innerHTML = `<h2>Quadrangolare ${q.id}</h2>`;
+
+  // Semifinali: prima riga 4 video
+  const semiRow = document.createElement('div');
+  semiRow.className = 'video-row';
+  for (let i = 0; i < 4; i++) {
+    const vc = document.createElement('div');
+    vc.className = 'video-container';
+    vc.innerHTML = `<iframe src="${q.partite[i].url}" allowfullscreen></iframe><span>${q.partite[i].descr}</span>`;
+    semiRow.appendChild(vc);
+  }
+  divQ.appendChild(semiRow);
+
+  // Finale: seconda riga 2 video centrati
+  const finalRow = document.createElement('div');
+  finalRow.className = 'video-row';
+  finalRow.style.justifyContent = 'center';
+  for (let i = 4; i < 6; i++) {
+    const vc = document.createElement('div');
+    vc.className = 'video-container';
+    vc.innerHTML = `<iframe src="${q.partite[i].url}" allowfullscreen></iframe><span>${q.partite[i].descr}</span>`;
+    finalRow.appendChild(vc);
+  }
+  divQ.appendChild(finalRow);
+
+  container.appendChild(divQ);
+});
+</script>
+
+</body>
+</html>
