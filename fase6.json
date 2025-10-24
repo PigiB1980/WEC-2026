@@ -1,43 +1,43 @@
 {
   "sedicesimi": [
-    { "team1": "Italia",  "team2": "Brasile",  "andata": "", "ritorno": "" },
-    { "team1": "TBD3",  "team2": "TBD4",  "andata": "", "ritorno": "" },
-    { "team1": "TBD5",  "team2": "TBD6",  "andata": "", "ritorno": "" },
-    { "team1": "TBD7",  "team2": "TBD8",  "andata": "", "ritorno": "" },
-    { "team1": "TBD9",  "team2": "TBD10", "andata": "", "ritorno": "" },
-    { "team1": "TBD11", "team2": "TBD12", "andata": "", "ritorno": "" },
-    { "team1": "TBD13", "team2": "TBD14", "andata": "", "ritorno": "" },
-    { "team1": "TBD15", "team2": "TBD16", "andata": "", "ritorno": "" },
-    { "team1": "TBD17", "team2": "TBD18", "andata": "", "ritorno": "" },
-    { "team1": "TBD19", "team2": "TBD20", "andata": "", "ritorno": "" },
-    { "team1": "TBD21", "team2": "TBD22", "andata": "", "ritorno": "" },
-    { "team1": "TBD23", "team2": "TBD24", "andata": "", "ritorno": "" },
-    { "team1": "TBD25", "team2": "TBD26", "andata": "", "ritorno": "" },
-    { "team1": "TBD27", "team2": "TBD28", "andata": "", "ritorno": "" },
-    { "team1": "TBD29", "team2": "TBD30", "andata": "", "ritorno": "" },
-    { "team1": "TBD31", "team2": "TBD32", "andata": "", "ritorno": "" }
+    { "squadra1": "Italia",  "squadra2": "Brasile",  "andata": "", "ritorno": "", "qualificata": "" },
+    { "squadra1": "TBD3",    "squadra2": "TBD4",     "andata": "", "ritorno": "", "qualificata": "" },
+    { "squadra1": "TBD5",    "squadra2": "TBD6",     "andata": "", "ritorno": "", "qualificata": "" },
+    { "squadra1": "TBD7",    "squadra2": "TBD8",     "andata": "", "ritorno": "", "qualificata": "" },
+    { "squadra1": "TBD9",    "squadra2": "TBD10",    "andata": "", "ritorno": "", "qualificata": "" },
+    { "squadra1": "TBD11",   "squadra2": "TBD12",    "andata": "", "ritorno": "", "qualificata": "" },
+    { "squadra1": "TBD13",   "squadra2": "TBD14",    "andata": "", "ritorno": "", "qualificata": "" },
+    { "squadra1": "TBD15",   "squadra2": "TBD16",    "andata": "", "ritorno": "", "qualificata": "" },
+    { "squadra1": "TBD17",   "squadra2": "TBD18",    "andata": "", "ritorno": "", "qualificata": "" },
+    { "squadra1": "TBD19",   "squadra2": "TBD20",    "andata": "", "ritorno": "", "qualificata": "" },
+    { "squadra1": "TBD21",   "squadra2": "TBD22",    "andata": "", "ritorno": "", "qualificata": "" },
+    { "squadra1": "TBD23",   "squadra2": "TBD24",    "andata": "", "ritorno": "", "qualificata": "" },
+    { "squadra1": "TBD25",   "squadra2": "TBD26",    "andata": "", "ritorno": "", "qualificata": "" },
+    { "squadra1": "TBD27",   "squadra2": "TBD28",    "andata": "", "ritorno": "", "qualificata": "" },
+    { "squadra1": "TBD29",   "squadra2": "TBD30",    "andata": "", "ritorno": "", "qualificata": "" },
+    { "squadra1": "TBD31",   "squadra2": "TBD32",    "andata": "", "ritorno": "", "qualificata": "" }
   ],
   "ottavi": [
-    { "team1": "", "team2": "", "andata": "", "ritorno": "" },
-    { "team1": "", "team2": "", "andata": "", "ritorno": "" },
-    { "team1": "", "team2": "", "andata": "", "ritorno": "" },
-    { "team1": "", "team2": "", "andata": "", "ritorno": "" },
-    { "team1": "", "team2": "", "andata": "", "ritorno": "" },
-    { "team1": "", "team2": "", "andata": "", "ritorno": "" },
-    { "team1": "", "team2": "", "andata": "", "ritorno": "" },
-    { "team1": "", "team2": "", "andata": "", "ritorno": "" }
+    { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "", "qualificata": "" },
+    { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "", "qualificata": "" },
+    { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "", "qualificata": "" },
+    { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "", "qualificata": "" },
+    { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "", "qualificata": "" },
+    { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "", "qualificata": "" },
+    { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "", "qualificata": "" },
+    { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "", "qualificata": "" }
   ],
   "quarti": [
-    { "team1": "", "team2": "", "andata": "", "ritorno": "" },
-    { "team1": "", "team2": "", "andata": "", "ritorno": "" },
-    { "team1": "", "team2": "", "andata": "", "ritorno": "" },
-    { "team1": "", "team2": "", "andata": "", "ritorno": "" }
+    { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "", "qualificata": "" },
+    { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "", "qualificata": "" },
+    { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "", "qualificata": "" },
+    { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "", "qualificata": "" }
   ],
   "semifinali": [
-    { "team1": "", "team2": "", "andata": "", "ritorno": "" },
-    { "team1": "", "team2": "", "andata": "", "ritorno": "" }
+    { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "", "qualificata": "" },
+    { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "", "qualificata": "" }
   ],
   "finale": [
-    { "team1": "", "team2": "", "andata": "", "ritorno": "" }
+    { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "", "qualificata": "" }
   ]
 }
