@@ -35,9 +35,7 @@ h2 {
   transition: background 0.3s;
   z-index: 1000;
 }
-.home-button:hover {
-  background-color: rgba(0,170,255,0.4);
-}
+.home-button:hover { background-color: rgba(0,170,255,0.4); }
 
 /* Bracket */
 .bracket {
@@ -65,8 +63,6 @@ h2 {
   position: relative;
 }
 .team { margin: 4px 0; }
-
-/* Linee */
 .line-vertical, .line-horizontal {
   position: absolute;
   background: rgba(0,170,255,0.5);
@@ -108,143 +104,107 @@ h2 {
 
 <div class="bracket" id="bracket"></div>
 
-<!-- TABELLE RISULTATI -->
+<!-- SEDICESIMI -->
 <h2>Sedicesimi di finale</h2>
-<table class="results" id="sedicesimi-table">
+<table class="results">
   <thead>
-    <tr>
-      <th>Partita</th><th>Squadra 1</th><th>Squadra 2</th><th>Andata</th><th>Ritorno</th><th>Qualificata</th>
-    </tr>
+    <tr><th>Partita</th><th>Squadra 1</th><th>Squadra 2</th><th>Andata</th><th>Ritorno</th><th>Qualificata</th></tr>
   </thead>
   <tbody>
-    ${Array.from({length:16}, (_,i)=>`
-      <tr>
-        <td>${i+1}</td><td>TBD${i*2+1}</td><td>TBD${i*2+2}</td><td>-</td><td>-</td><td>-</td>
-      </tr>`).join('')}
+    <tr><td>1</td><td>TBD1</td><td>TBD2</td><td>-</td><td>-</td><td>-</td></tr>
+    <tr><td>2</td><td>TBD3</td><td>TBD4</td><td>-</td><td>-</td><td>-</td></tr>
+    <tr><td>3</td><td>TBD5</td><td>TBD6</td><td>-</td><td>-</td><td>-</td></tr>
+    <tr><td>4</td><td>TBD7</td><td>TBD8</td><td>-</td><td>-</td><td>-</td></tr>
+    <tr><td>5</td><td>TBD9</td><td>TBD10</td><td>-</td><td>-</td><td>-</td></tr>
+    <tr><td>6</td><td>TBD11</td><td>TBD12</td><td>-</td><td>-</td><td>-</td></tr>
+    <tr><td>7</td><td>TBD13</td><td>TBD14</td><td>-</td><td>-</td><td>-</td></tr>
+    <tr><td>8</td><td>TBD15</td><td>TBD16</td><td>-</td><td>-</td><td>-</td></tr>
+    <tr><td>9</td><td>TBD17</td><td>TBD18</td><td>-</td><td>-</td><td>-</td></tr>
+    <tr><td>10</td><td>TBD19</td><td>TBD20</td><td>-</td><td>-</td><td>-</td></tr>
+    <tr><td>11</td><td>TBD21</td><td>TBD22</td><td>-</td><td>-</td><td>-</td></tr>
+    <tr><td>12</td><td>TBD23</td><td>TBD24</td><td>-</td><td>-</td><td>-</td></tr>
+    <tr><td>13</td><td>TBD25</td><td>TBD26</td><td>-</td><td>-</td><td>-</td></tr>
+    <tr><td>14</td><td>TBD27</td><td>TBD28</td><td>-</td><td>-</td><td>-</td></tr>
+    <tr><td>15</td><td>TBD29</td><td>TBD30</td><td>-</td><td>-</td><td>-</td></tr>
+    <tr><td>16</td><td>TBD31</td><td>TBD32</td><td>-</td><td>-</td><td>-</td></tr>
   </tbody>
 </table>
 
+<!-- OTTAVI -->
 <h2>Ottavi di finale</h2>
-<table class="results" id="ottavi-table">
-  <thead>
-    <tr>
-      <th>Partita</th><th>Squadra 1</th><th>Squadra 2</th><th>Andata</th><th>Ritorno</th><th>Qualificata</th>
-    </tr>
-  </thead>
+<table class="results">
+  <thead><tr><th>Partita</th><th>Squadra 1</th><th>Squadra 2</th><th>Andata</th><th>Ritorno</th><th>Qualificata</th></tr></thead>
   <tbody>
-    ${Array.from({length:8}, (_,i)=>`
-      <tr>
-        <td>${i+1}</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
-      </tr>`).join('')}
+    <tr><td>1</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+    <tr><td>2</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+    <tr><td>3</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+    <tr><td>4</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+    <tr><td>5</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+    <tr><td>6</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+    <tr><td>7</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+    <tr><td>8</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
   </tbody>
 </table>
 
+<!-- QUARTI -->
 <h2>Quarti di finale</h2>
-<table class="results" id="quarti-table">
-  <thead>
-    <tr>
-      <th>Partita</th><th>Squadra 1</th><th>Squadra 2</th><th>Andata</th><th>Ritorno</th><th>Qualificata</th>
-    </tr>
-  </thead>
+<table class="results">
+  <thead><tr><th>Partita</th><th>Squadra 1</th><th>Squadra 2</th><th>Andata</th><th>Ritorno</th><th>Qualificata</th></tr></thead>
   <tbody>
-    ${Array.from({length:4}, (_,i)=>`
-      <tr>
-        <td>${i+1}</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
-      </tr>`).join('')}
+    <tr><td>1</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+    <tr><td>2</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+    <tr><td>3</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+    <tr><td>4</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
   </tbody>
 </table>
 
+<!-- SEMIFINALI -->
 <h2>Semifinali</h2>
-<table class="results" id="semifinali-table">
-  <thead>
-    <tr>
-      <th>Partita</th><th>Squadra 1</th><th>Squadra 2</th><th>Andata</th><th>Ritorno</th><th>Qualificata</th>
-    </tr>
-  </thead>
+<table class="results">
+  <thead><tr><th>Partita</th><th>Squadra 1</th><th>Squadra 2</th><th>Andata</th><th>Ritorno</th><th>Qualificata</th></tr></thead>
   <tbody>
     <tr><td>1</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
     <tr><td>2</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
   </tbody>
 </table>
 
+<!-- FINALE -->
 <h2>Finale</h2>
-<table class="results" id="finale-table">
-  <thead>
-    <tr>
-      <th>Partita</th><th>Squadra 1</th><th>Squadra 2</th><th>Andata</th><th>Ritorno</th><th>Vincitore</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>1</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-  </tbody>
+<table class="results">
+  <thead><tr><th>Partita</th><th>Squadra 1</th><th>Squadra 2</th><th>Andata</th><th>Ritorno</th><th>Vincitore</th></tr></thead>
+  <tbody><tr><td>1</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr></tbody>
 </table>
 
 <script>
-// --- BRACKET ---
-const bracket = document.getElementById('bracket');
-const squadre = [];
-for(let i=1;i<=32;i++){ squadre.push("TBD"+i); }
-
-function creaMatch(team1, team2){ 
-    return `<div class="match"><div class="team">${team1}</div><div class="team">${team2}</div></div>`; 
-}
-function creaLinea(parent, x, y, width, height, vertical=true){
-    const div = document.createElement('div');
-    div.className = vertical ? 'line-vertical' : 'line-horizontal';
-    if(vertical){ div.style.left = x + 'px'; div.style.top = y + 'px'; div.style.height = height + 'px'; }
-    else { div.style.left = x + 'px'; div.style.top = y + 'px'; div.style.width = width + 'px'; }
-    parent.appendChild(div);
-}
-
-/* --- Creazione colonne --- */
-const round16 = document.createElement('div'); round16.className='round';
-for(let i=0;i<32;i+=2){ round16.innerHTML += creaMatch(squadre[i], squadre[i+1]); }
+const bracket=document.getElementById('bracket');
+const squadre=[];for(let i=1;i<=32;i++){squadre.push("TBD"+i);}
+function creaMatch(a,b){return `<div class="match"><div class="team">${a}</div><div class="team">${b}</div></div>`;}
+function creaLinea(parent,x,y,w,h,v=true){const d=document.createElement('div');d.className=v?'line-vertical':'line-horizontal';
+if(v){d.style.left=x+'px';d.style.top=y+'px';d.style.height=h+'px';}
+else{d.style.left=x+'px';d.style.top=y+'px';d.style.width=w+'px';}parent.appendChild(d);}
+const round16=document.createElement('div');round16.className='round';
+for(let i=0;i<32;i+=2){round16.innerHTML+=creaMatch(squadre[i],squadre[i+1]);}
 bracket.appendChild(round16);
-
-const ottavi = document.createElement('div'); ottavi.className='round';
-let marginOttavi = [50,85,85,85,85,85,85,85];
-for(let i=0;i<8;i++){ const m=document.createElement('div'); m.innerHTML=creaMatch("-","-"); m.style.marginTop=marginOttavi[i]+"px"; ottavi.appendChild(m); }
+const ottavi=document.createElement('div');ottavi.className='round';
+let marginOttavi=[50,85,85,85,85,85,85,85];
+for(let i=0;i<8;i++){const m=document.createElement('div');m.innerHTML=creaMatch('-','-');m.style.marginTop=marginOttavi[i]+'px';ottavi.appendChild(m);}
 bracket.appendChild(ottavi);
-
-const quarti = document.createElement('div'); quarti.className='round';
+const quarti=document.createElement('div');quarti.className='round';
 let marginQuarti=[130,260,260,260];
-for(let i=0;i<4;i++){ const m=document.createElement('div'); m.innerHTML=creaMatch("-","-"); m.style.marginTop=marginQuarti[i]+"px"; quarti.appendChild(m); }
+for(let i=0;i<4;i++){const m=document.createElement('div');m.innerHTML=creaMatch('-','-');m.style.marginTop=marginQuarti[i]+'px';quarti.appendChild(m);}
 bracket.appendChild(quarti);
-
-const semi = document.createElement('div'); semi.className='round';
+const semi=document.createElement('div');semi.className='round';
 let marginSemi=[300,600];
-for(let i=0;i<2;i++){ const m=document.createElement('div'); m.innerHTML=creaMatch("-","-"); m.style.marginTop=marginSemi[i]+"px"; semi.appendChild(m); }
+for(let i=0;i<2;i++){const m=document.createElement('div');m.innerHTML=creaMatch('-','-');m.style.marginTop=marginSemi[i]+'px';semi.appendChild(m);}
 bracket.appendChild(semi);
-
-const finale = document.createElement('div'); finale.className='round';
-const matchF=document.createElement('div'); matchF.innerHTML=creaMatch("-","-"); matchF.style.marginTop="620px";
-finale.appendChild(matchF); bracket.appendChild(finale);
-
-const winner=document.createElement('div'); winner.className='round';
-winner.innerHTML+=creaMatch("Vincitore",""); bracket.appendChild(winner);
-
-/* --- Linee --- */
-function disegnaLinee(){
-    const rounds = bracket.children;
-    for(let c=0;c<rounds.length-1;c++){
-        const currentRound=rounds[c].children;
-        const nextRound=rounds[c+1].children;
-        for(let i=0;i<Math.min(currentRound.length,nextRound.length*2);i++){
-            const curr=currentRound[i].getBoundingClientRect();
-            const next=nextRound[Math.floor(i/2)].getBoundingClientRect();
-            const parentRect=bracket.getBoundingClientRect();
-            const x=curr.right-parentRect.left;
-            const y=curr.top+curr.height/2-parentRect.top;
-            const y2=next.top+next.height/2-parentRect.top;
-            const height=y2-y;
-            creaLinea(bracket,x,Math.min(y,y2),0,Math.abs(height),true);
-            const width=40;
-            creaLinea(bracket,x,Math.min(y,y2)+Math.abs(height)/2,width,0,false);
-        }
-    }
-}
-window.onload=disegnaLinee;
-window.onresize=()=>{document.querySelectorAll('.line-vertical, .line-horizontal').forEach(l=>l.remove()); disegnaLinee();};
+const finale=document.createElement('div');finale.className='round';
+const matchF=document.createElement('div');matchF.innerHTML=creaMatch('-','-');matchF.style.marginTop='620px';finale.appendChild(matchF);bracket.appendChild(finale);
+const winner=document.createElement('div');winner.className='round';winner.innerHTML+=creaMatch('Vincitore','');bracket.appendChild(winner);
+function disegnaLinee(){const rounds=bracket.children;for(let c=0;c<rounds.length-1;c++){const currentRound=rounds[c].children;const nextRound=rounds[c+1].children;
+for(let i=0;i<Math.min(currentRound.length,nextRound.length*2);i++){const curr=currentRound[i].getBoundingClientRect();const next=nextRound[Math.floor(i/2)].getBoundingClientRect();
+const parentRect=bracket.getBoundingClientRect();const x=curr.right-parentRect.left;const y=curr.top+curr.height/2-parentRect.top;const y2=next.top+next.height/2-parentRect.top;
+const height=y2-y;creaLinea(bracket,x,Math.min(y,y2),0,Math.abs(height),true);const width=40;creaLinea(bracket,x,Math.min(y,y2)+Math.abs(height)/2,width,0,false);}}}
+window.onload=disegnaLinee;window.onresize=()=>{document.querySelectorAll('.line-vertical, .line-horizontal').forEach(l=>l.remove());disegnaLinee();};
 </script>
 
 </body>
