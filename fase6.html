@@ -17,6 +17,11 @@ h1 {
   color: #00aaff;
   margin-bottom: 30px;
 }
+h2 {
+  color: #00aaff;
+  margin-top: 40px;
+  margin-bottom: 10px;
+}
 .home-button {
   position: fixed;
   top: 20px;
@@ -59,21 +64,15 @@ h1 {
   margin-bottom: 20px;
   position: relative;
 }
-.team {
-  margin: 4px 0;
-}
+.team { margin: 4px 0; }
 
 /* Linee */
-.line-vertical {
+.line-vertical, .line-horizontal {
   position: absolute;
-  width: 2px;
   background: rgba(0,170,255,0.5);
 }
-.line-horizontal {
-  position: absolute;
-  height: 2px;
-  background: rgba(0,170,255,0.5);
-}
+.line-vertical { width: 2px; }
+.line-horizontal { height: 2px; }
 
 /* Tabelle risultati */
 .results {
@@ -91,17 +90,11 @@ h1 {
   color: #00aaff;
   font-weight: bold;
 }
-.results tr:nth-child(even) {
-  background-color: rgba(255,255,255,0.05);
-}
-.results tr:hover {
-  background-color: rgba(0,170,255,0.15);
-}
-.results td {
-  color: white;
-}
+.results tr:nth-child(even) { background-color: rgba(255,255,255,0.05); }
+.results tr:hover { background-color: rgba(0,170,255,0.15); }
+.results td { color: white; }
 
-/* Colonne specifiche */
+/* Colonne */
 .results td:first-child, .results th:first-child { width: 8%; }
 .results td:nth-child(4), .results td:nth-child(5),
 .results th:nth-child(4), .results th:nth-child(5) { width: 10%; }
@@ -123,7 +116,12 @@ h1 {
       <th>Partita</th><th>Squadra 1</th><th>Squadra 2</th><th>Andata</th><th>Ritorno</th><th>Qualificata</th>
     </tr>
   </thead>
-  <tbody></tbody>
+  <tbody>
+    ${Array.from({length:16}, (_,i)=>`
+      <tr>
+        <td>${i+1}</td><td>TBD${i*2+1}</td><td>TBD${i*2+2}</td><td>-</td><td>-</td><td>-</td>
+      </tr>`).join('')}
+  </tbody>
 </table>
 
 <h2>Ottavi di finale</h2>
@@ -133,7 +131,12 @@ h1 {
       <th>Partita</th><th>Squadra 1</th><th>Squadra 2</th><th>Andata</th><th>Ritorno</th><th>Qualificata</th>
     </tr>
   </thead>
-  <tbody></tbody>
+  <tbody>
+    ${Array.from({length:8}, (_,i)=>`
+      <tr>
+        <td>${i+1}</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+      </tr>`).join('')}
+  </tbody>
 </table>
 
 <h2>Quarti di finale</h2>
@@ -143,7 +146,12 @@ h1 {
       <th>Partita</th><th>Squadra 1</th><th>Squadra 2</th><th>Andata</th><th>Ritorno</th><th>Qualificata</th>
     </tr>
   </thead>
-  <tbody></tbody>
+  <tbody>
+    ${Array.from({length:4}, (_,i)=>`
+      <tr>
+        <td>${i+1}</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+      </tr>`).join('')}
+  </tbody>
 </table>
 
 <h2>Semifinali</h2>
@@ -153,7 +161,10 @@ h1 {
       <th>Partita</th><th>Squadra 1</th><th>Squadra 2</th><th>Andata</th><th>Ritorno</th><th>Qualificata</th>
     </tr>
   </thead>
-  <tbody></tbody>
+  <tbody>
+    <tr><td>1</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+    <tr><td>2</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+  </tbody>
 </table>
 
 <h2>Finale</h2>
@@ -163,10 +174,13 @@ h1 {
       <th>Partita</th><th>Squadra 1</th><th>Squadra 2</th><th>Andata</th><th>Ritorno</th><th>Vincitore</th>
     </tr>
   </thead>
-  <tbody></tbody>
+  <tbody>
+    <tr><td>1</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+  </tbody>
 </table>
 
 <script>
+// --- BRACKET ---
 const bracket = document.getElementById('bracket');
 const squadre = [];
 for(let i=1;i<=32;i++){ squadre.push("TBD"+i); }
@@ -174,94 +188,63 @@ for(let i=1;i<=32;i++){ squadre.push("TBD"+i); }
 function creaMatch(team1, team2){ 
     return `<div class="match"><div class="team">${team1}</div><div class="team">${team2}</div></div>`; 
 }
-
 function creaLinea(parent, x, y, width, height, vertical=true){
     const div = document.createElement('div');
     div.className = vertical ? 'line-vertical' : 'line-horizontal';
-    if(vertical){
-        div.style.left = x + 'px';
-        div.style.top = y + 'px';
-        div.style.height = height + 'px';
-    } else {
-        div.style.left = x + 'px';
-        div.style.top = y + 'px';
-        div.style.width = width + 'px';
-    }
+    if(vertical){ div.style.left = x + 'px'; div.style.top = y + 'px'; div.style.height = height + 'px'; }
+    else { div.style.left = x + 'px'; div.style.top = y + 'px'; div.style.width = width + 'px'; }
     parent.appendChild(div);
 }
 
-/* --- Creazione bracket --- */
+/* --- Creazione colonne --- */
 const round16 = document.createElement('div'); round16.className='round';
 for(let i=0;i<32;i+=2){ round16.innerHTML += creaMatch(squadre[i], squadre[i+1]); }
 bracket.appendChild(round16);
 
 const ottavi = document.createElement('div'); ottavi.className='round';
 let marginOttavi = [50,85,85,85,85,85,85,85];
-for(let i=0;i<8;i++){
-    const match = document.createElement('div');
-    match.innerHTML = creaMatch("-", "-");
-    match.style.marginTop = marginOttavi[i]+"px";
-    ottavi.appendChild(match);
-}
+for(let i=0;i<8;i++){ const m=document.createElement('div'); m.innerHTML=creaMatch("-","-"); m.style.marginTop=marginOttavi[i]+"px"; ottavi.appendChild(m); }
 bracket.appendChild(ottavi);
 
 const quarti = document.createElement('div'); quarti.className='round';
-let marginQuarti = [130,260,260,260]; 
-for(let i=0;i<4;i++){
-    const match = document.createElement('div');
-    match.innerHTML = creaMatch("-", "-");
-    match.style.marginTop = marginQuarti[i]+"px";
-    quarti.appendChild(match);
-}
+let marginQuarti=[130,260,260,260];
+for(let i=0;i<4;i++){ const m=document.createElement('div'); m.innerHTML=creaMatch("-","-"); m.style.marginTop=marginQuarti[i]+"px"; quarti.appendChild(m); }
 bracket.appendChild(quarti);
 
 const semi = document.createElement('div'); semi.className='round';
-let marginSemi = [300,600];
-for(let i=0;i<2;i++){
-    const match = document.createElement('div');
-    match.innerHTML = creaMatch("-", "-");
-    match.style.marginTop = marginSemi[i]+"px";
-    semi.appendChild(match);
-}
+let marginSemi=[300,600];
+for(let i=0;i<2;i++){ const m=document.createElement('div'); m.innerHTML=creaMatch("-","-"); m.style.marginTop=marginSemi[i]+"px"; semi.appendChild(m); }
 bracket.appendChild(semi);
 
 const finale = document.createElement('div'); finale.className='round';
-const matchF = document.createElement('div');
-matchF.innerHTML = creaMatch("-", "-");
-matchF.style.marginTop="620px";
-finale.appendChild(matchF);
-bracket.appendChild(finale);
+const matchF=document.createElement('div'); matchF.innerHTML=creaMatch("-","-"); matchF.style.marginTop="620px";
+finale.appendChild(matchF); bracket.appendChild(finale);
 
-const winner = document.createElement('div'); winner.className='round';
-winner.innerHTML += creaMatch("Vincitore", "");
-bracket.appendChild(winner);
+const winner=document.createElement('div'); winner.className='round';
+winner.innerHTML+=creaMatch("Vincitore",""); bracket.appendChild(winner);
 
 /* --- Linee --- */
 function disegnaLinee(){
     const rounds = bracket.children;
     for(let c=0;c<rounds.length-1;c++){
-        const currentRound = rounds[c].children;
-        const nextRound = rounds[c+1].children;
+        const currentRound=rounds[c].children;
+        const nextRound=rounds[c+1].children;
         for(let i=0;i<Math.min(currentRound.length,nextRound.length*2);i++){
-            const curr = currentRound[i].getBoundingClientRect();
-            const next = nextRound[Math.floor(i/2)].getBoundingClientRect();
-            const parentRect = bracket.getBoundingClientRect();
-            const x = curr.right - parentRect.left;
-            const y = curr.top + curr.height/2 - parentRect.top;
-            const y2 = next.top + next.height/2 - parentRect.top;
-            const height = y2 - y;
+            const curr=currentRound[i].getBoundingClientRect();
+            const next=nextRound[Math.floor(i/2)].getBoundingClientRect();
+            const parentRect=bracket.getBoundingClientRect();
+            const x=curr.right-parentRect.left;
+            const y=curr.top+curr.height/2-parentRect.top;
+            const y2=next.top+next.height/2-parentRect.top;
+            const height=y2-y;
             creaLinea(bracket,x,Math.min(y,y2),0,Math.abs(height),true);
-            const width = 40;
+            const width=40;
             creaLinea(bracket,x,Math.min(y,y2)+Math.abs(height)/2,width,0,false);
         }
     }
 }
-
-window.onload = disegnaLinee;
-window.onresize = ()=>{
-    document.querySelectorAll('.line-vertical, .line-horizontal').forEach(l=>l.remove());
-    disegnaLinee();
-};
+window.onload=disegnaLinee;
+window.onresize=()=>{document.querySelectorAll('.line-vertical, .line-horizontal').forEach(l=>l.remove()); disegnaLinee();};
 </script>
 
 </body>
