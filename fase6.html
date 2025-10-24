@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fase 6 - Bracket Professionale</title>
+<title>Fase 6 - Bracket + Tabelle</title>
 <style>
 body {
   font-family: "Segoe UI", Arial, sans-serif;
@@ -13,6 +13,8 @@ body {
   padding: 20px;
 }
 h1 { text-align: center; color: #00aaff; margin-bottom: 30px; }
+h2 { color: #00aaff; margin-top: 60px; }
+
 .home-button {
   position: fixed; top: 20px; left: 20px;
   background-color: rgba(0,170,255,0.2); color: white;
@@ -21,28 +23,34 @@ h1 { text-align: center; color: #00aaff; margin-bottom: 30px; }
 }
 .home-button:hover { background-color: rgba(0,170,255,0.4); }
 
-/* Bracket container */
-.bracket { display: flex; gap: 60px; overflow-x: auto; align-items: flex-start; position: relative; }
-
-/* Colonne per turno */
+/* Bracket */
+.bracket { display: flex; gap: 60px; overflow-x: auto; align-items: flex-start; position: relative; margin-bottom: 80px; }
 .round { display: flex; flex-direction: column; align-items: flex-start; position: relative; }
-
-/* Singolo match */
 .match { background: rgba(0,170,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 6px;
        padding: 6px 10px; width: 140px; text-align: center; margin-bottom: 20px; position: relative; }
 .team { margin: 4px 0; }
 
 /* Linee */
-.line-vertical {
+.line-vertical, .line-horizontal {
   position: absolute;
-  width: 2px;
   background: rgba(0,170,255,0.5);
 }
-.line-horizontal {
-  position: absolute;
-  height: 2px;
-  background: rgba(0,170,255,0.5);
+.line-vertical { width: 2px; }
+.line-horizontal { height: 2px; }
+
+/* Tabelle sotto */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 40px;
+  background: rgba(255,255,255,0.05);
 }
+th, td {
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 8px 12px;
+  text-align: center;
+}
+th { background-color: rgba(0,170,255,0.2); color: #00ccff; }
 </style>
 </head>
 <body>
@@ -52,117 +60,87 @@ h1 { text-align: center; color: #00aaff; margin-bottom: 30px; }
 
 <div class="bracket" id="bracket"></div>
 
+<div id="tables"></div>
+
 <script>
+// --- Funzioni comuni ---
 const bracket = document.getElementById('bracket');
-const squadre = [];
-for(let i=1;i<=32;i++){ squadre.push("TBD"+i); }
+const tablesDiv = document.getElementById('tables');
 
 function creaMatch(team1, team2){ 
-    return `<div class="match"><div class="team">${team1}</div><div class="team">${team2}</div></div>`; 
+  return `<div class="match"><div class="team">${team1}</div><div class="team">${team2}</div></div>`; 
 }
 
-// Helper per creare linee
 function creaLinea(parent, x, y, width, height, vertical=true){
-    const div = document.createElement('div');
-    div.className = vertical ? 'line-vertical' : 'line-horizontal';
-    if(vertical){
-        div.style.left = x + 'px';
-        div.style.top = y + 'px';
-        div.style.height = height + 'px';
-    } else {
-        div.style.left = x + 'px';
-        div.style.top = y + 'px';
-        div.style.width = width + 'px';
-    }
-    parent.appendChild(div);
+  const div = document.createElement('div');
+  div.className = vertical ? 'line-vertical' : 'line-horizontal';
+  if(vertical){
+    div.style.left = x + 'px'; div.style.top = y + 'px'; div.style.height = height + 'px';
+  } else {
+    div.style.left = x + 'px'; div.style.top = y + 'px'; div.style.width = width + 'px';
+  }
+  parent.appendChild(div);
 }
 
-/* --- Sedicesimi --- */
-const round16 = document.createElement('div'); round16.className='round';
-for(let i=0;i<32;i+=2){ round16.innerHTML += creaMatch(squadre[i], squadre[i+1]); }
-bracket.appendChild(round16);
-
-/* --- Ottavi --- */
-const ottavi = document.createElement('div'); ottavi.className='round';
-let marginOttavi = [50,85,85,85,85,85,85,85];
-for(let i=0;i<8;i++){
-    const match = document.createElement('div');
-    match.innerHTML = creaMatch("-", "-");
-    match.style.marginTop = marginOttavi[i]+"px";
-    ottavi.appendChild(match);
-}
-bracket.appendChild(ottavi);
-
-/* --- Quarti --- */
-const quarti = document.createElement('div'); quarti.className='round';
-let marginQuarti = [130,260,260,260]; 
-for(let i=0;i<4;i++){
-    const match = document.createElement('div');
-    match.innerHTML = creaMatch("-", "-");
-    match.style.marginTop = marginQuarti[i]+"px";
-    quarti.appendChild(match);
-}
-bracket.appendChild(quarti);
-
-/* --- Semifinali --- */
-const semi = document.createElement('div'); semi.className='round';
-let marginSemi = [300,600];
-for(let i=0;i<2;i++){
-    const match = document.createElement('div');
-    match.innerHTML = creaMatch("-", "-");
-    match.style.marginTop = marginSemi[i]+"px";
-    semi.appendChild(match);
-}
-bracket.appendChild(semi);
-
-/* --- Finale --- */
-const finale = document.createElement('div'); finale.className='round';
-const matchF = document.createElement('div');
-matchF.innerHTML = creaMatch("-", "-");
-matchF.style.marginTop="700px";
-finale.appendChild(matchF);
-bracket.appendChild(finale);
-
-/* --- Vincitore --- */
-const winner = document.createElement('div'); winner.className='round';
-winner.innerHTML += creaMatch("Vincitore", "");
-bracket.appendChild(winner);
-
-/* --- Linee tra i match (corrette con offset) --- */
 function disegnaLinee(){
-    const rounds = bracket.children;
-    for(let c=0; c<rounds.length-1; c++){
-        const currentRound = rounds[c].children;
-        const nextRound = rounds[c+1].children;
+  const rounds = bracket.children;
+  for(let c=0; c<rounds.length-1; c++){
+    const currentRound = rounds[c].children;
+    const nextRound = rounds[c+1].children;
 
-        for(let i=0; i<Math.min(currentRound.length, nextRound.length*2); i++){
-            const currMatch = currentRound[i];
-            const nextMatch = nextRound[Math.floor(i/2)];
-
-            // Posizione centrale verticale reale
-            const currTop = currMatch.offsetTop + currMatch.offsetHeight/2;
-            const nextTop = nextMatch.offsetTop + nextMatch.offsetHeight/2;
-
-            // Posizione orizzontale
-            const x = currMatch.offsetLeft + currMatch.offsetWidth;
-
-            // Linea verticale
-            const height = nextTop - currTop;
-            creaLinea(bracket, x, currTop, 0, height, true);
-
-            // Linea orizzontale verso la colonna successiva
-            const width = 40; // gap tra colonne
-            creaLinea(bracket, x, nextTop, width, 0, false);
-        }
+    for(let i=0; i<Math.min(currentRound.length, nextRound.length*2); i++){
+      const currMatch = currentRound[i];
+      const nextMatch = nextRound[Math.floor(i/2)];
+      const currTop = currMatch.offsetTop + currMatch.offsetHeight/2;
+      const nextTop = nextMatch.offsetTop + nextMatch.offsetHeight/2;
+      const x = currMatch.offsetLeft + currMatch.offsetWidth;
+      const height = nextTop - currTop;
+      creaLinea(bracket, x, currTop, 0, height, true);
+      creaLinea(bracket, x, nextTop, 40, 0, false);
     }
+  }
 }
 
-// Disegna linee dopo il rendering
-window.onload = disegnaLinee;
-window.onresize = ()=>{
-    document.querySelectorAll('.line-vertical, .line-horizontal').forEach(l=>l.remove());
-    disegnaLinee();
-};
+// --- Crea tabella ---
+function creaTabella(titolo, partite){
+  let html = `<h2>${titolo}</h2><table><tr><th>Match</th><th>Squadra 1</th><th>Squadra 2</th><th>Risultato</th></tr>`;
+  partite.forEach((p, i)=>{
+    html += `<tr><td>${i+1}</td><td>${p.team1}</td><td>${p.team2}</td><td>${p.result || "-"}</td></tr>`;
+  });
+  html += `</table>`;
+  return html;
+}
+
+// --- Carica JSON ---
+fetch("fase6.json")
+.then(res => res.json())
+.then(data => {
+  // Crea round dinamicamente nel bracket
+  const rounds = ["sedicesimi", "ottavi", "quarti", "semifinali", "finale"];
+  rounds.forEach((round, idx) => {
+    const div = document.createElement('div');
+    div.className = 'round';
+    data[round].forEach(m => {
+      div.innerHTML += creaMatch(m.team1, m.team2);
+    });
+    bracket.appendChild(div);
+  });
+
+  // Aggiungi tabella sotto per ogni turno
+  tablesDiv.innerHTML = `
+    ${creaTabella("Sedicesimi di finale", data.sedicesimi)}
+    ${creaTabella("Ottavi di finale", data.ottavi)}
+    ${creaTabella("Quarti di finale", data.quarti)}
+    ${creaTabella("Semifinali", data.semifinali)}
+    ${creaTabella("Finale", data.finale)}
+  `;
+
+  // Dopo render
+  setTimeout(disegnaLinee, 300);
+})
+.catch(err => {
+  console.error("Errore nel caricamento del JSON", err);
+});
 </script>
 
 </body>
