@@ -1,6 +1,6 @@
 {
   "partite": [
-    { "id": 1, "squadra1": "Italia", "squadra2": "Brasile", "andata": "", "ritorno": "", "qualificata": "" },
+    { "id": 1, "squadra1": "TBD1", "squadra2": "TBD2", "andata": "", "ritorno": "", "qualificata": "" },
     { "id": 2, "squadra1": "TBD3", "squadra2": "TBD4", "andata": "", "ritorno": "", "qualificata": "" },
     { "id": 3, "squadra1": "TBD5", "squadra2": "TBD6", "andata": "", "ritorno": "", "qualificata": "" },
     { "id": 4, "squadra1": "TBD7", "squadra2": "TBD8", "andata": "", "ritorno": "", "qualificata": "" },
