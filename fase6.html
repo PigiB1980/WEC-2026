@@ -140,12 +140,12 @@ function generaTabelle(container, titolo, partite) {
   partite.forEach(p=>{
     const tr = document.createElement('tr');
     tr.innerHTML = `
-      <td>${p.match}</td>
-      <td>${p.squadra1}</td>
-      <td>${p.squadra2}</td>
-      <td>${p.andata}</td>
-      <td>${p.ritorno}</td>
-      <td>${p.qualificata || p.vincitore || '-'}</td>
+      <td>${p.match !== undefined ? p.match : "-"}</td>
+      <td>${p.squadra1 !== undefined ? p.squadra1 : "-"}</td>
+      <td>${p.squadra2 !== undefined ? p.squadra2 : "-"}</td>
+      <td>${p.andata !== undefined ? p.andata : "-"}</td>
+      <td>${p.ritorno !== undefined ? p.ritorno : "-"}</td>
+      <td>${p.qualificata !== undefined ? p.qualificata : "-"}</td>
     `;
     table.appendChild(tr);
   });
@@ -169,7 +169,7 @@ async function init() {
   let marginOttavi=[50,85,85,85,85,85,85,85];
   for(let i=0;i<8;i++){
     const match = document.createElement('div');
-    match.innerHTML=creaMatchDiv(data.ottavi[i]?.squadra1 || "-", data.ottavi[i]?.squadra2 || "-");
+    match.innerHTML=creaMatchDiv(data.ottavi[i]?.squadra1 || "TBD", data.ottavi[i]?.squadra2 || "TBD");
     match.style.marginTop=marginOttavi[i]+"px";
     ottavi.appendChild(match);
   }
@@ -180,7 +180,7 @@ async function init() {
   let marginQuarti=[130,260,260,260];
   for(let i=0;i<4;i++){
     const match=document.createElement('div');
-    match.innerHTML=creaMatchDiv(data.quarti[i]?.squadra1 || "-", data.quarti[i]?.squadra2 || "-");
+    match.innerHTML=creaMatchDiv(data.quarti[i]?.squadra1 || "TBD", data.quarti[i]?.squadra2 || "TBD");
     match.style.marginTop=marginQuarti[i]+"px";
     quarti.appendChild(match);
   }
@@ -191,7 +191,7 @@ async function init() {
   let marginSemi=[300,600];
   for(let i=0;i<2;i++){
     const match=document.createElement('div');
-    match.innerHTML=creaMatchDiv(data.semifinali[i]?.squadra1 || "-", data.semifinali[i]?.squadra2 || "-");
+    match.innerHTML=creaMatchDiv(data.semifinali[i]?.squadra1 || "TBD", data.semifinali[i]?.squadra2 || "TBD");
     match.style.marginTop=marginSemi[i]+"px";
     semi.appendChild(match);
   }
@@ -200,7 +200,7 @@ async function init() {
   // finale
   const finale=document.createElement('div'); finale.className='round';
   const matchF=document.createElement('div');
-  matchF.innerHTML=creaMatchDiv(data.finale[0]?.squadra1 || "-", data.finale[0]?.squadra2 || "-");
+  matchF.innerHTML=creaMatchDiv(data.finale[0]?.squadra1 || "TBD", data.finale[0]?.squadra2 || "TBD");
   matchF.style.marginTop="620px";
   finale.appendChild(matchF);
   bracket.appendChild(finale);
@@ -211,7 +211,7 @@ async function init() {
   bracket.appendChild(winner);
 
   // linee
-  setTimeout(()=>creaLinee(bracket),100); // timeout per calcolo dimensioni
+  setTimeout(()=>creaLinee(bracket),100);
 
   // Tabelle sotto
   const container=document.getElementById('tabelle');
