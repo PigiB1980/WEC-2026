@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fase 6 - Bracket + Tabelle (Andata e Ritorno)</title>
+<title>Fase 6 - Bracket e Risultati</title>
 <style>
 body {
   font-family: "Segoe UI", Arial, sans-serif;
@@ -12,9 +12,7 @@ body {
   margin: 0;
   padding: 20px;
 }
-h1 { text-align: center; color: #00aaff; margin-bottom: 30px; }
-h2 { color: #00aaff; margin-top: 60px; }
-
+h1, h2 { text-align: center; color: #00aaff; margin-bottom: 30px; }
 .home-button {
   position: fixed; top: 20px; left: 20px;
   background-color: rgba(0,170,255,0.2); color: white;
@@ -23,138 +21,190 @@ h2 { color: #00aaff; margin-top: 60px; }
 }
 .home-button:hover { background-color: rgba(0,170,255,0.4); }
 
-/* Bracket */
-.bracket { display: flex; gap: 60px; overflow-x: auto; align-items: flex-start; position: relative; margin-bottom: 80px; }
+/* --- Bracket --- */
+.bracket { display: flex; gap: 60px; overflow-x: auto; align-items: flex-start; position: relative; margin-bottom: 60px; }
 .round { display: flex; flex-direction: column; align-items: flex-start; position: relative; }
-.match { background: rgba(0,170,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 6px;
-       padding: 6px 10px; width: 150px; text-align: center; margin-bottom: 20px; position: relative; }
+.match {
+  background: rgba(0,170,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 6px; padding: 6px 10px; width: 140px; text-align: center;
+  margin-bottom: 20px; position: relative;
+}
 .team { margin: 4px 0; }
-.agg { font-size: 0.8em; color: #88ccff; }
 
-/* Linee */
+/* --- Linee --- */
 .line-vertical, .line-horizontal {
-  position: absolute;
-  background: rgba(0,170,255,0.5);
+  position: absolute; background: rgba(0,170,255,0.5);
 }
 .line-vertical { width: 2px; }
 .line-horizontal { height: 2px; }
 
-/* Tabelle sotto */
+/* --- Tabelle --- */
+.table-container { margin: 40px auto; width: 90%; max-width: 900px; }
 table {
-  border-collapse: collapse;
   width: 100%;
-  margin-bottom: 40px;
-  background: rgba(255,255,255,0.05);
+  border-collapse: collapse;
+  margin-bottom: 30px;
+  font-size: 14px;
 }
 th, td {
   border: 1px solid rgba(255,255,255,0.2);
-  padding: 8px 12px;
+  padding: 6px 8px;
   text-align: center;
 }
-th { background-color: rgba(0,170,255,0.2); color: #00ccff; }
+th {
+  background: rgba(0,170,255,0.2);
+  color: #00ccff;
+}
+td:first-child, th:first-child { width: 70px; } /* partita */
+td:nth-child(4), th:nth-child(4),
+td:nth-child(5), th:nth-child(5) { width: 80px; } /* andata / ritorno */
+td:last-child, th:last-child { width: 100px; } /* qualificata */
 </style>
 </head>
 <body>
 
 <a href="index.html" class="home-button">🏠 Home</a>
-<h1>Fase 6 - Bracket (Andata e Ritorno)</h1>
+<h1>Fase 6 - Bracket e Risultati</h1>
 
 <div class="bracket" id="bracket"></div>
 
-<div id="tables"></div>
+<div class="table-container" id="tables"></div>
 
 <script>
+// --- Creazione del Bracket ---
 const bracket = document.getElementById('bracket');
-const tablesDiv = document.getElementById('tables');
+const squadre = [];
+for(let i=1;i<=32;i++){ squadre.push("TBD"+i); }
 
-function creaMatch(team1, team2, agg){ 
-  return `<div class="match">
-            <div class="team">${team1}</div>
-            <div class="team">${team2}</div>
-            ${agg ? `<div class="agg">${agg}</div>` : ""}
-          </div>`; 
+function creaMatch(team1, team2){ 
+    return `<div class="match"><div class="team">${team1}</div><div class="team">${team2}</div></div>`; 
 }
 
+// Helper per le linee
 function creaLinea(parent, x, y, width, height, vertical=true){
-  const div = document.createElement('div');
-  div.className = vertical ? 'line-vertical' : 'line-horizontal';
-  if(vertical){
-    div.style.left = x + 'px'; div.style.top = y + 'px'; div.style.height = height + 'px';
-  } else {
-    div.style.left = x + 'px'; div.style.top = y + 'px'; div.style.width = width + 'px';
-  }
-  parent.appendChild(div);
+    const div = document.createElement('div');
+    div.className = vertical ? 'line-vertical' : 'line-horizontal';
+    if(vertical){ div.style.left = x+'px'; div.style.top=y+'px'; div.style.height=height+'px'; }
+    else { div.style.left = x+'px'; div.style.top=y+'px'; div.style.width=width+'px'; }
+    parent.appendChild(div);
 }
 
+/* --- Sedicesimi --- */
+const round16 = document.createElement('div'); round16.className='round';
+for(let i=0;i<32;i+=2){ round16.innerHTML += creaMatch(squadre[i], squadre[i+1]); }
+bracket.appendChild(round16);
+
+/* --- Ottavi --- */
+const ottavi = document.createElement('div'); ottavi.className='round';
+let marginOttavi = [50,85,85,85,85,85,85,85];
+for(let i=0;i<8;i++){
+  const match=document.createElement('div');
+  match.innerHTML=creaMatch("-", "-");
+  match.style.marginTop=marginOttavi[i]+"px";
+  ottavi.appendChild(match);
+}
+bracket.appendChild(ottavi);
+
+/* --- Quarti --- */
+const quarti = document.createElement('div'); quarti.className='round';
+let marginQuarti = [130,260,260,260];
+for(let i=0;i<4;i++){
+  const match=document.createElement('div');
+  match.innerHTML=creaMatch("-", "-");
+  match.style.marginTop=marginQuarti[i]+"px";
+  quarti.appendChild(match);
+}
+bracket.appendChild(quarti);
+
+/* --- Semifinali --- */
+const semi = document.createElement('div'); semi.className='round';
+let marginSemi = [300,600];
+for(let i=0;i<2;i++){
+  const match=document.createElement('div');
+  match.innerHTML=creaMatch("-", "-");
+  match.style.marginTop=marginSemi[i]+"px";
+  semi.appendChild(match);
+}
+bracket.appendChild(semi);
+
+/* --- Finale --- */
+const finale = document.createElement('div'); finale.className='round';
+const matchF=document.createElement('div');
+matchF.innerHTML=creaMatch("-", "-");
+matchF.style.marginTop="620px";
+finale.appendChild(matchF);
+bracket.appendChild(finale);
+
+/* --- Vincitore --- */
+const winner = document.createElement('div'); winner.className='round';
+winner.innerHTML += creaMatch("Vincitore", "");
+bracket.appendChild(winner);
+
+/* --- Linee --- */
 function disegnaLinee(){
   const rounds = bracket.children;
-  for(let c=0; c<rounds.length-1; c++){
-    const currentRound = rounds[c].children;
-    const nextRound = rounds[c+1].children;
-
-    for(let i=0; i<Math.min(currentRound.length, nextRound.length*2); i++){
-      const currMatch = currentRound[i];
-      const nextMatch = nextRound[Math.floor(i/2)];
-      const currTop = currMatch.offsetTop + currMatch.offsetHeight/2;
-      const nextTop = nextMatch.offsetTop + nextMatch.offsetHeight/2;
-      const x = currMatch.offsetLeft + currMatch.offsetWidth;
-      const height = nextTop - currTop;
-      creaLinea(bracket, x, currTop, 0, height, true);
-      creaLinea(bracket, x, nextTop, 40, 0, false);
+  for(let c=0;c<rounds.length-1;c++){
+    const currentRound=rounds[c].children;
+    const nextRound=rounds[c+1].children;
+    for(let i=0;i<Math.min(currentRound.length,nextRound.length*2);i++){
+      const curr=currentRound[i].getBoundingClientRect();
+      const next=nextRound[Math.floor(i/2)].getBoundingClientRect();
+      const parentRect=bracket.getBoundingClientRect();
+      const x=curr.right-parentRect.left;
+      const y=curr.top+curr.height/2-parentRect.top;
+      const y2=next.top+next.height/2-parentRect.top;
+      creaLinea(bracket,x,Math.min(y,y2),0,Math.abs(y2-y),true);
+      creaLinea(bracket,x,Math.min(y,y2)+Math.abs(y2-y)/2,40,0,false);
     }
   }
 }
+window.onload = disegnaLinee;
+window.onresize = ()=>{
+  document.querySelectorAll('.line-vertical,.line-horizontal').forEach(l=>l.remove());
+  disegnaLinee();
+};
 
-// Tabella con andata/ritorno
-function creaTabella(titolo, partite){
-  let html = `<h2>${titolo}</h2><table><tr><th>#</th><th>Squadra 1</th><th>Squadra 2</th><th>Andata</th><th>Ritorno</th><th>Totale</th></tr>`;
-  partite.forEach((p, i)=>{
-    const andata = p.andata || "-";
-    const ritorno = p.ritorno || "-";
-    let tot = "-";
-    if(andata.includes('-') && ritorno.includes('-')){
-      const [a1,a2] = andata.split('-').map(n=>parseInt(n)||0);
-      const [r1,r2] = ritorno.split('-').map(n=>parseInt(n)||0);
-      tot = `${a1+r1}–${a2+r2}`;
-    }
-    html += `<tr><td>${i+1}</td><td>${p.team1}</td><td>${p.team2}</td><td>${andata}</td><td>${ritorno}</td><td>${tot}</td></tr>`;
-  });
-  html += `</table>`;
-  return html;
+// --- Tabelle ---
+async function caricaTabelle(){
+  const resp = await fetch("fase6.json");
+  const dati = await resp.json();
+  const container = document.getElementById("tables");
+
+  for(const turno in dati){
+    const partite = dati[turno];
+    const title = document.createElement("h2");
+    title.textContent = turno.charAt(0).toUpperCase()+turno.slice(1);
+    container.appendChild(title);
+
+    const table = document.createElement("table");
+    table.innerHTML = `
+      <thead>
+        <tr>
+          <th>Partita</th>
+          <th>Squadra 1</th>
+          <th>Squadra 2</th>
+          <th>Andata</th>
+          <th>Ritorno</th>
+          <th>Qualificata</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${partite.map((p,i)=>`
+          <tr>
+            <td>${i+1}</td>
+            <td>${p.team1}</td>
+            <td>${p.team2}</td>
+            <td>${p.andata}</td>
+            <td>${p.ritorno}</td>
+            <td>${p.qualificata || ""}</td>
+          </tr>`).join('')}
+      </tbody>
+    `;
+    container.appendChild(table);
+  }
 }
 
-fetch("fase6.json")
-.then(res => res.json())
-.then(data => {
-  const rounds = ["sedicesimi", "ottavi", "quarti", "semifinali", "finale"];
-  rounds.forEach((round, idx) => {
-    const div = document.createElement('div');
-    div.className = 'round';
-    data[round].forEach(m => {
-      // Calcolo punteggio aggregato
-      let agg = "";
-      if(m.andata && m.ritorno){
-        const [a1,a2] = m.andata.split('-').map(n=>parseInt(n)||0);
-        const [r1,r2] = m.ritorno.split('-').map(n=>parseInt(n)||0);
-        agg = `${a1+r1}–${a2+r2}`;
-      }
-      div.innerHTML += creaMatch(m.team1, m.team2, agg);
-    });
-    bracket.appendChild(div);
-  });
-
-  tablesDiv.innerHTML = `
-    ${creaTabella("Sedicesimi di finale", data.sedicesimi)}
-    ${creaTabella("Ottavi di finale", data.ottavi)}
-    ${creaTabella("Quarti di finale", data.quarti)}
-    ${creaTabella("Semifinali", data.semifinali)}
-    ${creaTabella("Finale", data.finale)}
-  `;
-
-  setTimeout(disegnaLinee, 300);
-})
-.catch(err => console.error("Errore nel caricamento del JSON", err));
+caricaTabelle();
 </script>
-
 </body>
 </html>
