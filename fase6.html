@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fase 6 - Tabellone e Risultati</title>
+<title>Fase 6 - Bracket + Tabelle</title>
 <style>
 body {
   font-family: "Segoe UI", Arial, sans-serif;
@@ -15,6 +15,38 @@ body {
 h1 { text-align: center; color: #00aaff; margin-bottom: 30px; }
 h2 { color: #00aaff; margin-top: 40px; border-bottom: 1px solid #00aaff; padding-bottom: 5px; }
 
+.home-button {
+  position: fixed; top: 20px; left: 20px;
+  background-color: rgba(0,170,255,0.2); color: white;
+  text-decoration: none; padding: 8px 16px; border-radius: 8px;
+  font-weight: bold; transition: background 0.3s; z-index: 1000;
+}
+.home-button:hover { background-color: rgba(0,170,255,0.4); }
+
+/* Bracket container */
+.bracket { display: flex; gap: 60px; overflow-x: auto; align-items: flex-start; position: relative; }
+
+/* Colonne per turno */
+.round { display: flex; flex-direction: column; align-items: flex-start; position: relative; }
+
+/* Singolo match */
+.match { background: rgba(0,170,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 6px;
+       padding: 6px 10px; width: 140px; text-align: center; margin-bottom: 20px; position: relative; }
+.team { margin: 4px 0; }
+
+/* Linee */
+.line-vertical {
+  position: absolute;
+  width: 2px;
+  background: rgba(0,170,255,0.5);
+}
+.line-horizontal {
+  position: absolute;
+  height: 2px;
+  background: rgba(0,170,255,0.5);
+}
+
+/* Tabelle */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -33,40 +65,62 @@ th {
 tr:nth-child(even) {
   background-color: rgba(255,255,255,0.05);
 }
-.home-button {
-  position: fixed; top: 20px; left: 20px;
-  background-color: rgba(0,170,255,0.2); color: white;
-  text-decoration: none; padding: 8px 16px; border-radius: 8px;
-  font-weight: bold; transition: background 0.3s; z-index: 1000;
-}
-.home-button:hover { background-color: rgba(0,170,255,0.4); }
 </style>
 </head>
 <body>
 
 <a href="index.html" class="home-button">🏠 Home</a>
-<h1>Fase 6 - Tabellone Finale</h1>
+<h1>Fase 6 - Bracket Professionale</h1>
 
+<div class="bracket" id="bracket"></div>
 <div id="tabelle"></div>
 
 <script>
-async function caricaDati() {
+async function caricaJSON() {
   try {
-    const response = await fetch('fase6.json');
-    const data = await response.json();
-    generaTabella("Sedicesimi di finale", data.sedicesimi);
-    generaTabella("Ottavi di finale", data.ottavi);
-    generaTabella("Quarti di finale", data.quarti);
-    generaTabella("Semifinali", data.semifinali);
-    generaTabella("Finale", data.finale);
-  } catch (error) {
-    document.getElementById('tabelle').innerHTML = "<p>Errore nel caricamento del file JSON.</p>";
-    console.error(error);
+    const res = await fetch('fase6.json');
+    return await res.json();
+  } catch(err) {
+    console.error("Errore caricamento JSON", err);
+    return null;
   }
 }
 
-function generaTabella(titolo, partite) {
-  const container = document.getElementById('tabelle');
+function creaMatchDiv(team1, team2) {
+  return `<div class="match"><div class="team">${team1}</div><div class="team">${team2}</div></div>`;
+}
+
+function creaLinee(bracket) {
+  const rounds = bracket.children;
+  for(let c=0;c<rounds.length-1;c++){
+      const currentRound = rounds[c].children;
+      const nextRound = rounds[c+1].children;
+      for(let i=0;i<Math.min(currentRound.length,nextRound.length*2);i++){
+          const curr = currentRound[i].getBoundingClientRect();
+          const next = nextRound[Math.floor(i/2)].getBoundingClientRect();
+          const parentRect = bracket.getBoundingClientRect();
+          // verticale
+          const x = curr.right - parentRect.left;
+          const y = curr.top + curr.height/2 - parentRect.top;
+          const height = next.top + next.height/2 - y;
+          const vert = document.createElement('div');
+          vert.className='line-vertical';
+          vert.style.left=x+'px';
+          vert.style.top=y+'px';
+          vert.style.height=height+'px';
+          bracket.appendChild(vert);
+          // orizzontale
+          const hor = document.createElement('div');
+          hor.className='line-horizontal';
+          hor.style.left=x+'px';
+          hor.style.top=(next.top + next.height/2 - parentRect.top)+'px';
+          hor.style.width='40px';
+          bracket.appendChild(hor);
+      }
+  }
+}
+
+function generaTabelle(container, titolo, partite) {
   const h2 = document.createElement('h2');
   h2.textContent = titolo;
   container.appendChild(h2);
@@ -83,7 +137,7 @@ function generaTabella(titolo, partite) {
     </tr>
   `;
 
-  partite.forEach(p => {
+  partite.forEach(p=>{
     const tr = document.createElement('tr');
     tr.innerHTML = `
       <td>${p.match}</td>
@@ -99,7 +153,76 @@ function generaTabella(titolo, partite) {
   container.appendChild(table);
 }
 
-caricaDati();
+async function init() {
+  const data = await caricaJSON();
+  if(!data) return;
+
+  const bracket = document.getElementById('bracket');
+
+  // sedicesimi
+  const round16 = document.createElement('div'); round16.className='round';
+  data.sedicesimi.forEach(p=> round16.innerHTML += creaMatchDiv(p.squadra1,p.squadra2));
+  bracket.appendChild(round16);
+
+  // ottavi
+  const ottavi = document.createElement('div'); ottavi.className='round';
+  let marginOttavi=[50,85,85,85,85,85,85,85];
+  for(let i=0;i<8;i++){
+    const match = document.createElement('div');
+    match.innerHTML=creaMatchDiv(data.ottavi[i]?.squadra1 || "-", data.ottavi[i]?.squadra2 || "-");
+    match.style.marginTop=marginOttavi[i]+"px";
+    ottavi.appendChild(match);
+  }
+  bracket.appendChild(ottavi);
+
+  // quarti
+  const quarti=document.createElement('div'); quarti.className='round';
+  let marginQuarti=[130,260,260,260];
+  for(let i=0;i<4;i++){
+    const match=document.createElement('div');
+    match.innerHTML=creaMatchDiv(data.quarti[i]?.squadra1 || "-", data.quarti[i]?.squadra2 || "-");
+    match.style.marginTop=marginQuarti[i]+"px";
+    quarti.appendChild(match);
+  }
+  bracket.appendChild(quarti);
+
+  // semifinali
+  const semi=document.createElement('div'); semi.className='round';
+  let marginSemi=[300,600];
+  for(let i=0;i<2;i++){
+    const match=document.createElement('div');
+    match.innerHTML=creaMatchDiv(data.semifinali[i]?.squadra1 || "-", data.semifinali[i]?.squadra2 || "-");
+    match.style.marginTop=marginSemi[i]+"px";
+    semi.appendChild(match);
+  }
+  bracket.appendChild(semi);
+
+  // finale
+  const finale=document.createElement('div'); finale.className='round';
+  const matchF=document.createElement('div');
+  matchF.innerHTML=creaMatchDiv(data.finale[0]?.squadra1 || "-", data.finale[0]?.squadra2 || "-");
+  matchF.style.marginTop="620px";
+  finale.appendChild(matchF);
+  bracket.appendChild(finale);
+
+  // vincitore
+  const winner=document.createElement('div'); winner.className='round';
+  winner.innerHTML += creaMatchDiv("Vincitore","");
+  bracket.appendChild(winner);
+
+  // linee
+  setTimeout(()=>creaLinee(bracket),100); // timeout per calcolo dimensioni
+
+  // Tabelle sotto
+  const container=document.getElementById('tabelle');
+  generaTabelle(container,"Sedicesimi di finale",data.sedicesimi);
+  generaTabelle(container,"Ottavi di finale",data.ottavi);
+  generaTabelle(container,"Quarti di finale",data.quarti);
+  generaTabelle(container,"Semifinali",data.semifinali);
+  generaTabelle(container,"Finale",data.finale);
+}
+
+init();
 </script>
 
 </body>
