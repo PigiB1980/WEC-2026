@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fase 4 - Video World Elimination Cup 2026</title>
+<style>
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background-color: #0b0c10;
+  color: white;
+  margin: 0;
+  padding: 40px;
+  text-align: center;
+}
+
+.home-button {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background-color: rgba(0,170,255,0.2);
+  color: white;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background 0.3s;
+  z-index: 1000;
+}
+.home-button:hover { background-color: rgba(0,170,255,0.4); }
+
+h1 { color: #00aaff; margin-bottom: 30px; }
+h2 { color: #00ffcc; margin-top: 40px; margin-bottom: 20px; }
+
+.video-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.video-row iframe {
+  width: 300px;
+  height: 170px;
+  border: none;
+  border-radius: 12px;
+}
+
+.video-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.video-container span {
+  margin-top: 6px;
+  font-size: 14px;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+<a href="fase4.html" class="home-button">🏠 Torna alla Fase 4</a>
+<h1>Fase 4 - Video World Elimination Cup 2026</h1>
+
+<h2>Andata</h2>
+<div id="video-andata"></div>
+
+<h2>Ritorno</h2>
+<div id="video-ritorno"></div>
+
+<script>
+// Video Andata (1-16)
+const videoAndata = [
+  {id:1, descr:"Partita 1 - Andata", url:"https://www.youtube.com/embed/XXXXX1"},
+  {id:2, descr:"Partita 2 - Andata", url:"https://www.youtube.com/embed/XXXXX2"},
+  {id:3, descr:"Partita 3 - Andata", url:"https://www.youtube.com/embed/XXXXX3"},
+  {id:4, descr:"Partita 4 - Andata", url:"https://www.youtube.com/embed/XXXXX4"},
+  {id:5, descr:"Partita 5 - Andata", url:"https://www.youtube.com/embed/XXXXX5"},
+  {id:6, descr:"Partita 6 - Andata", url:"https://www.youtube.com/embed/XXXXX6"},
+  {id:7, descr:"Partita 7 - Andata", url:"https://www.youtube.com/embed/XXXXX7"},
+  {id:8, descr:"Partita 8 - Andata", url:"https://www.youtube.com/embed/XXXXX8"},
+  {id:9, descr:"Partita 9 - Andata", url:"https://www.youtube.com/embed/XXXXX9"},
+  {id:10, descr:"Partita 10 - Andata", url:"https://www.youtube.com/embed/XXXXX10"},
+  {id:11, descr:"Partita 11 - Andata", url:"https://www.youtube.com/embed/XXXXX11"},
+  {id:12, descr:"Partita 12 - Andata", url:"https://www.youtube.com/embed/XXXXX12"},
+  {id:13, descr:"Partita 13 - Andata", url:"https://www.youtube.com/embed/XXXXX13"},
+  {id:14, descr:"Partita 14 - Andata", url:"https://www.youtube.com/embed/XXXXX14"},
+  {id:15, descr:"Partita 15 - Andata", url:"https://www.youtube.com/embed/XXXXX15"},
+  {id:16, descr:"Partita 16 - Andata", url:"https://www.youtube.com/embed/XXXXX16"}
+];
+
+// Video Ritorno (17-32)
+const videoRitorno = [
+  {id:1, descr:"Partita 1 - Ritorno", url:"https://www.youtube.com/embed/XXXXX17"},
+  {id:2, descr:"Partita 2 - Ritorno", url:"https://www.youtube.com/embed/XXXXX18"},
+  {id:3, descr:"Partita 3 - Ritorno", url:"https://www.youtube.com/embed/XXXXX19"},
+  {id:4, descr:"Partita 4 - Ritorno", url:"https://www.youtube.com/embed/XXXXX20"},
+  {id:5, descr:"Partita 5 - Ritorno", url:"https://www.youtube.com/embed/XXXXX21"},
+  {id:6, descr:"Partita 6 - Ritorno", url:"https://www.youtube.com/embed/XXXXX22"},
+  {id:7, descr:"Partita 7 - Ritorno", url:"https://www.youtube.com/embed/XXXXX23"},
+  {id:8, descr:"Partita 8 - Ritorno", url:"https://www.youtube.com/embed/XXXXX24"},
+  {id:9, descr:"Partita 9 - Ritorno", url:"https://www.youtube.com/embed/XXXXX25"},
+  {id:10, descr:"Partita 10 - Ritorno", url:"https://www.youtube.com/embed/XXXXX26"},
+  {id:11, descr:"Partita 11 - Ritorno", url:"https://www.youtube.com/embed/XXXXX27"},
+  {id:12, descr:"Partita 12 - Ritorno", url:"https://www.youtube.com/embed/XXXXX28"},
+  {id:13, descr:"Partita 13 - Ritorno", url:"https://www.youtube.com/embed/XXXXX29"},
+  {id:14, descr:"Partita 14 - Ritorno", url:"https://www.youtube.com/embed/XXXXX30"},
+  {id:15, descr:"Partita 15 - Ritorno", url:"https://www.youtube.com/embed/XXXXX31"},
+  {id:16, descr:"Partita 16 - Ritorno", url:"https://www.youtube.com/embed/XXXXX32"}
+];
+
+// Funzione per creare i video in righe da 4
+function creaVideo(containerId, videos){
+  const container = document.getElementById(containerId);
+  for(let r=0; r<4; r++){
+    const row = document.createElement('div');
+    row.className = 'video-row';
+    for(let c=0; c<4; c++){
+      const v = videos[r*4 + c];
+      const vc = document.createElement('div');
+      vc.className = 'video-container';
+      vc.id = `partita${v.id}`;
+      vc.innerHTML = `<iframe src="${v.url}" allowfullscreen title="${v.descr}"></iframe><span>${v.descr}</span>`;
+      row.appendChild(vc);
+    }
+    container.appendChild(row);
+  }
+}
+
+creaVideo('video-andata', videoAndata);
+creaVideo('video-ritorno', videoRitorno);
+</script>
+
+</body>
+</html>
