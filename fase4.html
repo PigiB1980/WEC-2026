@@ -57,6 +57,12 @@ img.flag {
 }
 
 .qualificata { font-weight: bold; color: #00ffcc; }
+
+.video-link {
+  text-decoration: none;
+  font-size: 18px;
+}
+.video-link:hover { color: #00ffcc; }
 </style>
 </head>
 <body>
@@ -85,6 +91,7 @@ fetch('fase4.json')
           <th style="width:60px">Andata</th>
           <th style="width:60px">Ritorno</th>
           <th style="width:100px">Qualificata</th>
+          <th style="width:40px">Video</th>
         </tr>
       </thead>
     `;
@@ -99,6 +106,7 @@ fetch('fase4.json')
           <td>${p.andata || '-'}</td>
           <td>${p.ritorno || '-'}</td>
           <td class="qualificata">${p.qualificata || '-'}</td>
+          <td><a class="video-link" href="fase4_videos.html#partita${p.id}" target="_blank">📺</a></td>
         </tr>
       `;
     });
