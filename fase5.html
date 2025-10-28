@@ -14,7 +14,6 @@ body {
   text-align: center;
 }
 
-/* Pulsante Home */
 .home-button {
   position: fixed;
   top: 20px;
@@ -49,16 +48,25 @@ th, td {
 th { background-color: rgba(0,170,255,0.2); text-transform: uppercase; }
 tr:hover { background-color: rgba(0,170,255,0.1); }
 
-img.flag { width: 24px; height: auto; vertical-align: middle; margin-right: 6px; }
+img.flag {
+  width: 24px;
+  height: auto;
+  vertical-align: middle;
+  margin-right: 6px;
+}
 
-.qualificata { font-weight: bold; color: #00ffcc; }
+.qualificata {
+  font-weight: bold;
+  color: #00ffcc;
+}
 
 .video-link {
-  text-decoration: none;
   font-size: 18px;
-  margin-left: 6px;
+  text-decoration: none;
 }
-.video-link:hover { color: #00ffcc; }
+.video-link:hover {
+  color: #00ffcc;
+}
 </style>
 </head>
 <body>
@@ -89,7 +97,7 @@ fetch('fase5.json')
           <th>Squadra 2</th>
           <th style="width:60px">Andata</th>
           <th style="width:60px">Ritorno</th>
-          <th style="width:40px">Video</th>
+          <th style="width:40px">📺</th>
           <th style="width:100px">Qualificata</th>
         </tr>
       </thead>
