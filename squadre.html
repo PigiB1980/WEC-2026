@@ -12,7 +12,6 @@
       color: #ffffff;
     }
 
-    /* ===== HEADER ===== */
     header {
       display: flex;
       align-items: center;
@@ -43,7 +42,6 @@
       text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
     }
 
-    /* ===== NAVBAR ===== */
     nav {
       display: flex;
       justify-content: center;
@@ -73,7 +71,6 @@
       box-shadow: 0 6px 14px rgba(0, 170, 255, 0.5);
     }
 
-    /* ===== MAIN ===== */
     main {
       text-align: center;
       padding: 60px 20px;
@@ -100,13 +97,12 @@
     }
 
     .grid {
-  display: grid;
-  grid-template-columns: repeat(8, 1fr); /* sempre 8 colonne */
-  gap: 25px;
-  max-width: 1400px; /* puoi regolare la larghezza totale */
-  margin: 0 auto;
-}
-
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      gap: 25px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
 
     .team {
       background-color: #11161c;
@@ -135,7 +131,12 @@
     }
 
     .team.qualificate {
-      border: 2px solid #00ff99; /* bordo verde per squadre qualificate */
+      border: 2px solid #00ff99;
+    }
+
+    /* ===== FASE 5: 7 colonne ===== */
+    .fase5 .grid {
+      grid-template-columns: repeat(7, 1fr);
     }
   </style>
 </head>
