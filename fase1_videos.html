@@ -12,8 +12,8 @@ body {
   margin: 0;
   padding: 40px;
   text-align: center;
+  scroll-behavior: smooth;
 }
-
 h1 {
   color: #00aaff;
   margin-bottom: 30px;
@@ -23,7 +23,6 @@ h2 {
   margin-top: 40px;
   margin-bottom: 20px;
 }
-
 .home-button {
   position: fixed;
   top: 20px;
@@ -40,8 +39,6 @@ h2 {
 .home-button:hover {
   background-color: rgba(0,170,255,0.4);
 }
-
-/* Grid video uniformi */
 .video-row {
   display: flex;
   flex-wrap: wrap;
@@ -49,20 +46,17 @@ h2 {
   gap: 20px;
   margin-bottom: 30px;
 }
-
 .video-row iframe {
   width: 300px;
   height: 170px;
   border: none;
   border-radius: 12px;
 }
-
 .video-container {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
 .video-container span {
   margin-top: 6px;
   font-size: 14px;
@@ -78,7 +72,7 @@ h2 {
 <div id="video-container"></div>
 
 <script>
-// Tutti gli 8 quadrangolari con 6 video ciascuno
+// Dati video
 const videoData = [
   {id:1, partite:[
     {descr:"Semifinale 1 - Andata", url:"https://www.youtube.com/embed/XXXXX1"},
@@ -146,15 +140,17 @@ const videoData = [
   ]}
 ];
 
-// Creazione video sul DOM
 const container = document.getElementById('video-container');
 
 videoData.forEach(q => {
+  const divQ = document.createElement('div');
+  divQ.id = `quadrangolare${q.id}`;
+  divQ.className = 'quadrangolare';
+
   const h2 = document.createElement('h2');
   h2.textContent = `Quadrangolare ${q.id}`;
-  container.appendChild(h2);
+  divQ.appendChild(h2);
 
-  // Tutti i video (6) in una sola riga flex-wrap
   const videoRow = document.createElement('div');
   videoRow.className = 'video-row';
 
@@ -165,7 +161,8 @@ videoData.forEach(q => {
     videoRow.appendChild(vc);
   });
 
-  container.appendChild(videoRow);
+  divQ.appendChild(videoRow);
+  container.appendChild(divQ);
 });
 </script>
 
