@@ -54,8 +54,8 @@ img.flag { width: 24px; height: auto; vertical-align: middle; margin-right: 6px;
 .qualificata { font-weight: bold; color: #00ffcc; }
 
 .video-link {
-  font-size: 18px;
   text-decoration: none;
+  font-size: 18px;
   margin-left: 6px;
 }
 .video-link:hover { color: #00ffcc; }
@@ -89,6 +89,7 @@ fetch('fase5.json')
           <th>Squadra 2</th>
           <th style="width:60px">Andata</th>
           <th style="width:60px">Ritorno</th>
+          <th style="width:40px">Video</th>
           <th style="width:100px">Qualificata</th>
         </tr>
       </thead>
@@ -101,8 +102,9 @@ fetch('fase5.json')
           <td>${p.id}</td>
           <td><img class="flag" src="flags/${codiciBandiera[p.squadra1] || 'tbd'}.png" alt="${p.squadra1}"> ${p.squadra1}</td>
           <td><img class="flag" src="flags/${codiciBandiera[p.squadra2] || 'tbd'}.png" alt="${p.squadra2}"> ${p.squadra2}</td>
-          <td>${p.andata || '-'} <a class="video-link" href="fase5_videos.html#partita${p.id}-andata" target="_blank">📺</a></td>
-          <td>${p.ritorno || '-'} <a class="video-link" href="fase5_videos.html#partita${p.id}-ritorno" target="_blank">📺</a></td>
+          <td>${p.andata || '-'}</td>
+          <td>${p.ritorno || '-'}</td>
+          <td><a class="video-link" href="fase5_videos.html#partita${p.id}" target="_blank">📺</a></td>
           <td class="qualificata">${p.qualificata || '-'}</td>
         </tr>
       `;
