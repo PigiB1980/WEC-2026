@@ -13,8 +13,6 @@ body {
   padding: 40px;
   text-align: center;
 }
-
-/* Pulsante Home */
 .home-button {
   position: fixed;
   top: 20px;
@@ -31,7 +29,6 @@ body {
 .home-button:hover {
   background-color: rgba(0,170,255,0.4);
 }
-
 h1 {
   color: #00aaff;
   margin-bottom: 40px;
@@ -71,12 +68,18 @@ img.flag {
   font-weight: bold;
   background: rgba(0,170,255,0.1);
 }
+.video-link {
+  font-size: 18px;
+  text-decoration: none;
+}
+.video-link:hover {
+  color: #00ffcc;
+}
 </style>
 </head>
 <body>
 
 <a href="index.html" class="home-button">🏠 Home</a>
-
 <h1>Fase 3 - World Elimination Cup 2026</h1>
 <div id="tabella-quadrangolari"></div>
 
@@ -84,18 +87,18 @@ img.flag {
 // Mappa codici bandiera (vuota per ora)
 const codiciBandiera = {};
 
-// Costruzione tabella da JSON
+// Caricamento JSON e costruzione tabelle
 fetch('fase3.json')
   .then(res => res.json())
   .then(data => {
     const container = document.getElementById('tabella-quadrangolari');
     data.quadrangolari.forEach(q => {
       const table = document.createElement('table');
-      table.innerHTML = `<thead><tr><th colspan="4">Quadrangolare ${q.id}</th></tr></thead>`;
+      table.innerHTML = `<thead><tr><th colspan="5">Quadrangolare ${q.id}</th></tr></thead>`;
       const tbody = document.createElement('tbody');
 
       // Semifinali
-      tbody.innerHTML += `<tr><td class="sezione" colspan="4">Semifinali</td></tr>`;
+      tbody.innerHTML += `<tr><td class="sezione" colspan="5">Semifinali</td></tr>`;
       q.semifinali.forEach(sf => {
         tbody.innerHTML += `
           <tr>
@@ -103,12 +106,13 @@ fetch('fase3.json')
             <td><img class="flag" src="flags/${codiciBandiera[sf.squadra2] || ''}.png" alt="${sf.squadra2}"> ${sf.squadra2}</td>
             <td>${sf.andata || '-'}</td>
             <td>${sf.ritorno || '-'}</td>
+            <td><a class="video-link" href="fase3_videos.html#quadrangolare${q.id}" target="_blank">📺</a></td>
           </tr>
         `;
       });
 
       // Finale
-      tbody.innerHTML += `<tr><td class="sezione" colspan="4">Finale</td></tr>`;
+      tbody.innerHTML += `<tr><td class="sezione" colspan="5">Finale</td></tr>`;
       const f = q.finale;
       tbody.innerHTML += `
         <tr>
@@ -116,6 +120,7 @@ fetch('fase3.json')
           <td><img class="flag" src="flags/${codiciBandiera[f.squadra2] || ''}.png" alt="${f.squadra2 || ''}"> ${f.squadra2 || '-'}</td>
           <td>${f.andata || '-'}</td>
           <td>${f.ritorno || '-'}</td>
+          <td><a class="video-link" href="fase3_videos.html#quadrangolare${q.id}" target="_blank">📺</a></td>
         </tr>
       `;
 
