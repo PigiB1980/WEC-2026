@@ -14,6 +14,7 @@ body {
   text-align: center;
 }
 
+/* Pulsante Home */
 .home-button {
   position: fixed;
   top: 20px;
@@ -55,18 +56,13 @@ img.flag {
   margin-right: 6px;
 }
 
-.qualificata {
-  font-weight: bold;
-  color: #00ffcc;
-}
+.qualificata { font-weight: bold; color: #00ffcc; }
 
 .video-link {
   font-size: 18px;
   text-decoration: none;
 }
-.video-link:hover {
-  color: #00ffcc;
-}
+.video-link:hover { color: #00ffcc; }
 </style>
 </head>
 <body>
@@ -97,8 +93,8 @@ fetch('fase5.json')
           <th>Squadra 2</th>
           <th style="width:60px">Andata</th>
           <th style="width:60px">Ritorno</th>
-          <th style="width:40px">📺</th>
           <th style="width:100px">Qualificata</th>
+          <th style="width:40px">📺</th>
         </tr>
       </thead>
     `;
@@ -112,8 +108,8 @@ fetch('fase5.json')
           <td><img class="flag" src="flags/${codiciBandiera[p.squadra2] || 'tbd'}.png" alt="${p.squadra2}"> ${p.squadra2}</td>
           <td>${p.andata || '-'}</td>
           <td>${p.ritorno || '-'}</td>
-          <td><a class="video-link" href="fase5_videos.html#partita${p.id}" target="_blank">📺</a></td>
           <td class="qualificata">${p.qualificata || '-'}</td>
+          <td><a class="video-link" href="fase5_videos.html#partita${p.id}" target="_blank">📺</a></td>
         </tr>
       `;
     });
