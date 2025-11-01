@@ -12,30 +12,90 @@ body {
   margin: 0;
   padding: 20px;
 }
-h1 { text-align: center; color: #00aaff; margin-bottom: 30px; }
+h1 {
+  text-align: center;
+  color: #00aaff;
+  margin-bottom: 30px;
+}
 .home-button {
-  position: fixed; top: 20px; left: 20px;
-  background-color: rgba(0,170,255,0.2); color: white;
-  text-decoration: none; padding: 8px 16px; border-radius: 8px;
-  font-weight: bold; transition: background 0.3s; z-index: 1000;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background-color: rgba(0,170,255,0.2);
+  color: white;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background 0.3s;
+  z-index: 1000;
 }
 .home-button:hover { background-color: rgba(0,170,255,0.4); }
 
-.bracket { display: flex; gap: 60px; overflow-x: auto; align-items: flex-start; position: relative; }
-.round { display: flex; flex-direction: column; align-items: flex-start; position: relative; }
-.match { background: rgba(0,170,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 6px;
-       padding: 6px 10px; width: 140px; text-align: center; margin-bottom: 20px; position: relative; }
+.bracket {
+  display: flex;
+  gap: 60px;
+  overflow-x: auto;
+  align-items: flex-start;
+  position: relative;
+}
+.round {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+}
+.match {
+  background: rgba(0,170,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 6px;
+  padding: 6px 10px;
+  width: 140px;
+  text-align: center;
+  margin-bottom: 20px;
+  position: relative;
+}
 .team { margin: 4px 0; }
-img.flag { width: 24px; height: auto; vertical-align: middle; margin-right: 6px; }
+img.flag {
+  width: 24px;
+  height: auto;
+  vertical-align: middle;
+  margin-right: 6px;
+}
 
 /* Tabelle turni */
-table { width: 100%; margin: 30px 0; border-collapse: collapse; background: rgba(255,255,255,0.05); border-radius: 12px; overflow: hidden; }
-th, td { padding: 8px; border-bottom: 1px solid rgba(255,255,255,0.1); text-align: center; }
-th { background-color: rgba(0,170,255,0.2); text-transform: uppercase; }
+table {
+  width: 100%;
+  margin: 30px 0;
+  border-collapse: collapse;
+  background: rgba(255,255,255,0.05);
+  border-radius: 12px;
+  overflow: hidden;
+}
+th, td {
+  padding: 8px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  text-align: center;
+}
+th {
+  background-color: rgba(0,170,255,0.2);
+  text-transform: uppercase;
+}
 tr:hover { background-color: rgba(0,170,255,0.1); }
 th.partita, td.partita { width: 40px; }
 th.andata, th.ritorno, td.andata, td.ritorno { width: 50px; }
 th.qualificata, td.qualificata { width: 120px; }
+
+/* Titoli delle tabelle */
+h2 {
+  text-align: center;
+  color: #00ccff;
+  font-size: 1.6em;
+  margin-top: 50px;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
 </style>
 </head>
 <body>
@@ -75,61 +135,4 @@ fetch('fase6.json')
     const turni = ["sedicesimi","ottavi","quarti","semifinali","finale"];
     const margini = {
       sedicesimi: Array.from({length:16},()=>0),
-      ottavi: [50,85,85,85,85,85,85,85],
-      quarti: [130,260,260,260],
-      semifinali: [300,600],
-      finale: [620]
-    };
-
-    turni.forEach(turno=>{
-      const roundDiv = document.createElement('div');
-      roundDiv.className='round';
-      data[turno].forEach((match,i)=>{
-        const div = document.createElement('div');
-        div.innerHTML = creaMatchDiv(match.squadra1 || "-", match.squadra2 || "-");
-        if(margini[turno][i]!==undefined) div.style.marginTop = margini[turno][i]+"px";
-        roundDiv.appendChild(div);
-      });
-      bracket.appendChild(roundDiv);
-    });
-
-    // Tabelle sotto
-    const container = document.getElementById('tables-container');
-    turni.forEach(turno=>{
-      const h2 = document.createElement('h2');
-      h2.textContent = turno.charAt(0).toUpperCase() + turno.slice(1);
-      container.appendChild(h2);
-
-      const table = document.createElement('table');
-      const thead = document.createElement('thead');
-      thead.innerHTML = `
-        <tr>
-          <th class="partita">#</th>
-          <th>Squadra 1</th>
-          <th>Squadra 2</th>
-          <th class="andata">Andata</th>
-          <th class="ritorno">Ritorno</th>
-          <th class="qualificata">Qualificata</th>
-        </tr>`;
-      table.appendChild(thead);
-
-      const tbody = document.createElement('tbody');
-      data[turno].forEach((match,i)=>{
-        tbody.innerHTML += `
-        <tr>
-          <td class="partita">${i+1}</td>
-          <td><img class="flag" src="flags/${codiciBandiera[match.squadra1] || ''}.png" alt="${match.squadra1 || ''}"> ${match.squadra1 || '-'}</td>
-          <td><img class="flag" src="flags/${codiciBandiera[match.squadra2] || ''}.png" alt="${match.squadra2 || ''}"> ${match.squadra2 || '-'}</td>
-          <td class="andata">${match.andata || '-'}</td>
-          <td class="ritorno">${match.ritorno || '-'}</td>
-          <td class="qualificata">${match.qualificata || '-'}</td>
-        </tr>`;
-      });
-      table.appendChild(tbody);
-      container.appendChild(table);
-    });
-  });
-</script>
-
-</body>
-</html>
+      ottavi: [50,]()
