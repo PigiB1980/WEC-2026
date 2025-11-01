@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fase 6 - Bracket Professionale</title>
+<title>Fase 6 - IL TABELLONE</title>
 <style>
 body {
   font-family: "Segoe UI", Arial, sans-serif;
@@ -101,7 +101,7 @@ h2 {
 <body>
 
 <a href="index.html" class="home-button">🏠 Home</a>
-<h1>Fase 6 - IL TABELLONE</h1>
+<h1>Fase 6 - Bracket Professionale</h1>
 
 <div class="bracket" id="bracket"></div>
 <div id="tables-container"></div>
@@ -135,4 +135,69 @@ fetch('fase6.json')
     const turni = ["sedicesimi","ottavi","quarti","semifinali","finale"];
     const margini = {
       sedicesimi: Array.from({length:16},()=>0),
-      ottavi: [50,]()
+      ottavi: [50,85,85,85,85,85,85,85],
+      quarti: [130,260,260,260],
+      semifinali: [300,600],
+      finale: [620]
+    };
+
+    turni.forEach(turno=>{
+      const roundDiv = document.createElement('div');
+      roundDiv.className='round';
+      data[turno].forEach((match,i)=>{
+        const div = document.createElement('div');
+        div.innerHTML = creaMatchDiv(match.squadra1 || "-", match.squadra2 || "-");
+        if(margini[turno][i]!==undefined) div.style.marginTop = margini[turno][i]+"px";
+        roundDiv.appendChild(div);
+      });
+      bracket.appendChild(roundDiv);
+    });
+
+    // Tabelle sotto
+    const container = document.getElementById('tables-container');
+    const titoli = {
+      sedicesimi: "Sedicesimi di Finale",
+      ottavi: "Ottavi di Finale",
+      quarti: "Quarti di Finale",
+      semifinali: "Semifinali",
+      finale: "Finalissima"
+    };
+
+    turni.forEach(turno=>{
+      const h2 = document.createElement('h2');
+      h2.textContent = titoli[turno];
+      container.appendChild(h2);
+
+      const table = document.createElement('table');
+      const thead = document.createElement('thead');
+      thead.innerHTML = `
+        <tr>
+          <th class="partita">#</th>
+          <th>Squadra 1</th>
+          <th>Squadra 2</th>
+          <th class="andata">Andata</th>
+          <th class="ritorno">Ritorno</th>
+          <th class="qualificata">Qualificata</th>
+        </tr>`;
+      table.appendChild(thead);
+
+      const tbody = document.createElement('tbody');
+      data[turno].forEach((match,i)=>{
+        tbody.innerHTML += `
+        <tr>
+          <td class="partita">${i+1}</td>
+          <td><img class="flag" src="flags/${codiciBandiera[match.squadra1] || ''}.png" alt="${match.squadra1 || ''}"> ${match.squadra1 || '-'}</td>
+          <td><img class="flag" src="flags/${codiciBandiera[match.squadra2] || ''}.png" alt="${match.squadra2 || ''}"> ${match.squadra2 || '-'}</td>
+          <td class="andata">${match.andata || '-'}</td>
+          <td class="ritorno">${match.ritorno || '-'}</td>
+          <td class="qualificata">${match.qualificata || '-'}</td>
+        </tr>`;
+      });
+      table.appendChild(tbody);
+      container.appendChild(table);
+    });
+  });
+</script>
+
+</body>
+</html>
