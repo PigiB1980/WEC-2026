@@ -74,7 +74,33 @@ img.flag {
 
 <script>
 // Mappa codici bandiera (da aggiornare quando conosci le squadre)
-const codiciBandiera = {};
+const codiciBandiera = {
+  "Slovenia": "si",
+  "Costa d'Avorio": "ci",
+  "Egitto": "eg",
+  "U.S.A.": "us",
+  "Bosnia": "ba",
+  "Camerun": "cm",
+  "Slovacchia": "sk",
+  "Galles": "gb-wls",
+  "Paraguay": "py",
+  "Grecia": "gr",
+  "Perù": "pe",
+  "Scozia": "gb-sct",
+  "Iran": "ir",
+  "Venezuela": "ve",
+  "Ghana": "gh",
+  "Canada": "ca",
+  "Giappone": "jp",
+  "Finlandia": "fi",
+  "Corea del Sud": "kr",
+  "Tunisia": "tn",
+  "Albania": "al",
+  "Ungheria": "hu",
+  "Israele": "il",
+  "Mali": "ml"
+  // + 8 qualificate dalla Fase 3
+};
 
 // Caricamento JSON e costruzione tabella
 fetch('fase4.json')
