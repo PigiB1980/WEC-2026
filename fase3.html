@@ -85,7 +85,34 @@ img.flag {
 
 <script>
 // Mappa codici bandiera (vuota per ora)
-const codiciBandiera = {};
+const codiciBandiera = {
+  "Burkina Faso": "bf",
+  "Romania": "ro",
+  "Kosovo": "xk",
+  "Macedonia": "mk",
+  "Irlanda": "ie",
+  "Costarica": "cr",
+  "RD Congo": "cd",
+  "Islanda": "is",
+  "Australia": "au",
+  "Gabon": "ga",
+  "Montenegro": "me",
+  "Ecuador": "ec",
+  "Qatar": "qa",
+  "Guinea": "gn",
+  "Georgia": "ge",
+  "Arabia S.": "sa",
+  "Giamaica": "jm",
+  "Curaçao": "cw",
+  "Irlanda del Nord": "gb-nir",
+  "Capo Verde": "cv",
+  "Cina": "cn",
+  "Uzbekistan": "uz",
+  "Armenia": "am",
+  "Bielorussia": "by"
+
+  // + 8 squadre dalla Fase 2 (da aggiungere quando note)
+};
 
 // Caricamento JSON e costruzione tabelle
 fetch('fase3.json')
