@@ -86,6 +86,12 @@ th.partita, td.partita { width: 40px; }
 th.andata, th.ritorno, td.andata, td.ritorno { width: 50px; }
 th.qualificata, td.qualificata { width: 120px; }
 
+.video-link {
+  font-size: 18px;
+  text-decoration: none;
+}
+.video-link:hover { color: #00ffcc; }
+
 /* Titoli delle tabelle */
 h2 {
   text-align: center;
@@ -190,19 +196,22 @@ fetch('fase6.json')
           <th class="andata">Andata</th>
           <th class="ritorno">Ritorno</th>
           <th class="qualificata">Qualificata</th>
+          <th style="width:40px">📺</th>
         </tr>`;
       table.appendChild(thead);
 
       const tbody = document.createElement('tbody');
       data[turno].forEach((match,i)=>{
+        const anchor = `${turno}${i+1}`;
         tbody.innerHTML += `
         <tr>
           <td class="partita">${i+1}</td>
-          <td><img class="flag" src="flags/${codiciBandiera[match.squadra1] || ''}.png" alt="${match.squadra1 || ''}"> ${match.squadra1 || '-'}</td>
-          <td><img class="flag" src="flags/${codiciBandiera[match.squadra2] || ''}.png" alt="${match.squadra2 || ''}"> ${match.squadra2 || '-'}</td>
+          <td><img class="flag" src="flags/${codiciBandiera[match.squadra1] || 'tbd'}.png" alt="${match.squadra1 || ''}"> ${match.squadra1 || '-'}</td>
+          <td><img class="flag" src="flags/${codiciBandiera[match.squadra2] || 'tbd'}.png" alt="${match.squadra2 || ''}"> ${match.squadra2 || '-'}</td>
           <td class="andata">${match.andata || '-'}</td>
           <td class="ritorno">${match.ritorno || '-'}</td>
           <td class="qualificata">${match.qualificata || '-'}</td>
+          <td><a class="video-link" href="fase6_videos.html#${anchor}" target="_blank">📺</a></td>
         </tr>`;
       });
       table.appendChild(tbody);
