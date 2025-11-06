@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fase 6 - Video World Elimination Cup 2026</title>
+<style>
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background-color: #0b0c10;
+  color: white;
+  margin: 0;
+  padding: 40px;
+  text-align: center;
+}
+
+h1 { color: #00aaff; margin-bottom: 30px; }
+h2 { color: #00ffcc; margin-top: 40px; margin-bottom: 20px; }
+
+.home-button {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background-color: rgba(0,170,255,0.2);
+  color: white;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background 0.3s;
+  z-index: 1000;
+}
+.home-button:hover { background-color: rgba(0,170,255,0.4); }
+
+.video-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.video-row iframe {
+  width: 300px;
+  height: 170px;
+  border: none;
+  border-radius: 12px;
+}
+
+.video-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.video-container span {
+  margin-top: 6px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.finalissima iframe {
+  width: 420px;
+  height: 240px;
+}
+</style>
+</head>
+<body>
+
+<a href="fase6.html" class="home-button">🏠 Torna alla Fase 6</a>
+<h1>Fase 6 - Video World Elimination Cup 2026</h1>
+
+<div id="video-container"></div>
+
+<script>
+const videoData = [
+  {tipo: "Sedicesimi - Andata", partite:[
+    {descr:"Sedicesimi 1 - Andata", url:"https://www.youtube.com/embed/XXXXX1"},
+    {descr:"Sedicesimi 2 - Andata", url:"https://www.youtube.com/embed/XXXXX2"},
+    {descr:"Sedicesimi 3 - Andata", url:"https://www.youtube.com/embed/XXXXX3"},
+    {descr:"Sedicesimi 4 - Andata", url:"https://www.youtube.com/embed/XXXXX4"},
+    {descr:"Sedicesimi 5 - Andata", url:"https://www.youtube.com/embed/XXXXX5"},
+    {descr:"Sedicesimi 6 - Andata", url:"https://www.youtube.com/embed/XXXXX6"},
+    {descr:"Sedicesimi 7 - Andata", url:"https://www.youtube.com/embed/XXXXX7"},
+    {descr:"Sedicesimi 8 - Andata", url:"https://www.youtube.com/embed/XXXXX8"},
+    {descr:"Sedicesimi 9 - Andata", url:"https://www.youtube.com/embed/XXXXX9"},
+    {descr:"Sedicesimi 10 - Andata", url:"https://www.youtube.com/embed/XXXXX10"},
+    {descr:"Sedicesimi 11 - Andata", url:"https://www.youtube.com/embed/XXXXX11"},
+    {descr:"Sedicesimi 12 - Andata", url:"https://www.youtube.com/embed/XXXXX12"},
+    {descr:"Sedicesimi 13 - Andata", url:"https://www.youtube.com/embed/XXXXX13"},
+    {descr:"Sedicesimi 14 - Andata", url:"https://www.youtube.com/embed/XXXXX14"},
+    {descr:"Sedicesimi 15 - Andata", url:"https://www.youtube.com/embed/XXXXX15"},
+    {descr:"Sedicesimi 16 - Andata", url:"https://www.youtube.com/embed/XXXXX16"}
+  ]},
+  {tipo: "Sedicesimi - Ritorno", partite:[
+    {descr:"Sedicesimi 1 - Ritorno", url:"https://www.youtube.com/embed/XXXXX17"},
+    {descr:"Sedicesimi 2 - Ritorno", url:"https://www.youtube.com/embed/XXXXX18"},
+    {descr:"Sedicesimi 3 - Ritorno", url:"https://www.youtube.com/embed/XXXXX19"},
+    {descr:"Sedicesimi 4 - Ritorno", url:"https://www.youtube.com/embed/XXXXX20"},
+    {descr:"Sedicesimi 5 - Ritorno", url:"https://www.youtube.com/embed/XXXXX21"},
+    {descr:"Sedicesimi 6 - Ritorno", url:"https://www.youtube.com/embed/XXXXX22"},
+    {descr:"Sedicesimi 7 - Ritorno", url:"https://www.youtube.com/embed/XXXXX23"},
+    {descr:"Sedicesimi 8 - Ritorno", url:"https://www.youtube.com/embed/XXXXX24"},
+    {descr:"Sedicesimi 9 - Ritorno", url:"https://www.youtube.com/embed/XXXXX25"},
+    {descr:"Sedicesimi 10 - Ritorno", url:"https://www.youtube.com/embed/XXXXX26"},
+    {descr:"Sedicesimi 11 - Ritorno", url:"https://www.youtube.com/embed/XXXXX27"},
+    {descr:"Sedicesimi 12 - Ritorno", url:"https://www.youtube.com/embed/XXXXX28"},
+    {descr:"Sedicesimi 13 - Ritorno", url:"https://www.youtube.com/embed/XXXXX29"},
+    {descr:"Sedicesimi 14 - Ritorno", url:"https://www.youtube.com/embed/XXXXX30"},
+    {descr:"Sedicesimi 15 - Ritorno", url:"https://www.youtube.com/embed/XXXXX31"},
+    {descr:"Sedicesimi 16 - Ritorno", url:"https://www.youtube.com/embed/XXXXX32"}
+  ]},
+
+  {tipo: "Ottavi - Andata", partite:[
+    {descr:"Ottavi 1 - Andata", url:"https://www.youtube.com/embed/XXXXX33"},
+    {descr:"Ottavi 2 - Andata", url:"https://www.youtube.com/embed/XXXXX34"},
+    {descr:"Ottavi 3 - Andata", url:"https://www.youtube.com/embed/XXXXX35"},
+    {descr:"Ottavi 4 - Andata", url:"https://www.youtube.com/embed/XXXXX36"},
+    {descr:"Ottavi 5 - Andata", url:"https://www.youtube.com/embed/XXXXX37"},
+    {descr:"Ottavi 6 - Andata", url:"https://www.youtube.com/embed/XXXXX38"},
+    {descr:"Ottavi 7 - Andata", url:"https://www.youtube.com/embed/XXXXX39"},
+    {descr:"Ottavi 8 - Andata", url:"https://www.youtube.com/embed/XXXXX40"}
+  ]},
+  {tipo: "Ottavi - Ritorno", partite:[
+    {descr:"Ottavi 1 - Ritorno", url:"https://www.youtube.com/embed/XXXXX41"},
+    {descr:"Ottavi 2 - Ritorno", url:"https://www.youtube.com/embed/XXXXX42"},
+    {descr:"Ottavi 3 - Ritorno", url:"https://www.youtube.com/embed/XXXXX43"},
+    {descr:"Ottavi 4 - Ritorno", url:"https://www.youtube.com/embed/XXXXX44"},
+    {descr:"Ottavi 5 - Ritorno", url:"https://www.youtube.com/embed/XXXXX45"},
+    {descr:"Ottavi 6 - Ritorno", url:"https://www.youtube.com/embed/XXXXX46"},
+    {descr:"Ottavi 7 - Ritorno", url:"https://www.youtube.com/embed/XXXXX47"},
+    {descr:"Ottavi 8 - Ritorno", url:"https://www.youtube.com/embed/XXXXX48"}
+  ]},
+
+  {tipo: "Quarti - Andata", partite:[
+    {descr:"Quarti 1 - Andata", url:"https://www.youtube.com/embed/XXXXX49"},
+    {descr:"Quarti 2 - Andata", url:"https://www.youtube.com/embed/XXXXX50"},
+    {descr:"Quarti 3 - Andata", url:"https://www.youtube.com/embed/XXXXX51"},
+    {descr:"Quarti 4 - Andata", url:"https://www.youtube.com/embed/XXXXX52"}
+  ]},
+  {tipo: "Quarti - Ritorno", partite:[
+    {descr:"Quarti 1 - Ritorno", url:"https://www.youtube.com/embed/XXXXX53"},
+    {descr:"Quarti 2 - Ritorno", url:"https://www.youtube.com/embed/XXXXX54"},
+    {descr:"Quarti 3 - Ritorno", url:"https://www.youtube.com/embed/XXXXX55"},
+    {descr:"Quarti 4 - Ritorno", url:"https://www.youtube.com/embed/XXXXX56"}
+  ]},
+
+  {tipo: "Semifinali", partite:[
+    {descr:"Semifinale 1 - Andata", url:"https://www.youtube.com/embed/XXXXX57"},
+    {descr:"Semifinale 1 - Ritorno", url:"https://www.youtube.com/embed/XXXXX58"},
+    {descr:"Semifinale 2 - Andata", url:"https://www.youtube.com/embed/XXXXX59"},
+    {descr:"Semifinale 2 - Ritorno", url:"https://www.youtube.com/embed/XXXXX60"}
+  ]},
+
+  {tipo: "Finalissima", partite:[
+    {descr:"Finale - Andata", url:"https://www.youtube.com/embed/XXXXX61"},
+    {descr:"Finale - Ritorno", url:"https://www.youtube.com/embed/XXXXX62"}
+  ]}
+];
+
+const container = document.getElementById('video-container');
+
+videoData.forEach(sezione => {
+  const h2 = document.createElement('h2');
+  h2.textContent = sezione.tipo;
+  container.appendChild(h2);
+
+  const videoRow = document.createElement('div');
+  videoRow.className = 'video-row';
+
+  sezione.partite.forEach(v => {
+    const vc = document.createElement('div');
+    vc.className = 'video-container' + (sezione.tipo === "Finalissima" ? " finalissima" : "");
+    vc.innerHTML = `<iframe src="${v.url}" allowfullscreen title="${v.descr}"></iframe><span>${v.descr}</span>`;
+    videoRow.appendChild(vc);
+  });
+
+  container.appendChild(videoRow);
+});
+</script>
+
+</body>
+</html>
