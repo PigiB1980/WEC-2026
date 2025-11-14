@@ -1,145 +1,278 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WEC 2026 – Home</title>
-<style>
-  body {
-    font-family: "Segoe UI", Arial, sans-serif;
-    background-color: #0b0c10;
-    color: white;
-    margin: 0;
-    padding: 0;
-  }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WORLD ELIMINATION CUP 2026</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background-color: #0b0c10;
+      color: #ffffff;
+      background-image: url('images/field.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+    }
 
-  /* NAVBAR */
-  nav {
-    background-color: #1f2833;
-    padding: 20px 10px;
-    text-align: center;
-  }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: -1;
+    }
 
-  .top-buttons, .bottom-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
-    margin-bottom: 10px;
-  }
+    /* ===== HEADER ===== */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: linear-gradient(90deg, #004c99, #0099ff);
+      padding: 15px 80px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.4);
+    }
 
-  .nav-btn {
-    background-color: #45a29e;
-    color: #0b0c10;
-    padding: 12px 20px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: 0.2s;
-  }
+    header img {
+      height: 120px;
+      width: auto;
+      transition: transform 0.3s ease;
+      filter: drop-shadow(0 0 6px rgba(0,0,0,0.4));
+    }
 
-  .nav-btn:hover {
-    background-color: #66fcf1;
-  }
+    header img:hover {
+      transform: scale(1.05);
+    }
 
-  /* NEWS SECTION */
-  .container {
-    max-width: 900px;
-    margin: 30px auto;
-    padding: 20px;
-  }
+    header h1 {
+      flex: 1;
+      text-align: center;
+      font-size: 2.8em;
+      letter-spacing: 2px;
+      margin: 0;
+      color: #ffffff;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+    }
 
-  .welcome {
-    font-size: 1.4rem;
-    margin-bottom: 40px;
-  }
+    /* ===== NAVBAR A DUE RIGHE ===== */
+    nav {
+      background-color: #0e1118;
+      padding: 15px 0 5px;
+      box-shadow: inset 0 -2px 0 #00aaff;
+      text-align: center;
+    }
 
-  .news-section {
-    margin-top: 20px;
-  }
+    .nav-row {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
 
-  .news-title {
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-    font-weight: bold;
-    color: #66fcf1;
-  }
+    nav a, .dropbtn {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1em;
+      background: linear-gradient(180deg, #0099ff, #0066cc);
+      padding: 12px 22px;
+      border-radius: 30px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      white-space: nowrap;
+      border: none;
+      cursor: pointer;
+    }
 
-  /* Ultima news evidenziata */
-  .news-latest {
-    background-color: #1f2833;
-    padding: 20px;
-    border-left: 6px solid #66fcf1;
-    border-radius: 8px;
-    margin-bottom: 25px;
-  }
+    nav a:hover, .dropbtn:hover {
+      background: linear-gradient(180deg, #00c8ff, #0088ff);
+      transform: scale(1.05);
+      box-shadow: 0 6px 14px rgba(0, 170, 255, 0.5);
+    }
 
-  .news-latest h3 {
-    margin-top: 0;
-    color: #66fcf1;
-  }
+    /* ===== Dropdown Video ===== */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
 
-  /* News precedenti */
-  .news-item {
-    background-color: #1a1f25;
-    padding: 15px;
-    border-radius: 6px;
-    margin-bottom: 15px;
-    border-left: 4px solid #45a29e;
-  }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #0e1118;
+      min-width: 150px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+      border-radius: 10px;
+      z-index: 1000;
+      top: 100%;
+      left: 0;
+    }
 
-  .news-item h4 {
-    margin: 0 0 5px 0;
-    color: #45a29e;
-  }
+    .dropdown-content a {
+      color: white;
+      padding: 12px 20px;
+      text-decoration: none;
+      display: block;
+      font-weight: 500;
+    }
 
-</style>
+    .dropdown-content a:hover {
+      background-color: rgba(0,170,255,0.2);
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    /* ===== MAIN ===== */
+    main {
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    main h2 {
+      font-size: 1.8em;
+      color: #00aaff;
+      text-shadow: 0 0 10px rgba(0,0,0,0.6);
+    }
+
+    main p {
+      font-size: 1.1em;
+      color: #eeeeee;
+      max-width: 600px;
+      margin: 20px auto;
+      text-shadow: 0 0 8px rgba(0,0,0,0.5);
+    }
+
+    /* ===== NEWS ===== */
+    .news-section {
+      max-width: 800px;
+      margin: 30px auto 80px;
+      text-align: left;
+    }
+
+    .news-title {
+      font-size: 1.8em;
+      color: #00aaff;
+      text-shadow: 0 0 10px rgba(0,0,0,0.6);
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    .news-card {
+      background: rgba(0, 0, 0, 0.55);
+      border-left: 6px solid #00aaff;
+      padding: 18px 20px;
+      border-radius: 10px;
+      margin-bottom: 18px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    }
+
+    .news-card.latest {
+      background: rgba(0, 50, 80, 0.8);
+      border-left: 6px solid #00e0ff;
+      box-shadow: 0 6px 14px rgba(0,180,255,0.6);
+      transform: scale(1.02);
+    }
+
+    .news-date {
+      font-size: 0.9em;
+      opacity: 0.8;
+      margin-bottom: 5px;
+    }
+
+    .news-text {
+      font-size: 1.1em;
+      line-height: 1.4em;
+    }
+
+  </style>
 </head>
 <body>
+  <header>
+    <img src="images/logo.png" alt="Logo sinistra">
+    <h1>WORLD ELIMINATION CUP</h1>
+    <img src="images/logo.png" alt="Logo destra">
+  </header>
 
-<nav>
-  <!-- PRIMA RIGA -->
-  <div class="top-buttons">
-    <a href="squadre.html" class="nav-btn">Le Squadre</a>
-    <a href="regolamento.html" class="nav-btn">Regolamento</a>
-    <a href="fase6_videos.html" class="nav-btn">Video</a>
-  </div>
+  <!-- NAVBAR A DUE RIGHE + DROPDOWN -->
+  <nav>
 
-  <!-- SECONDA RIGA (FASI) -->
-  <div class="bottom-buttons">
-    <a href="fase1.html" class="nav-btn">1ª Fase</a>
-    <a href="fase2.html" class="nav-btn">2ª Fase</a>
-    <a href="fase3.html" class="nav-btn">3ª Fase</a>
-    <a href="fase4.html" class="nav-btn">4ª Fase</a>
-    <a href="fase5.html" class="nav-btn">5ª Fase</a>
-    <a href="fase6.html" class="nav-btn">6ª Fase</a>
-  </div>
-</nav>
+    <!-- PRIMA RIGA -->
+    <div class="nav-row">
+      <a href="squadre.html">Squadre</a>
+      <a href="regolamento.html">Regolamento</a>
 
-<div class="container">
-
-  <div class="welcome">
-    Benvenuto nel sito ufficiale del <strong>WEC 2026</strong>!  
-    Qui trovi squadre, regolamento, risultati di tutte le fasi e aggiornamenti in tempo reale.
-  </div>
-
-  <!-- SEZIONE NEWS -->
-  <div class="news-section">
-    <div class="news-title">📰 Ultime News</div>
-
-    <!-- ULTIMA NEWS -->
-    <div class="news-latest">
-      <h3>🔥 15 Novembre 2025 </h3>
-      <p>Grande attesa per l'inizio della WEC-2026
-      A breve ci sarà il sorteggio della 1° fase con la composizione dei primi 8 quadrangolari!</p>
+      <!-- Dropdown Video -->
+      <div class="dropdown">
+        <button class="dropbtn">I Video ▼</button>
+        <div class="dropdown-content">
+          <a href="fase1_videos.html">Fase 1</a>
+          <a href="fase2_videos.html">Fase 2</a>
+          <a href="fase3_videos.html">Fase 3</a>
+          <a href="fase4_videos.html">Fase 4</a>
+          <a href="fase5_videos.html">Fase 5</a>
+          <a href="fase6_videos.html">Fase 6</a>
+        </div>
+      </div>
     </div>
 
-    <!-- NEWS PRECEDENTI -->
-  
+    <!-- SECONDA RIGA -->
+    <div class="nav-row">
+      <a href="fase1.html">Fase 1</a>
+      <a href="fase2.html">Fase 2</a>
+      <a href="fase3.html">Fase 3</a>
+      <a href="fase4.html">Fase 4</a>
+      <a href="fase5.html">Fase 5</a>
+      <a href="fase6.html">Fase 6</a>
+    </div>
 
-  </div>
+  </nav>
 
-</div>
+  <main>
+    <h2>Benvenuto alla World Elimination Cup 2026</h2>
+    <p>
+      Il torneo mondiale più emozionante dell'anno è pronto a cominciare.<br>
+      Scopri le squadre, il regolamento e segui la corsa verso la gloria!
+    </p>
+
+    <!-- NEWS SECTION -->
+    <div class="news-section">
+      <div class="news-title">📰 Ultime News</div>
+
+      <div class="news-card latest">
+        <div class="news-date">15 Novembre 2025</div>
+        <div class="news-text">
+          Grande attesa per l'inizio della WEC-2026!!!
+          A breve il sorteggio della 1° fase e scopriremo, così, la composizione dei primi 8 quadrangolari!
+          State in attesa!
+        </div>
+      </div>
+
+      <div class="news-card">
+        <div class="news-date">8 Novembre 2025</div>
+        <div class="news-text">
+          Pubblicata la pagina dedicata ai video della <b>Fase 5</b>.
+        </div>
+      </div>
+
+      <div class="news-card">
+        <div class="news-date">2 Novembre 2025</div>
+        <div class="news-text">
+          Aggiornato il regolamento ufficiale con le nuove norme sulle sostituzioni.
+        </div>
+      </div>
+    </div>
+
+  </main>
 
 </body>
 </html>
