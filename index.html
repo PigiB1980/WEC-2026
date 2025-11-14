@@ -28,7 +28,6 @@
       z-index: -1;
     }
 
-    /* ===== HEADER ===== */
     header {
       display: flex;
       align-items: center;
@@ -59,7 +58,6 @@
       text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
     }
 
-    /* ===== NAVBAR A DUE RIGHE ===== */
     nav {
       background-color: #0e1118;
       padding: 15px 0 5px;
@@ -98,7 +96,6 @@
       box-shadow: 0 6px 14px rgba(0, 170, 255, 0.5);
     }
 
-    /* ===== Dropdown Video ===== */
     .dropdown {
       position: relative;
       display: inline-block;
@@ -132,7 +129,6 @@
       display: block;
     }
 
-    /* ===== MAIN ===== */
     main {
       text-align: center;
       padding: 60px 20px;
@@ -174,27 +170,32 @@
       border-radius: 10px;
       margin-bottom: 18px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .news-card.latest {
       background: rgba(0, 50, 80, 0.8);
       border-left: 6px solid #00e0ff;
       box-shadow: 0 6px 14px rgba(0,180,255,0.6);
-      transform: scale(1.02);
+      animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+      0% { box-shadow: 0 6px 14px rgba(0,180,255,0.6); transform: scale(1.02); }
+      100% { box-shadow: 0 10px 30px rgba(0,200,255,0.9); transform: scale(1.04); }
     }
 
     .news-date {
       font-size: 0.9em;
       opacity: 0.8;
       margin-bottom: 5px;
-      text-align: center; /* DATA CENTRATA */
+      text-align: center;
     }
 
     .news-text {
       font-size: 1.1em;
       line-height: 1.4em;
     }
-
   </style>
 </head>
 <body>
@@ -206,13 +207,9 @@
 
   <!-- NAVBAR A DUE RIGHE + DROPDOWN -->
   <nav>
-
-    <!-- PRIMA RIGA -->
     <div class="nav-row">
       <a href="squadre.html">Squadre</a>
       <a href="regolamento.html">Regolamento</a>
-
-      <!-- Dropdown Video -->
       <div class="dropdown">
         <button class="dropbtn">I Video ▼</button>
         <div class="dropdown-content">
@@ -225,8 +222,6 @@
         </div>
       </div>
     </div>
-
-    <!-- SECONDA RIGA -->
     <div class="nav-row">
       <a href="fase1.html">Fase 1</a>
       <a href="fase2.html">Fase 2</a>
@@ -235,7 +230,6 @@
       <a href="fase5.html">Fase 5</a>
       <a href="fase6.html">Fase 6</a>
     </div>
-
   </nav>
 
   <main>
@@ -245,7 +239,6 @@
       Scopri le squadre, il regolamento e segui la corsa verso la gloria!
     </p>
 
-    <!-- NEWS SECTION -->
     <div class="news-section">
       <div class="news-title">📰 Ultime News</div>
 
@@ -261,12 +254,11 @@
       <div class="news-card">
         <div class="news-date">1 Novembre 2025</div>
         <div class="news-text">
-          Creazione del sito, con le varie sezioni... in aggiornamento.
+          Creazione del sito, con le varie sezioni... in aggiornamento <b>Fase 5</b>.
         </div>
       </div>
-      
-    </div>
 
+    </div>
   </main>
 
 </body>
