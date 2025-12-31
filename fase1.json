@@ -3,8 +3,8 @@
     {
       "id": 1,
       "semifinali": [
-        { "squadra1": "TBD1", "squadra2": "TBD2", "andata": "", "ritorno": "" },
-        { "squadra1": "TBD3", "squadra2": "TBD4", "andata": "", "ritorno": "" }
+        { "squadra1": "Liechtenstein", "squadra2": "Cambogia", "andata": "", "ritorno": "" },
+        { "squadra1": "Lettonia", "squadra2": "Malaysia", "andata": "", "ritorno": "" }
       ],
       "finale": { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "" },
       "qualificata": ""
