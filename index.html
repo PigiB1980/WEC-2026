@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>WORLD ELIMINATION CUP 2026</title>
+
   <style>
     body {
       margin: 0;
@@ -20,11 +21,8 @@
     body::before {
       content: "";
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.6);
+      inset: 0;
+      background: rgba(0,0,0,0.6);
       z-index: -1;
     }
 
@@ -39,13 +37,7 @@
 
     header img {
       height: 120px;
-      width: auto;
-      transition: transform 0.3s ease;
       filter: drop-shadow(0 0 6px rgba(0,0,0,0.4));
-    }
-
-    header img:hover {
-      transform: scale(1.05);
     }
 
     header h1 {
@@ -54,7 +46,6 @@
       font-size: 2.8em;
       letter-spacing: 2px;
       margin: 0;
-      color: #ffffff;
       text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
     }
 
@@ -81,11 +72,10 @@
       background: linear-gradient(180deg, #0099ff, #0066cc);
       padding: 12px 22px;
       border-radius: 30px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
       transition: all 0.3s ease;
       text-transform: uppercase;
       letter-spacing: 1px;
-      white-space: nowrap;
       border: none;
       cursor: pointer;
     }
@@ -93,7 +83,7 @@
     nav a:hover, .dropbtn:hover {
       background: linear-gradient(180deg, #00c8ff, #0088ff);
       transform: scale(1.05);
-      box-shadow: 0 6px 14px rgba(0, 170, 255, 0.5);
+      box-shadow: 0 6px 14px rgba(0,170,255,0.5);
     }
 
     .dropdown {
@@ -106,23 +96,16 @@
       position: absolute;
       background-color: #0e1118;
       min-width: 150px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.5);
       border-radius: 10px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.5);
       z-index: 1000;
       top: 100%;
       left: 0;
     }
 
     .dropdown-content a {
-      color: white;
-      padding: 12px 20px;
-      text-decoration: none;
       display: block;
-      font-weight: 500;
-    }
-
-    .dropdown-content a:hover {
-      background-color: rgba(0,170,255,0.2);
+      padding: 12px 20px;
     }
 
     .dropdown:hover .dropdown-content {
@@ -142,158 +125,155 @@
 
     main p {
       font-size: 1.1em;
-      color: #eeeeee;
       max-width: 600px;
       margin: 20px auto;
       text-shadow: 0 0 8px rgba(0,0,0,0.5);
     }
 
     /* ===== NEWS ===== */
+
     .news-section {
       max-width: 800px;
       margin: 30px auto 80px;
       text-align: left;
     }
 
-    .news-title {
+    .news-section-title {
       font-size: 1.8em;
       color: #00aaff;
-      text-shadow: 0 0 10px rgba(0,0,0,0.6);
-      margin-bottom: 25px;
       text-align: center;
+      margin-bottom: 25px;
+      text-shadow: 0 0 10px rgba(0,0,0,0.6);
     }
 
     .news-card {
-      background: rgba(0, 0, 0, 0.55);
+      background: rgba(0,0,0,0.55);
       border-left: 6px solid #00aaff;
       padding: 18px 20px;
       border-radius: 10px;
       margin-bottom: 18px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .news-card.latest {
-      background: rgba(0, 50, 80, 0.8);
-      border-left: 6px solid #00e0ff;
+      background: rgba(0,50,80,0.8);
+      border-left-color: #00e0ff;
       box-shadow: 0 6px 14px rgba(0,180,255,0.6);
       animation: glow 2s infinite alternate;
     }
 
     @keyframes glow {
-      0% { box-shadow: 0 6px 14px rgba(0,180,255,0.6); transform: scale(1.02); }
-      100% { box-shadow: 0 10px 30px rgba(0,200,255,0.9); transform: scale(1.04); }
+      from { transform: scale(1.02); }
+      to   { transform: scale(1.04); }
     }
 
     .news-date {
       font-size: 0.9em;
-      opacity: 0.8;
-      margin-bottom: 5px;
+      opacity: 0.85;
       text-align: center;
+      margin-bottom: 6px;
     }
 
-    .news-title {
-  font-size: 20px;
-  font-weight: bold;
-  margin-bottom: 10px;
-  color: #00ffcc;
-}
+    .news-card-title {
+      font-size: 20px;
+      font-weight: bold;
+      color: #00ffcc;
+      margin-bottom: 10px;
+    }
 
-.news-text {
-  line-height: 1.6;
-}
-
+    .news-text {
+      line-height: 1.6;
+    }
   </style>
 </head>
+
 <body>
-  <header>
-    <img src="images/logo.png" alt="Logo sinistra">
-    <h1>WORLD ELIMINATION CUP</h1>
-    <img src="images/logo.png" alt="Logo destra">
-  </header>
 
-  <!-- NAVBAR A DUE RIGHE + DROPDOWN -->
-  <nav>
-    <div class="nav-row">
-      <a href="squadre.html">Squadre</a>
-      <a href="regolamento.html">Regolamento</a>
-      <div class="dropdown">
-        <button class="dropbtn">I Video ▼</button>
-        <div class="dropdown-content">
-          <a href="fase1_videos.html">Fase 1</a>
-          <a href="fase2_videos.html">Fase 2</a>
-          <a href="fase3_videos.html">Fase 3</a>
-          <a href="fase4_videos.html">Fase 4</a>
-          <a href="fase5_videos.html">Fase 5</a>
-          <a href="fase6_videos.html">Fase 6</a>
-        </div>
+<header>
+  <img src="images/logo.png" alt="Logo sinistra">
+  <h1>WORLD ELIMINATION CUP</h1>
+  <img src="images/logo.png" alt="Logo destra">
+</header>
+
+<nav>
+  <div class="nav-row">
+    <a href="squadre.html">Squadre</a>
+    <a href="regolamento.html">Regolamento</a>
+    <div class="dropdown">
+      <button class="dropbtn">I Video ▼</button>
+      <div class="dropdown-content">
+        <a href="fase1_videos.html">Fase 1</a>
+        <a href="fase2_videos.html">Fase 2</a>
+        <a href="fase3_videos.html">Fase 3</a>
+        <a href="fase4_videos.html">Fase 4</a>
+        <a href="fase5_videos.html">Fase 5</a>
+        <a href="fase6_videos.html">Fase 6</a>
       </div>
     </div>
-    <div class="nav-row">
-      <a href="fase1.html">Fase 1</a>
-      <a href="fase2.html">Fase 2</a>
-      <a href="fase3.html">Fase 3</a>
-      <a href="fase4.html">Fase 4</a>
-      <a href="fase5.html">Fase 5</a>
-      <a href="fase6.html">Fase 6</a>
-    </div>
-  </nav>
-
-  <main>
-    <h2>Benvenuto alla World Elimination Cup 2026</h2>
-    <p>
-      Il torneo mondiale più emozionante dell'anno è pronto a cominciare.<br>
-      Scopri le squadre, il regolamento e segui la corsa verso la gloria!
-    </p>
-
-    <div class="news-section">
-      <div class="news-title">📰 Ultime News</div>
-
-      <div class="news-card latest">
-  <div class="news-date"><b>1 Gennaio 2026</b></div>
-
-  <div class="news-title">
-    🔹 Quadrangolare 1 – Europee sotto tono
   </div>
 
-  <div class="news-text">
-    Nel Q1 deludono le nazionali europee. Il Liechtenstein domina il gioco
-    ma non va oltre un risicato 1-0 contro una Cambogia ordinata e combattiva.
-    A decidere l’incontro è Yanik Frick, autore del primo gol ufficiale del torneo.<br><br>
-    Clamoroso invece a Riga, dove la Lettonia viene travolta 0-3 da una sorprendente
-    Malaysia, che mette una seria ipoteca sulla qualificazione.
+  <div class="nav-row">
+    <a href="fase1.html">Fase 1</a>
+    <a href="fase2.html">Fase 2</a>
+    <a href="fase3.html">Fase 3</a>
+    <a href="fase4.html">Fase 4</a>
+    <a href="fase5.html">Fase 5</a>
+    <a href="fase6.html">Fase 6</a>
   </div>
-</div>
-      
-      <div class="news-card">
-        <div class="news-date"><b>30 Dicembre 2025</b></div>
-        <div class="news-text">
-          Effettuato il sorteggio degli 8 quadrangolari della 1° Fase! Abbiamo, dunque, l'elenco delle prime partite del torneo che partirà il 1° Gennaio.
-          Tra le sfide più attese c'è quella di San Marino che affronterà l'Afghanistan (andata in trasferta), Gibilterra se la vedrà con la Corea del Nord, mentre le isole Far oer affronteranno il Tajikistan!
-          32 squadre: 9 europee, 20 asiatiche, 2 africane e 1 caraibica
-          Quali saranno le 8 nazionali che passeranno alla Fase 2?
-          Dal 1° gennaio COMINCIA LA SFIDA!
-        </div>
-      </div>
-      
-      <div class="news-card">
-        <div class="news-date"><b>15 Novembre 2025</b></div>
-        <div class="news-text">
-          Grande attesa per l'inizio della WEC-2026!!!
-          A breve il sorteggio della 1° fase e scopriremo, così, la composizione dei primi 8 quadrangolari!
-          State in attesa!
-        </div>
-      </div>
+</nav>
 
-      <div class="news-card">
-        <div class="news-date"><b>1 Novembre 2025</b></div>
-        <div class="news-text">
-          Creazione del sito, con le varie sezioni... in aggiornamento.
-        </div>
-      </div>
+<main>
+  <h2>Benvenuto alla World Elimination Cup 2026</h2>
+  <p>
+    Il torneo mondiale più emozionante dell'anno è pronto a cominciare.<br>
+    Scopri le squadre, il regolamento e segui la corsa verso la gloria!
+  </p>
 
+  <div class="news-section">
+    <div class="news-section-title">📰 Ultime News</div>
+
+    <div class="news-card latest">
+      <div class="news-date"><b>1 Gennaio 2026</b></div>
+      <div class="news-card-title">🔹 Quadrangolare 1 – Europee sotto tono</div>
+      <div class="news-text">
+        Nel Q1 deludono le nazionali europee. Il Liechtenstein domina il gioco
+        ma non va oltre un risicato 1-0 contro una Cambogia ordinata e combattiva.
+        A decidere l’incontro è Yanik Frick, autore del primo gol ufficiale del torneo.<br><br>
+        Clamoroso invece a Riga, dove la Lettonia viene travolta 0-3 da una sorprendente
+        Malaysia, che mette una seria ipoteca sulla qualificazione.
+      </div>
     </div>
-  </main>
+
+    <div class="news-card">
+      <div class="news-date"><b>30 Dicembre 2025</b></div>
+      <div class="news-text">
+        Effettuato il sorteggio degli 8 quadrangolari della 1° Fase! Abbiamo, dunque, l'elenco delle prime partite del torneo che partirà il 1° Gennaio.
+        Tra le sfide più attese c'è quella di San Marino che affronterà l'Afghanistan (andata in trasferta), Gibilterra se la vedrà con la Corea del Nord,
+        mentre le isole Far oer affronteranno il Tajikistan!
+        32 squadre: 9 europee, 20 asiatiche, 2 africane e 1 caraibica
+        Quali saranno le 8 nazionali che passeranno alla Fase 2?
+        Dal 1° gennaio COMINCIA LA SFIDA!
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-date"><b>15 Novembre 2025</b></div>
+      <div class="news-text">
+        Grande attesa per l'inizio della WEC-2026!!!
+        A breve il sorteggio della 1° fase e scopriremo, così, la composizione dei primi 8 quadrangolari!
+        State in attesa!
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-date"><b>1 Novembre 2025</b></div>
+      <div class="news-text">
+        Creazione del sito, con le varie sezioni... in aggiornamento.
+      </div>
+    </div>
+
+  </div>
+</main>
 
 </body>
 </html>
