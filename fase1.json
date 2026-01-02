@@ -13,7 +13,7 @@
       "id": 2,
       "semifinali": [
         { "squadra1": "Malta", "squadra2": "Palestina", "andata": "3-3", "ritorno": "" },
-        { "squadra1": "India", "squadra2": "Filippine", "andata": "", "ritorno": "" }
+        { "squadra1": "India", "squadra2": "Filippine", "andata": "0-1", "ritorno": "" }
       ],
       "finale": { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "" },
       "qualificata": ""
