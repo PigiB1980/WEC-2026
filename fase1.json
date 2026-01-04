@@ -39,7 +39,7 @@
     {
       "id": 5,
       "semifinali": [
-        { "squadra1": "Myanmar", "squadra2": "Bahrein", "andata": "", "ritorno": "" },
+        { "squadra1": "Myanmar", "squadra2": "Bahrein", "andata": "1-3", "ritorno": "" },
         { "squadra1": "Kuwait", "squadra2": "El Salvador", "andata": "", "ritorno": "" }
       ],
       "finale": { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "" },
