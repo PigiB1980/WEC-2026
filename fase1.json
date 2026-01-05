@@ -40,7 +40,7 @@
       "id": 5,
       "semifinali": [
         { "squadra1": "Myanmar", "squadra2": "Bahrein", "andata": "1-3", "ritorno": "" },
-        { "squadra1": "Kuwait", "squadra2": "El Salvador", "andata": "", "ritorno": "" }
+        { "squadra1": "Kuwait", "squadra2": "El Salvador", "andata": "2-1", "ritorno": "" }
       ],
       "finale": { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "" },
       "qualificata": ""
@@ -48,8 +48,8 @@
     {
       "id": 6,
       "semifinali": [
-        { "squadra1": "Singapore", "squadra2": "Andorra", "andata": "", "ritorno": "" },
-        { "squadra1": "Pakistan", "squadra2": "Tanzania", "andata": "", "ritorno": "" }
+        { "squadra1": "Singapore", "squadra2": "Andorra", "andata": "2-0", "ritorno": "" },
+        { "squadra1": "Pakistan", "squadra2": "Tanzania", "andata": "2-1", "ritorno": "" }
       ],
       "finale": { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "" },
       "qualificata": ""
@@ -57,7 +57,7 @@
     {
       "id": 7,
       "semifinali": [
-        { "squadra1": "Thailandia", "squadra2": "Vietnam", "andata": "", "ritorno": "" },
+        { "squadra1": "Thailandia", "squadra2": "Vietnam", "andata": "2-2", "ritorno": "" },
         { "squadra1": "Lituania", "squadra2": "Nepal", "andata": "", "ritorno": "" }
       ],
       "finale": { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "" },
