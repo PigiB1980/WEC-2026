@@ -138,6 +138,31 @@
     .fase5 .grid {
       grid-template-columns: repeat(7, 1fr);
     }
+
+    .team {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+/* Squadra eliminata */
+.team.eliminata {
+  opacity: 0.45;
+  filter: grayscale(100%);
+}
+
+/* X sopra la squadra */
+.team.eliminata::after {
+  content: "✖";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 60px;
+  font-weight: bold;
+  color: rgba(255, 0, 0, 0.7);
+  pointer-events: none;
+}
+
   </style>
 </head>
 <body>
