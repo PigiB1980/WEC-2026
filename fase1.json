@@ -3,10 +3,10 @@
     {
       "id": 1,
       "semifinali": [
-        { "squadra1": "Liechtenstein", "squadra2": "Cambogia", "andata": "1-0", "ritorno": "" },
+        { "squadra1": "Liechtenstein", "squadra2": "Cambogia", "andata": "1-0", "ritorno": "1-0" },
         { "squadra1": "Lettonia", "squadra2": "Malaysia", "andata": "0-3", "ritorno": "" }
       ],
-      "finale": { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "" },
+      "finale": { "Liechtenstein": "", "squadra2": "", "andata": "", "ritorno": "" },
       "qualificata": ""
     },
     {
