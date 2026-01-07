@@ -66,8 +66,8 @@
     {
       "id": 8,
       "semifinali": [
-        { "squadra1": "Oman", "squadra2": "Libano", "andata": "", "ritorno": "" },
-        { "squadra1": "Far Oer", "squadra2": "Tajikistan", "andata": "", "ritorno": "" }
+        { "squadra1": "Oman", "squadra2": "Libano", "andata": "1-0", "ritorno": "" },
+        { "squadra1": "Far Oer", "squadra2": "Tajikistan", "andata": "4-1", "ritorno": "" }
       ],
       "finale": { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "" },
       "qualificata": ""
