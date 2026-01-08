@@ -21,7 +21,7 @@
     {
       "id": 3,
       "semifinali": [
-        { "squadra1": "Afghanistan", "squadra2": "San Marino", "andata": "0-4", "ritorno": "" },
+        { "squadra1": "Afghanistan", "squadra2": "San Marino", "andata": "0-4", "ritorno": "2-1" },
         { "squadra1": "Estonia", "squadra2": "Indonesia", "andata": "4-1", "ritorno": "" }
       ],
       "finale": { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "" },
