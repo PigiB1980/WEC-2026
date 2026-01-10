@@ -22,27 +22,27 @@
       "id": 3,
       "semifinali": [
         { "squadra1": "Afghanistan", "squadra2": "San Marino", "andata": "0-4", "ritorno": "2-1" },
-        { "squadra1": "Estonia", "squadra2": "Indonesia", "andata": "4-1", "ritorno": "" }
+        { "squadra1": "Estonia", "squadra2": "Indonesia", "andata": "4-1", "ritorno": "2-4" }
       ],
-      "finale": { "squadra1": "San Marino", "squadra2": "", "andata": "", "ritorno": "" },
+      "finale": { "squadra1": "San Marino", "squadra2": "Estonia", "andata": "", "ritorno": "" },
       "qualificata": ""
     },
     {
       "id": 4,
       "semifinali": [
-        { "squadra1": "Bangladesh", "squadra2": "Madagascar", "andata": "1-5", "ritorno": "" },
-        { "squadra1": "Gibilterra", "squadra2": "Corea del Nord", "andata": "2-4", "ritorno": "" }
+        { "squadra1": "Bangladesh", "squadra2": "Madagascar", "andata": "1-5", "ritorno": "3-4" },
+        { "squadra1": "Gibilterra", "squadra2": "Corea del Nord", "andata": "2-4", "ritorno": "0-3" }
       ],
-      "finale": { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "" },
+      "finale": { "squadra1": "Madagascar", "squadra2": "Corea del Nord", "andata": "", "ritorno": "" },
       "qualificata": ""
     },
     {
       "id": 5,
       "semifinali": [
-        { "squadra1": "Myanmar", "squadra2": "Bahrein", "andata": "1-3", "ritorno": "" },
+        { "squadra1": "Myanmar", "squadra2": "Bahrein", "andata": "1-3", "ritorno": "2-4" },
         { "squadra1": "Kuwait", "squadra2": "El Salvador", "andata": "2-1", "ritorno": "" }
       ],
-      "finale": { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "" },
+      "finale": { "squadra1": "Bahrein", "squadra2": "", "andata": "", "ritorno": "" },
       "qualificata": ""
     },
     {
