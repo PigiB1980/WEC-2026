@@ -48,10 +48,10 @@
     {
       "id": 6,
       "semifinali": [
-        { "squadra1": "Singapore", "squadra2": "Andorra", "andata": "2-0", "ritorno": "" },
+        { "squadra1": "Singapore", "squadra2": "Andorra", "andata": "2-0", "ritorno": "3-3" },
         { "squadra1": "Pakistan", "squadra2": "Tanzania", "andata": "2-1", "ritorno": "" }
       ],
-      "finale": { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "" },
+      "finale": { "squadra1": "Singapore", "squadra2": "", "andata": "", "ritorno": "" },
       "qualificata": ""
     },
     {
