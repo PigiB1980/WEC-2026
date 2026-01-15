@@ -6,7 +6,7 @@
         { "squadra1": "Liechtenstein", "squadra2": "Cambogia", "andata": "1-0", "ritorno": "1-0" },
         { "squadra1": "Lettonia", "squadra2": "Malaysia", "andata": "0-3", "ritorno": "2-2" }
       ],
-      "finale": { "squadra1": "Liechtenstein", "squadra2": "Malaysia", "andata": "", "ritorno": "" },
+      "finale": { "squadra1": "Liechtenstein", "squadra2": "Malaysia", "andata": "1-2", "ritorno": "" },
       "qualificata": ""
     },
     {
@@ -15,7 +15,7 @@
         { "squadra1": "Malta", "squadra2": "Palestina", "andata": "3-3", "ritorno": "3-0" },
         { "squadra1": "India", "squadra2": "Filippine", "andata": "0-1", "ritorno": "2-1" }
       ],
-      "finale": { "squadra1": "Malta", "squadra2": "India", "andata": "", "ritorno": "" },
+      "finale": { "squadra1": "Malta", "squadra2": "India", "andata": "3-2", "ritorno": "" },
       "qualificata": ""
     },
     {
@@ -24,7 +24,7 @@
         { "squadra1": "Afghanistan", "squadra2": "San Marino", "andata": "0-4", "ritorno": "2-1" },
         { "squadra1": "Estonia", "squadra2": "Indonesia", "andata": "4-1", "ritorno": "2-4" }
       ],
-      "finale": { "squadra1": "San Marino", "squadra2": "Estonia", "andata": "", "ritorno": "" },
+      "finale": { "squadra1": "San Marino", "squadra2": "Estonia", "andata": "1-0", "ritorno": "" },
       "qualificata": ""
     },
     {
