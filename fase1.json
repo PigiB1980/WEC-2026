@@ -33,7 +33,7 @@
         { "squadra1": "Bangladesh", "squadra2": "Madagascar", "andata": "1-5", "ritorno": "3-4" },
         { "squadra1": "Gibilterra", "squadra2": "Corea del Nord", "andata": "2-4", "ritorno": "0-3" }
       ],
-      "finale": { "squadra1": "Madagascar", "squadra2": "Corea del Nord", "andata": "", "ritorno": "" },
+      "finale": { "squadra1": "Madagascar", "squadra2": "Corea del Nord", "andata": "3-2", "ritorno": "" },
       "qualificata": ""
     },
     {
@@ -42,7 +42,7 @@
         { "squadra1": "Myanmar", "squadra2": "Bahrein", "andata": "1-3", "ritorno": "2-4" },
         { "squadra1": "Kuwait", "squadra2": "El Salvador", "andata": "2-1", "ritorno": "2-0" }
       ],
-      "finale": { "squadra1": "Bahrein", "squadra2": "Kuwait", "andata": "", "ritorno": "" },
+      "finale": { "squadra1": "Bahrein", "squadra2": "Kuwait", "andata": "2-2", "ritorno": "" },
       "qualificata": ""
     },
     {
