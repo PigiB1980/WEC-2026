@@ -157,8 +157,7 @@ videoData.forEach(q => {
   q.partite.forEach(v => {
     const vc = document.createElement('div');
     vc.className = 'video-container';
-    vc.innerHTML = `<iframe src="${v.url}" loading="lazy" allowfullscreen title="${v.descr}"></iframe>
-                <span>${v.descr}</span>`;
+    vc.innerHTML = `<iframe src="${v.url}" allowfullscreen title="${v.descr}"></iframe><span>${v.descr}</span>`;
     videoRow.appendChild(vc);
   });
 
