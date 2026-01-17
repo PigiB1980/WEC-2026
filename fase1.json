@@ -15,8 +15,8 @@
         { "squadra1": "Malta", "squadra2": "Palestina", "andata": "3-3", "ritorno": "3-0" },
         { "squadra1": "India", "squadra2": "Filippine", "andata": "0-1", "ritorno": "2-1" }
       ],
-      "finale": { "squadra1": "Malta", "squadra2": "India", "andata": "3-2", "ritorno": "" },
-      "qualificata": ""
+      "finale": { "squadra1": "Malta", "squadra2": "India", "andata": "3-2", "ritorno": "2-0" },
+      "qualificata": "Malta"
     },
     {
       "id": 3,
