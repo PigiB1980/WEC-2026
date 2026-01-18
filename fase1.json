@@ -24,8 +24,8 @@
         { "squadra1": "Afghanistan", "squadra2": "San Marino", "andata": "0-4", "ritorno": "2-1" },
         { "squadra1": "Estonia", "squadra2": "Indonesia", "andata": "4-1", "ritorno": "2-4" }
       ],
-      "finale": { "squadra1": "San Marino", "squadra2": "Estonia", "andata": "1-0", "ritorno": "" },
-      "qualificata": ""
+      "finale": { "squadra1": "San Marino", "squadra2": "Estonia", "andata": "1-0", "ritorno": "0-3" },
+      "qualificata": "Estonia"
     },
     {
       "id": 4,
@@ -33,8 +33,8 @@
         { "squadra1": "Bangladesh", "squadra2": "Madagascar", "andata": "1-5", "ritorno": "3-4" },
         { "squadra1": "Gibilterra", "squadra2": "Corea del Nord", "andata": "2-4", "ritorno": "0-3" }
       ],
-      "finale": { "squadra1": "Madagascar", "squadra2": "Corea del Nord", "andata": "3-2", "ritorno": "" },
-      "qualificata": ""
+      "finale": { "squadra1": "Madagascar", "squadra2": "Corea del Nord", "andata": "3-2", "ritorno": "1-1" },
+      "qualificata": "Madagascar"
     },
     {
       "id": 5,
