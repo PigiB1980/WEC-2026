@@ -60,8 +60,8 @@
         { "squadra1": "Thailandia", "squadra2": "Vietnam", "andata": "2-2", "ritorno": "1-3" },
         { "squadra1": "Lituania", "squadra2": "Nepal", "andata": "2-0", "ritorno": "4-2" }
       ],
-      "finale": { "squadra1": "Vietnam", "squadra2": "Lituania", "andata": "1-6", "ritorno": "" },
-      "qualificata": ""
+      "finale": { "squadra1": "Vietnam", "squadra2": "Lituania", "andata": "1-6", "ritorno": "3-4" },
+      "qualificata": "LITUANIA"
     },
     {
       "id": 8,
