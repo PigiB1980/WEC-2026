@@ -263,6 +263,9 @@ header h1 .year {
         Panama,Azerbaijan,Lussemburgo,Iraq,Giordania,Moldavia,Togo,Uganda,Trinidad & T.,Haiti,Liechtenstein,Malta,Estonia,Madagascar,Kuwait,Tanzania,Lituania,Oman.
       </div>
     </div>
+
+     <button type="button" class="collapsible">Notizie Fase 1</button>
+    <div class="content">
     
      <div class="news-card">
     
@@ -556,6 +559,19 @@ Nell’altra semifinale, colpo esterno delle Filippine, che espugnano Nuova Delh
 
   </div>
 </main>
-
+<script>
+  const coll = document.querySelectorAll(".collapsible");
+  coll.forEach(btn => {
+    btn.addEventListener("click", function() {
+      this.classList.toggle("active");
+      const content = this.nextElementSibling;
+      if (content.style.display === "block") {
+        content.style.display = "none";
+      } else {
+        content.style.display = "block";
+      }
+    });
+  });
+</script>
 </body>
 </html>
