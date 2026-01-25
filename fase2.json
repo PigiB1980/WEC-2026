@@ -3,7 +3,7 @@
     {
       "id": 1,
       "semifinali": [
-        { "squadra1": "Lussemburgo", "squadra2": "Moldavia", "andata": "", "ritorno": "" },
+        { "squadra1": "Lussemburgo", "squadra2": "Moldavia", "andata": "2-1", "ritorno": "" },
         { "squadra1": "Madagascar", "squadra2": "Haiti", "andata": "", "ritorno": "" }
       ],
       "finale": { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "" },
