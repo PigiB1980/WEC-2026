@@ -12,8 +12,8 @@
     {
       "id": 2,
       "semifinali": [
-        { "squadra1": "Malta", "squadra2": "Siria", "andata": "", "ritorno": "" },
-        { "squadra1": "Honduras", "squadra2": "Azerbaijan", "andata": "", "ritorno": "" }
+        { "squadra1": "Malta", "squadra2": "Siria", "andata": "2-3", "ritorno": "" },
+        { "squadra1": "Honduras", "squadra2": "Azerbaijan", "andata": "3-1", "ritorno": "" }
       ],
       "finale": { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "" },
       "qualificata": ""
@@ -21,7 +21,7 @@
     {
       "id": 3,
       "semifinali": [
-        { "squadra1": "Zimbabwe", "squadra2": "Giordania", "andata": "", "ritorno": "" },
+        { "squadra1": "Zimbabwe", "squadra2": "Giordania", "andata": "1-2", "ritorno": "" },
         { "squadra1": "Uganda", "squadra2": "Benin", "andata": "", "ritorno": "" }
       ],
       "finale": { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "" },
