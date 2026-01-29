@@ -48,7 +48,7 @@
     {
       "id": 6,
       "semifinali": [
-        { "squadra1": "Iraq", "squadra2": "Sudafrica", "andata": "", "ritorno": "" },
+        { "squadra1": "Iraq", "squadra2": "Sudafrica", "andata": "2-2", "ritorno": "" },
         { "squadra1": "Togo", "squadra2": "Cipro", "andata": "", "ritorno": "" }
       ],
       "finale": { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "" },
