@@ -66,8 +66,8 @@
     {
       "id": 8,
       "semifinali": [
-        { "squadra1": "Trinidad & T.", "squadra2": "Kuwait", "andata": "", "ritorno": "" },
-        { "squadra1": "Zambia", "squadra2": "Bulgaria", "andata": "", "ritorno": "" }
+        { "squadra1": "Trinidad & T.", "squadra2": "Kuwait", "andata": "1-3", "ritorno": "" },
+        { "squadra1": "Zambia", "squadra2": "Bulgaria", "andata": "2-2", "ritorno": "" }
       ],
       "finale": { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "" },
       "qualificata": ""
