@@ -22,9 +22,9 @@
       "id": 3,
       "semifinali": [
         { "squadra1": "Zimbabwe", "squadra2": "Giordania", "andata": "1-2", "ritorno": "2-6" },
-        { "squadra1": "Uganda", "squadra2": "Benin", "andata": "0-2", "ritorno": "" }
+        { "squadra1": "Uganda", "squadra2": "Benin", "andata": "0-2", "ritorno": "2-2" }
       ],
-      "finale": { "squadra1": "Giordania", "squadra2": "", "andata": "", "ritorno": "" },
+      "finale": { "squadra1": "Giordania", "squadra2": "Benin", "andata": "", "ritorno": "" },
       "qualificata": ""
     },
     {
