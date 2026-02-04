@@ -39,10 +39,10 @@
     {
       "id": 5,
       "semifinali": [
-        { "squadra1": "Kazakistan", "squadra2": "Nuova Zelanda", "andata": "1-0", "ritorno": "" },
-        { "squadra1": "Estonia", "squadra2": "Kenya", "andata": "3-3", "ritorno": "" }
+        { "squadra1": "Kazakistan", "squadra2": "Nuova Zelanda", "andata": "1-0", "ritorno": "3-3" },
+        { "squadra1": "Estonia", "squadra2": "Kenya", "andata": "3-3", "ritorno": "3-4 dts" }
       ],
-      "finale": { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "" },
+      "finale": { "squadra1": "Kazakistan", "squadra2": "Kenya", "andata": "", "ritorno": "" },
       "qualificata": ""
     },
     {
