@@ -48,19 +48,19 @@
     {
       "id": 6,
       "semifinali": [
-        { "squadra1": "Iraq", "squadra2": "Sudafrica", "andata": "2-2", "ritorno": "" },
-        { "squadra1": "Togo", "squadra2": "Cipro", "andata": "1-1", "ritorno": "" }
+        { "squadra1": "Iraq", "squadra2": "Sudafrica", "andata": "2-2", "ritorno": "1-4" },
+        { "squadra1": "Togo", "squadra2": "Cipro", "andata": "1-1", "ritorno": "0-2" }
       ],
-      "finale": { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "" },
+      "finale": { "squadra1": "Sudafrica", "squadra2": "Cipro", "andata": "", "ritorno": "" },
       "qualificata": ""
     },
     {
       "id": 7,
       "semifinali": [
-        { "squadra1": "Tanzania", "squadra2": "Congo", "andata": "2-1", "ritorno": "" },
+        { "squadra1": "Tanzania", "squadra2": "Congo", "andata": "2-1", "ritorno": "0-1" },
         { "squadra1": "Bolivia", "squadra2": "Oman", "andata": "3-2", "ritorno": "" }
       ],
-      "finale": { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "" },
+      "finale": { "squadra1": "Congo", "squadra2": "", "andata": "", "ritorno": "" },
       "qualificata": ""
     },
     {
