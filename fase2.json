@@ -58,9 +58,9 @@
       "id": 7,
       "semifinali": [
         { "squadra1": "Tanzania", "squadra2": "Congo", "andata": "2-1", "ritorno": "0-1" },
-        { "squadra1": "Bolivia", "squadra2": "Oman", "andata": "3-2", "ritorno": "" }
+        { "squadra1": "Bolivia", "squadra2": "Oman", "andata": "3-2", "ritorno": "0-1" }
       ],
-      "finale": { "squadra1": "Congo", "squadra2": "", "andata": "", "ritorno": "" },
+      "finale": { "squadra1": "Congo", "squadra2": "Oman", "andata": "", "ritorno": "" },
       "qualificata": ""
     },
     {
