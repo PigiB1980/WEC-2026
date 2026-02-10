@@ -6,7 +6,7 @@
         { "squadra1": "Lussemburgo", "squadra2": "Moldavia", "andata": "2-1", "ritorno": "1-3 dts" },
         { "squadra1": "Madagascar", "squadra2": "Haiti", "andata": "4-3", "ritorno": "3-1" }
       ],
-      "finale": { "squadra1": "Moldavia", "squadra2": "Madagascar", "andata": "", "ritorno": "" },
+      "finale": { "squadra1": "Moldavia", "squadra2": "Madagascar", "andata": "2-1", "ritorno": "" },
       "qualificata": ""
     },
     {
@@ -15,7 +15,7 @@
         { "squadra1": "Malta", "squadra2": "Siria", "andata": "2-3", "ritorno": "1-1" },
         { "squadra1": "Honduras", "squadra2": "Azerbaijan", "andata": "3-1", "ritorno": "2-1" }
       ],
-      "finale": { "squadra1": "Siria", "squadra2": "Honduras", "andata": "", "ritorno": "" },
+      "finale": { "squadra1": "Siria", "squadra2": "Honduras", "andata": "1-2", "ritorno": "" },
       "qualificata": ""
     },
     {
