@@ -15,8 +15,8 @@
         { "squadra1": "Malta", "squadra2": "Siria", "andata": "2-3", "ritorno": "1-1" },
         { "squadra1": "Honduras", "squadra2": "Azerbaijan", "andata": "3-1", "ritorno": "2-1" }
       ],
-      "finale": { "squadra1": "Siria", "squadra2": "Honduras", "andata": "1-2", "ritorno": "" },
-      "qualificata": ""
+      "finale": { "squadra1": "Siria", "squadra2": "Honduras", "andata": "1-2", "ritorno": "0-3" },
+      "qualificata": "Honduras"
     },
     {
       "id": 3,
