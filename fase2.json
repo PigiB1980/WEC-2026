@@ -42,8 +42,8 @@
         { "squadra1": "Kazakistan", "squadra2": "Nuova Zelanda", "andata": "1-0", "ritorno": "3-3" },
         { "squadra1": "Estonia", "squadra2": "Kenya", "andata": "3-3", "ritorno": "3-4 dts" }
       ],
-      "finale": { "squadra1": "Kazakistan", "squadra2": "Kenya", "andata": "2-0", "ritorno": "" },
-      "qualificata": ""
+      "finale": { "squadra1": "Kazakistan", "squadra2": "Kenya", "andata": "2-0", "ritorno": "3-3" },
+      "qualificata": "KAZAKISTAN"
     },
     {
       "id": 6,
@@ -51,8 +51,8 @@
         { "squadra1": "Iraq", "squadra2": "Sudafrica", "andata": "2-2", "ritorno": "1-4" },
         { "squadra1": "Togo", "squadra2": "Cipro", "andata": "1-1", "ritorno": "0-2" }
       ],
-      "finale": { "squadra1": "Sudafrica", "squadra2": "Cipro", "andata": "4-0", "ritorno": "" },
-      "qualificata": ""
+      "finale": { "squadra1": "Sudafrica", "squadra2": "Cipro", "andata": "4-0", "ritorno": "1-1" },
+      "qualificata": "SUDAFRICA"
     },
     {
       "id": 7,
