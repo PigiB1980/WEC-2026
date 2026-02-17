@@ -3,8 +3,8 @@
     {
       "id": 1,
       "semifinali": [
-        { "squadra1": "TBD1", "squadra2": "TBD2", "andata": "-", "ritorno": "-" },
-        { "squadra1": "TBD3", "squadra2": "TBD4", "andata": "-", "ritorno": "-" }
+        { "squadra1": "Cina", "squadra2": "Sudafrica", "andata": "-", "ritorno": "-" },
+        { "squadra1": "Honduras", "squadra2": "Bielorussia", "andata": "-", "ritorno": "-" }
       ],
       "finale": { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "" },
       "qualificata": ""
@@ -12,8 +12,8 @@
     {
       "id": 2,
       "semifinali": [
-        { "squadra1": "TBD5", "squadra2": "TBD6", "andata": "-", "ritorno": "-" },
-        { "squadra1": "TBD7", "squadra2": "TBD8", "andata": "-", "ritorno": "-" }
+        { "squadra1": "Irlanda", "squadra2": "Georgia", "andata": "-", "ritorno": "-" },
+        { "squadra1": "Curaçao", "squadra2": "Uzbekistan", "andata": "-", "ritorno": "-" }
       ],
       "finale": { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "" },
       "qualificata": ""
@@ -21,8 +21,8 @@
     {
       "id": 3,
       "semifinali": [
-        { "squadra1": "TBD9", "squadra2": "TBD10", "andata": "-", "ritorno": "-" },
-        { "squadra1": "TBD11", "squadra2": "TBD12", "andata": "-", "ritorno": "-" }
+        { "squadra1": "Giamaica", "squadra2": "Congo", "andata": "-", "ritorno": "-" },
+        { "squadra1": "Costarica", "squadra2": "Islanda", "andata": "-", "ritorno": "-" }
       ],
       "finale": { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "" },
       "qualificata": ""
@@ -30,8 +30,8 @@
     {
       "id": 4,
       "semifinali": [
-        { "squadra1": "TBD13", "squadra2": "TBD14", "andata": "-", "ritorno": "-" },
-        { "squadra1": "TBD15", "squadra2": "TBD16", "andata": "-", "ritorno": "-" }
+        { "squadra1": "Kazakistan", "squadra2": "Burkina Faso", "andata": "-", "ritorno": "-" },
+        { "squadra1": "Qatar", "squadra2": "Panama", "andata": "-", "ritorno": "-" }
       ],
       "finale": { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "" },
       "qualificata": ""
@@ -39,8 +39,8 @@
     {
       "id": 5,
       "semifinali": [
-        { "squadra1": "TBD17", "squadra2": "TBD18", "andata": "-", "ritorno": "-" },
-        { "squadra1": "TBD19", "squadra2": "TBD20", "andata": "-", "ritorno": "-" }
+        { "squadra1": "Montenegro", "squadra2": "Guinea", "andata": "-", "ritorno": "-" },
+        { "squadra1": "Romania", "squadra2": "Ecuador", "andata": "-", "ritorno": "-" }
       ],
       "finale": { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "" },
       "qualificata": ""
@@ -48,8 +48,8 @@
     {
       "id": 6,
       "semifinali": [
-        { "squadra1": "TBD21", "squadra2": "TBD22", "andata": "-", "ritorno": "-" },
-        { "squadra1": "TBD23", "squadra2": "TBD24", "andata": "-", "ritorno": "-" }
+        { "squadra1": "Capo Verde", "squadra2": "Armenia", "andata": "-", "ritorno": "-" },
+        { "squadra1": "Kuwait", "squadra2": "Gabon", "andata": "-", "ritorno": "-" }
       ],
       "finale": { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "" },
       "qualificata": ""
@@ -57,8 +57,8 @@
     {
       "id": 7,
       "semifinali": [
-        { "squadra1": "TBD25", "squadra2": "TBD26", "andata": "-", "ritorno": "-" },
-        { "squadra1": "TBD27", "squadra2": "TBD28", "andata": "-", "ritorno": "-" }
+        { "squadra1": "Madagascar", "squadra2": "Macedonia", "andata": "-", "ritorno": "-" },
+        { "squadra1": "Irlanda del Nord", "squadra2": "Kosovo", "andata": "-", "ritorno": "-" }
       ],
       "finale": { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "" },
       "qualificata": ""
@@ -66,8 +66,8 @@
     {
       "id": 8,
       "semifinali": [
-        { "squadra1": "TBD29", "squadra2": "TBD30", "andata": "-", "ritorno": "-" },
-        { "squadra1": "TBD31", "squadra2": "TBD32", "andata": "-", "ritorno": "-" }
+        { "squadra1": "Australia", "squadra2": "RD Congo", "andata": "-", "ritorno": "-" },
+        { "squadra1": "Arabia Saudita", "squadra2": "Benin", "andata": "-", "ritorno": "-" }
       ],
       "finale": { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "" },
       "qualificata": ""
