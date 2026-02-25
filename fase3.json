@@ -12,8 +12,8 @@
     {
       "id": 2,
       "semifinali": [
-        { "squadra1": "Irlanda", "squadra2": "Georgia", "andata": "-", "ritorno": "-" },
-        { "squadra1": "Curaçao", "squadra2": "Uzbekistan", "andata": "-", "ritorno": "-" }
+        { "squadra1": "Irlanda", "squadra2": "Georgia", "andata": "3-1", "ritorno": "-" },
+        { "squadra1": "Curaçao", "squadra2": "Uzbekistan", "andata": "3-1", "ritorno": "-" }
       ],
       "finale": { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "" },
       "qualificata": ""
