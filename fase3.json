@@ -21,8 +21,8 @@
     {
       "id": 3,
       "semifinali": [
-        { "squadra1": "Giamaica", "squadra2": "Congo", "andata": "-", "ritorno": "-" },
-        { "squadra1": "Costarica", "squadra2": "Islanda", "andata": "-", "ritorno": "-" }
+        { "squadra1": "Giamaica", "squadra2": "Congo", "andata": "2-2", "ritorno": "-" },
+        { "squadra1": "Costarica", "squadra2": "Islanda", "andata": "2-2", "ritorno": "-" }
       ],
       "finale": { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "" },
       "qualificata": ""
