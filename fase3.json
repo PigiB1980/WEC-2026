@@ -30,8 +30,8 @@
     {
       "id": 4,
       "semifinali": [
-        { "squadra1": "Kazakistan", "squadra2": "Burkina Faso", "andata": "-", "ritorno": "-" },
-        { "squadra1": "Qatar", "squadra2": "Panama", "andata": "-", "ritorno": "-" }
+        { "squadra1": "Kazakistan", "squadra2": "Burkina Faso", "andata": "2-0", "ritorno": "-" },
+        { "squadra1": "Qatar", "squadra2": "Panama", "andata": "2-3", "ritorno": "-" }
       ],
       "finale": { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "" },
       "qualificata": ""
