@@ -39,8 +39,8 @@
     {
       "id": 5,
       "semifinali": [
-        { "squadra1": "Montenegro", "squadra2": "Guinea", "andata": "-", "ritorno": "-" },
-        { "squadra1": "Romania", "squadra2": "Ecuador", "andata": "-", "ritorno": "-" }
+        { "squadra1": "Montenegro", "squadra2": "Guinea", "andata": "1-1", "ritorno": "-" },
+        { "squadra1": "Romania", "squadra2": "Ecuador", "andata": "2-3", "ritorno": "-" }
       ],
       "finale": { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "" },
       "qualificata": ""
