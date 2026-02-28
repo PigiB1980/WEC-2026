@@ -48,8 +48,8 @@
     {
       "id": 6,
       "semifinali": [
-        { "squadra1": "Capo Verde", "squadra2": "Armenia", "andata": "-", "ritorno": "-" },
-        { "squadra1": "Kuwait", "squadra2": "Gabon", "andata": "-", "ritorno": "-" }
+        { "squadra1": "Capo Verde", "squadra2": "Armenia", "andata": "4-1", "ritorno": "-" },
+        { "squadra1": "Kuwait", "squadra2": "Gabon", "andata": "1-2", "ritorno": "-" }
       ],
       "finale": { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "" },
       "qualificata": ""
