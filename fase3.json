@@ -57,8 +57,8 @@
     {
       "id": 7,
       "semifinali": [
-        { "squadra1": "Madagascar", "squadra2": "Macedonia", "andata": "-", "ritorno": "-" },
-        { "squadra1": "Irlanda del Nord", "squadra2": "Kosovo", "andata": "-", "ritorno": "-" }
+        { "squadra1": "Madagascar", "squadra2": "Macedonia", "andata": "2-1", "ritorno": "-" },
+        { "squadra1": "Irlanda del Nord", "squadra2": "Kosovo", "andata": "2-0", "ritorno": "-" }
       ],
       "finale": { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "" },
       "qualificata": ""
