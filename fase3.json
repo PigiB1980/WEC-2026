@@ -66,8 +66,8 @@
     {
       "id": 8,
       "semifinali": [
-        { "squadra1": "Australia", "squadra2": "RD Congo", "andata": "-", "ritorno": "-" },
-        { "squadra1": "Arabia Saudita", "squadra2": "Benin", "andata": "-", "ritorno": "-" }
+        { "squadra1": "Australia", "squadra2": "RD Congo", "andata": "1-2", "ritorno": "-" },
+        { "squadra1": "Arabia Saudita", "squadra2": "Benin", "andata": "1-2, "ritorno": "-" }
       ],
       "finale": { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "" },
       "qualificata": ""
