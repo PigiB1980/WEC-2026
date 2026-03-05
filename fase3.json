@@ -3,10 +3,10 @@
     {
       "id": 1,
       "semifinali": [
-        { "squadra1": "Cina", "squadra2": "Sudafrica", "andata": "2-1", "ritorno": "-" },
-        { "squadra1": "Honduras", "squadra2": "Bielorussia", "andata": "3-1", "ritorno": "-" }
+        { "squadra1": "Cina", "squadra2": "Sudafrica", "andata": "2-1", "ritorno": "0-2" },
+        { "squadra1": "Honduras", "squadra2": "Bielorussia", "andata": "3-1", "ritorno": "0-2" }
       ],
-      "finale": { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "" },
+      "finale": { "squadra1": "Sudafrica", "squadra2": "Bielorussia", "andata": "", "ritorno": "" },
       "qualificata": ""
     },
     {
