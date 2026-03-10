@@ -48,19 +48,19 @@
     {
       "id": 6,
       "semifinali": [
-        { "squadra1": "Capo Verde", "squadra2": "Armenia", "andata": "4-1", "ritorno": "-" },
-        { "squadra1": "Kuwait", "squadra2": "Gabon", "andata": "1-2", "ritorno": "-" }
+        { "squadra1": "Capo Verde", "squadra2": "Armenia", "andata": "4-1", "ritorno": "3-1" },
+        { "squadra1": "Kuwait", "squadra2": "Gabon", "andata": "1-2", "ritorno": "3-5" }
       ],
-      "finale": { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "" },
+      "finale": { "squadra1": "Capo Verde", "squadra2": "Gabon", "andata": "", "ritorno": "" },
       "qualificata": ""
     },
     {
       "id": 7,
       "semifinali": [
-        { "squadra1": "Madagascar", "squadra2": "Macedonia", "andata": "2-1", "ritorno": "-" },
-        { "squadra1": "Irlanda del Nord", "squadra2": "Kosovo", "andata": "2-0", "ritorno": "-" }
+        { "squadra1": "Madagascar", "squadra2": "Macedonia", "andata": "2-1", "ritorno": "2-1" },
+        { "squadra1": "Irlanda del Nord", "squadra2": "Kosovo", "andata": "2-0", "ritorno": "7-2" }
       ],
-      "finale": { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "" },
+      "finale": { "squadra1": "Madagascar", "squadra2": "Irlanda del Nord", "andata": "", "ritorno": "" },
       "qualificata": ""
     },
     {
