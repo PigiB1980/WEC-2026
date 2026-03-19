@@ -6,8 +6,8 @@
         { "squadra1": "Cina", "squadra2": "Sudafrica", "andata": "2-1", "ritorno": "0-2" },
         { "squadra1": "Honduras", "squadra2": "Bielorussia", "andata": "3-1", "ritorno": "0-2" }
       ],
-      "finale": { "squadra1": "Sudafrica", "squadra2": "Bielorussia", "andata": "1-3", "ritorno": "" },
-      "qualificata": ""
+      "finale": { "squadra1": "Sudafrica", "squadra2": "Bielorussia", "andata": "1-3", "ritorno": "3-2" },
+      "qualificata": "BIELORUSSIA"
     },
     {
       "id": 2,
@@ -15,8 +15,8 @@
         { "squadra1": "Irlanda", "squadra2": "Georgia", "andata": "3-1", "ritorno": "2-2" },
         { "squadra1": "Curaçao", "squadra2": "Uzbekistan", "andata": "3-1", "ritorno": "0-2" }
       ],
-      "finale": { "squadra1": "Irlanda", "squadra2": "Uzbekistan", "andata": "0-0", "ritorno": "" },
-      "qualificata": ""
+      "finale": { "squadra1": "Irlanda", "squadra2": "Uzbekistan", "andata": "0-0", "ritorno": 2-3"" },
+      "qualificata": "UZBEKISTAN"
     },
     {
       "id": 3,
