@@ -60,8 +60,8 @@
         { "squadra1": "Madagascar", "squadra2": "Macedonia", "andata": "2-1", "ritorno": "2-1" },
         { "squadra1": "Irlanda del Nord", "squadra2": "Kosovo", "andata": "2-0", "ritorno": "7-2" }
       ],
-      "finale": { "squadra1": "Madagascar", "squadra2": "Irlanda del Nord", "andata": "2-1", "ritorno": "" },
-      "qualificata": ""
+      "finale": { "squadra1": "Madagascar", "squadra2": "Irlanda del Nord", "andata": "2-1", "ritorno": "3-2" },
+      "qualificata": "MADAGASCAR"
     },
     {
       "id": 8,
@@ -69,8 +69,8 @@
         { "squadra1": "Australia", "squadra2": "RD Congo", "andata": "1-2", "ritorno": "4-0" },
         { "squadra1": "Arabia Saudita", "squadra2": "Benin", "andata": "1-2", "ritorno" : "0-1" }
       ],
-      "finale": { "squadra1": "Australia", "squadra2": "Benin", "andata": "1-1", "ritorno": "" },
-      "qualificata": ""
+      "finale": { "squadra1": "Australia", "squadra2": "Benin", "andata": "1-1", "ritorno": "2-1" },
+      "qualificata": "AUSTRALIA"
     }
   ]
 }
