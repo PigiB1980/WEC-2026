@@ -12,8 +12,8 @@
     { "id": 10, "squadra1": "Giappone", "squadra2": "Tunisia", "andata": "1-2", "ritorno": "-", "qualificata": "" },
     { "id": 11, "squadra1": "Grecia", "squadra2": "Gabon", "andata": "1-1", "ritorno": "-", "qualificata": "" },
     { "id": 12, "squadra1": "Finlandia", "squadra2": "Costa d'Avorio", "andata": "2-0", "ritorno": "-", "qualificata": "" },
-    { "id": 13, "squadra1": "Corea del Sud", "squadra2": "Ungheria", "andata": "-", "ritorno": "-", "qualificata": "" },
-    { "id": 14, "squadra1": "Camerun", "squadra2": "Iran", "andata": "-", "ritorno": "-", "qualificata": "" },
+    { "id": 13, "squadra1": "Corea del Sud", "squadra2": "Ungheria", "andata": "4-3", "ritorno": "-", "qualificata": "" },
+    { "id": 14, "squadra1": "Camerun", "squadra2": "Iran", "andata": "-", "ritorno": "0-1", "qualificata": "" },
     { "id": 15, "squadra1": "Burkina Faso", "squadra2": "Canada", "andata": "-", "ritorno": "-", "qualificata": "" },
     { "id": 16, "squadra1": "Madagascar", "squadra2": "Egitto", "andata": "-", "ritorno": "-", "qualificata": "" }
   ]
