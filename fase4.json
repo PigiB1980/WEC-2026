@@ -1,7 +1,7 @@
 {
   "partite": [
-    { "id": 1, "squadra1": "Romania", "squadra2": "Israele", "andata": "0-0", "ritorno": "-", "qualificata": "" },
-    { "id": 2, "squadra1": "Galles", "squadra2": "Perù", "andata": "0-3", "ritorno": "-", "qualificata": "" },
+    { "id": 1, "squadra1": "Romania", "squadra2": "Israele", "andata": "0-0", "ritorno": "0-2", "qualificata": "ISRAELE" },
+    { "id": 2, "squadra1": "Galles", "squadra2": "Perù", "andata": "0-3", "ritorno": "0-1", "qualificata": "PERU'" },
     { "id": 3, "squadra1": "Australia", "squadra2": "Slovacchia", "andata": "1-1", "ritorno": "-", "qualificata": "" },
     { "id": 4, "squadra1": "Scozia", "squadra2": "U.S.A.", "andata": "1-0", "ritorno": "", "qualificata": "" },
     { "id": 5, "squadra1": "Paraguay", "squadra2": "Ghana", "andata": "3-0", "ritorno": "-", "qualificata": "" },
