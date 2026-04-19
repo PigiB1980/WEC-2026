@@ -1,18 +1,18 @@
 {
   "partite": [
-    { "id": 1, "squadra1": "TBD1", "squadra2": "TBD2", "andata": "", "ritorno": "", "qualificata": "" },
-    { "id": 2, "squadra1": "TBD3", "squadra2": "TBD4", "andata": "", "ritorno": "", "qualificata": "" },
-    { "id": 3, "squadra1": "TBD5", "squadra2": "TBD6", "andata": "", "ritorno": "", "qualificata": "" },
-    { "id": 4, "squadra1": "TBD7", "squadra2": "TBD8", "andata": "", "ritorno": "", "qualificata": "" },
-    { "id": 5, "squadra1": "TBD9", "squadra2": "TBD10", "andata": "", "ritorno": "", "qualificata": "" },
-    { "id": 6, "squadra1": "TBD11", "squadra2": "TBD12", "andata": "", "ritorno": "", "qualificata": "" },
-    { "id": 7, "squadra1": "TBD13", "squadra2": "TBD14", "andata": "", "ritorno": "", "qualificata": "" },
-    { "id": 8, "squadra1": "TBD15", "squadra2": "TBD16", "andata": "", "ritorno": "", "qualificata": "" },
-    { "id": 9, "squadra1": "TBD17", "squadra2": "TBD18", "andata": "", "ritorno": "", "qualificata": "" },
-    { "id": 10, "squadra1": "TBD19", "squadra2": "TBD20", "andata": "", "ritorno": "", "qualificata": "" },
-    { "id": 11, "squadra1": "TBD21", "squadra2": "TBD22", "andata": "", "ritorno": "", "qualificata": "" },
-    { "id": 12, "squadra1": "TBD23", "squadra2": "TBD24", "andata": "", "ritorno": "", "qualificata": "" },
-    { "id": 13, "squadra1": "TBD25", "squadra2": "TBD26", "andata": "", "ritorno": "", "qualificata": "" },
-    { "id": 14, "squadra1": "TBD27", "squadra2": "TBD28", "andata": "", "ritorno": "", "qualificata": "" }
+    { "id": 1, "squadra1": "Tunisia", "squadra2": "Egitto", "andata": "", "ritorno": "", "qualificata": "" },
+    { "id": 2, "squadra1": "Australia", "squadra2": "Finlandia", "andata": "", "ritorno": "", "qualificata": "" },
+    { "id": 3, "squadra1": "Ucraina", "squadra2": "Svizzera", "andata": "", "ritorno": "", "qualificata": "" },
+    { "id": 4, "squadra1": "Cile", "squadra2": "Gabon", "andata": "", "ritorno": "", "qualificata": "" },
+    { "id": 5, "squadra1": "Canada", "squadra2": "Paraguay", "andata": "", "ritorno": "", "qualificata": "" },
+    { "id": 6, "squadra1": "Corea del Sud", "squadra2": "Svezia", "andata": "", "ritorno": "", "qualificata": "" },
+    { "id": 7, "squadra1": "Nigeria", "squadra2": "Messico", "andata": "", "ritorno": "", "qualificata": "" },
+    { "id": 8, "squadra1": "Russia", "squadra2": "Camerun", "andata": "", "ritorno": "", "qualificata": "" },
+    { "id": 9, "squadra1": "Mali", "squadra2": "Albania", "andata": "", "ritorno": "", "qualificata": "" },
+    { "id": 10, "squadra1": "Venezuela", "squadra2": "Rep. Ceca", "andata": "", "ritorno": "", "qualificata": "" },
+    { "id": 11, "squadra1": "Austria", "squadra2": "Danimarca", "andata": "", "ritorno": "", "qualificata": "" },
+    { "id": 12, "squadra1": "Slovenia", "squadra2": "Perù", "andata": "", "ritorno": "", "qualificata": "" },
+    { "id": 13, "squadra1": "U.S.A.", "squadra2": "Israele", "andata": "", "ritorno": "", "qualificata": "" },
+    { "id": 14, "squadra1": "Senegal", "squadra2": "Algeria", "andata": "", "ritorno": "", "qualificata": "" }
   ]
 }
