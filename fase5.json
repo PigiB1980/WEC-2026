@@ -1,7 +1,7 @@
 {
   "partite": [
-    { "id": 1, "squadra1": "Tunisia", "squadra2": "Egitto", "andata": "", "ritorno": "", "qualificata": "" },
-    { "id": 2, "squadra1": "Australia", "squadra2": "Finlandia", "andata": "", "ritorno": "", "qualificata": "" },
+    { "id": 1, "squadra1": "Tunisia", "squadra2": "Egitto", "andata": "2-0", "ritorno": "", "qualificata": "" },
+    { "id": 2, "squadra1": "Australia", "squadra2": "Finlandia", "andata": "1-1", "ritorno": "", "qualificata": "" },
     { "id": 3, "squadra1": "Ucraina", "squadra2": "Svizzera", "andata": "", "ritorno": "", "qualificata": "" },
     { "id": 4, "squadra1": "Cile", "squadra2": "Gabon", "andata": "", "ritorno": "", "qualificata": "" },
     { "id": 5, "squadra1": "Canada", "squadra2": "Paraguay", "andata": "", "ritorno": "", "qualificata": "" },
