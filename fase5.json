@@ -3,7 +3,7 @@
     { "id": 1, "squadra1": "Tunisia", "squadra2": "Egitto", "andata": "2-0", "ritorno": "", "qualificata": "" },
     { "id": 2, "squadra1": "Australia", "squadra2": "Finlandia", "andata": "1-1", "ritorno": "", "qualificata": "" },
     { "id": 3, "squadra1": "Ucraina", "squadra2": "Svizzera", "andata": "2-1", "ritorno": "", "qualificata": "" },
-    { "id": 4, "squadra1": "Cile", "squadra2": "Gabon", "andata": "", "ritorno": "4-2", "qualificata": "" },
+    { "id": 4, "squadra1": "Cile", "squadra2": "Gabon", "andata": "4-2", "ritorno": "", "qualificata": "" },
     { "id": 5, "squadra1": "Canada", "squadra2": "Paraguay", "andata": "", "ritorno": "", "qualificata": "" },
     { "id": 6, "squadra1": "Corea del Sud", "squadra2": "Svezia", "andata": "", "ritorno": "", "qualificata": "" },
     { "id": 7, "squadra1": "Nigeria", "squadra2": "Messico", "andata": "", "ritorno": "", "qualificata": "" },
