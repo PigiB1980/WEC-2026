@@ -2,8 +2,8 @@
   "partite": [
     { "id": 1, "squadra1": "Tunisia", "squadra2": "Egitto", "andata": "2-0", "ritorno": "0-2 <br><br>(4-3 rig)", "qualificata": "TUNISIA" },
     { "id": 2, "squadra1": "Australia", "squadra2": "Finlandia", "andata": "1-1", "ritorno": "6-0", "qualificata": "AUSTRALIA" },
-    { "id": 3, "squadra1": "Ucraina", "squadra2": "Svizzera", "andata": "2-1", "ritorno": "", "qualificata": "" },
-    { "id": 4, "squadra1": "Cile", "squadra2": "Gabon", "andata": "4-2", "ritorno": "", "qualificata": "" },
+    { "id": 3, "squadra1": "Ucraina", "squadra2": "Svizzera", "andata": "2-1", "ritorno": "2-0", "qualificata": "UCRAINA" },
+    { "id": 4, "squadra1": "Cile", "squadra2": "Gabon", "andata": "4-2", "ritorno": "1-6", "qualificata": "GABON" },
     { "id": 5, "squadra1": "Canada", "squadra2": "Paraguay", "andata": "3-1", "ritorno": "", "qualificata": "" },
     { "id": 6, "squadra1": "Corea del Sud", "squadra2": "Svezia", "andata": "0-0", "ritorno": "", "qualificata": "" },
     { "id": 7, "squadra1": "Nigeria", "squadra2": "Messico", "andata": "3-0", "ritorno": "", "qualificata": "" },
