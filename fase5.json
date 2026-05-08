@@ -12,7 +12,7 @@
     { "id": 10, "squadra1": "Venezuela", "squadra2": "Rep. Ceca", "andata": "0-3", "ritorno": "0-0", "qualificata": "REP. CECA" },
     { "id": 11, "squadra1": "Austria", "squadra2": "Danimarca", "andata": "0-2", "ritorno": "3-1", "qualificata": "AUSTRIA" },
     { "id": 12, "squadra1": "Slovenia", "squadra2": "Perù", "andata": "0-4", "ritorno": "5-0 dts", "qualificata": "SLOVENIA" },
-    { "id": 13, "squadra1": "U.S.A.", "squadra2": "Israele", "andata": "0-2", "ritorno": "", "qualificata": "" },
-    { "id": 14, "squadra1": "Senegal", "squadra2": "Algeria", "andata": "2-0", "ritorno": "", "qualificata": "" }
+    { "id": 13, "squadra1": "U.S.A.", "squadra2": "Israele", "andata": "0-2", "ritorno": "2-1", "qualificata": "ISRAELE" },
+    { "id": 14, "squadra1": "Senegal", "squadra2": "Algeria", "andata": "2-0", "ritorno": "3-4", "qualificata": "SENEGAL" }
   ]
 }
