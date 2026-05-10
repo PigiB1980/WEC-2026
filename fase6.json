@@ -18,7 +18,7 @@
     { "squadra1": "Belgio",   "squadra2": "Brasile",    "andata": "", "ritorno": "", "qualificata": "" }
   ],
   "ottavi": [
-    { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "", "qualificata": "" },
+    { "squadra1": "Australia", "squadra2": "", "andata": "", "ritorno": "", "qualificata": "" },
     { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "", "qualificata": "" },
     { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "", "qualificata": "" },
     { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "", "qualificata": "" },
