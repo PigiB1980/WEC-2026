@@ -12,10 +12,10 @@
     { "squadra1": "Polonia",   "squadra2": "Uruguay",    "andata": "1-1", "ritorno": "", "qualificata": "" },
     { "squadra1": "Canada",   "squadra2": "Camerun",    "andata": "5-3", "ritorno": "", "qualificata": "" },
     { "squadra1": "Italia",   "squadra2": "Germania",    "andata": "2-0", "ritorno": "", "qualificata": "" },
-    { "squadra1": "Ucraina",   "squadra2": "Austria",    "andata": "", "ritorno": "", "qualificata": "" },
-    { "squadra1": "Argentina",   "squadra2": "Israele",    "andata": "", "ritorno": "", "qualificata": "" },
-    { "squadra1": "Serbia",   "squadra2": "Norvegia",    "andata": "", "ritorno": "", "qualificata": "" },
-    { "squadra1": "Belgio",   "squadra2": "Brasile",    "andata": "", "ritorno": "", "qualificata": "" }
+    { "squadra1": "Ucraina",   "squadra2": "Austria",    "andata": "3-2", "ritorno": "", "qualificata": "" },
+    { "squadra1": "Argentina",   "squadra2": "Israele",    "andata": "3-0", "ritorno": "", "qualificata": "" },
+    { "squadra1": "Serbia",   "squadra2": "Norvegia",    "andata": "0-0", "ritorno": "", "qualificata": "" },
+    { "squadra1": "Belgio",   "squadra2": "Brasile",    "andata": "3-1", "ritorno": "", "qualificata": "" }
   ],
   "ottavi": [
     { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "", "qualificata": "" },
