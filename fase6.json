@@ -2,7 +2,7 @@
   "sedicesimi": [
     { "squadra1": "Australia",  "squadra2": "Gabon",  "andata": "0-2", "ritorno": "3-3", "qualificata": "GABON" }, 
     { "squadra1": "Slovenia",    "squadra2": "Turchia",     "andata": "3-2", "ritorno": "6-1", "qualificata": "SLOVENIA" },
-    { "squadra1": "Marocco",    "squadra2": "Colombia",     "andata": "1-2", "ritorno": "", "qualificata": "" },
+    { "squadra1": "Marocco",    "squadra2": "Colombia",     "andata": "1-2", "ritorno": "1-3", "qualificata": "COLOMBIA" },
     { "squadra1": "Rep. Ceca",    "squadra2": "Francia",     "andata": "1-2", "ritorno": "", "qualificata": "" },
     { "squadra1": "Olanda",    "squadra2": "Inghilterra",    "andata": "4-2", "ritorno": "", "qualificata": "" },
     { "squadra1": "Tunisia",   "squadra2": "Corea del Sud",    "andata": "4-1", "ritorno": "", "qualificata": "" },
@@ -19,7 +19,7 @@
   ],
   "ottavi": [
     { "squadra1": "Gabon", "squadra2": "Slovenia", "andata": "", "ritorno": "", "qualificata": "" },
-    { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "", "qualificata": "" },
+    { "squadra1": "Colombia", "squadra2": "", "andata": "", "ritorno": "", "qualificata": "" },
     { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "", "qualificata": "" },
     { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "", "qualificata": "" },
     { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "", "qualificata": "" },
