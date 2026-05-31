@@ -134,6 +134,28 @@
       border: 2px solid #00ff99;
     }
 
+    /* Squadra vincitrice */
+.team.winner {
+  background: linear-gradient(135deg, #ffd700, #ffb700);
+  color: #000;
+  border: 3px solid #fff4a3;
+  animation: winnerGlow 2s infinite alternate;
+}
+
+.team.winner span {
+  color: #000;
+  font-weight: 700;
+}
+
+@keyframes winnerGlow {
+  from {
+    box-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+  }
+  to {
+    box-shadow: 0 0 20px rgba(255, 215, 0, 1);
+  }
+}
+
     /* ===== FASE 5: 7 colonne ===== */
     .fase5 .grid {
       grid-template-columns: repeat(7, 1fr);
