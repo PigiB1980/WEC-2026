@@ -18,8 +18,8 @@
     { "squadra1": "Belgio",   "squadra2": "Brasile",    "andata": "3-1", "ritorno": "4-2", "qualificata": "BELGIO" }
   ],
   "ottavi": [
-    { "squadra1": "Gabon", "squadra2": "Slovenia", "andata": "1-2", "ritorno": "", "qualificata": "" },
-    { "squadra1": "Colombia", "squadra2": "Francia", "andata": "2-2", "ritorno": "", "qualificata": "" },
+    { "squadra1": "Gabon", "squadra2": "Slovenia", "andata": "1-2", "ritorno": "4-1", "qualificata": "GABON" },
+    { "squadra1": "Colombia", "squadra2": "Francia", "andata": "2-2", "ritorno": "2-1", "qualificata": "COLOMBIA" },
     { "squadra1": "Inghilterra", "squadra2": "Tunisia", "andata": "1-2", "ritorno": "", "qualificata": "" },
     { "squadra1": "Spagna", "squadra2": "Croazia", "andata": "1-1", "ritorno": "", "qualificata": "" },
     { "squadra1": "Senegal", "squadra2": "Uruguay", "andata": "2-2", "ritorno": "", "qualificata": "" },
@@ -28,7 +28,7 @@
     { "squadra1": "Serbia", "squadra2": "Belgio", "andata": "3-4", "ritorno": "", "qualificata": "" }
   ],
   "quarti": [
-    { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "", "qualificata": "" },
+    { "squadra1": "Gabon", "squadra2": "Colombia", "andata": "", "ritorno": "", "qualificata": "" },
     { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "", "qualificata": "" },
     { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "", "qualificata": "" },
     { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "", "qualificata": "" }
