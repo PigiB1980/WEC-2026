@@ -16,7 +16,7 @@
     { "squadra1": "Argentina",   "squadra2": "Israele",    "andata": "3-0", "ritorno": "3-2", "qualificata": "ARGENTINA" },
     { "squadra1": "Serbia",   "squadra2": "Norvegia",    "andata": "0-0", "ritorno": "2-1", "qualificata": "SERBIA" },
     { "squadra1": "Belgio",   "squadra2": "Brasile",    "andata": "3-1", "ritorno": "4-2", "qualificata": "BELGIO" }
-  ],
+  ], 
   "ottavi": [
     { "squadra1": "Gabon", "squadra2": "Slovenia", "andata": "1-2", "ritorno": "4-1", "qualificata": "GABON" },
     { "squadra1": "Colombia", "squadra2": "Francia", "andata": "2-2", "ritorno": "2-1", "qualificata": "COLOMBIA" },
