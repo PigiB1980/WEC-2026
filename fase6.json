@@ -34,10 +34,10 @@
     { "squadra1": "Argentina", "squadra2": "Belgio", "andata": "2-2", "ritorno": "1-1", "qualificata": "BELGIO" }
   ],
   "semifinali": [
-    { "squadra1": "Colombia", "squadra2": "Spagna", "andata": "1-2", "ritorno": "", "qualificata": "" },
+    { "squadra1": "Colombia", "squadra2": "Spagna", "andata": "1-2", "ritorno": "0-0", "SPAGNA": "" },
     { "squadra1": "Uruguay", "squadra2": "Belgio", "andata": "0-0", "ritorno": "", "qualificata": "" }
   ],
   "finale": [
-    { "squadra1": "", "squadra2": "", "andata": "", "ritorno": "", "qualificata": "" }
+    { "squadra1": "Spagna", "squadra2": "", "andata": "", "ritorno": "", "qualificata": "" }
   ]
 }
