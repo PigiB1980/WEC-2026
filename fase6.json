@@ -38,6 +38,6 @@
     { "squadra1": "Uruguay", "squadra2": "Belgio", "andata": "0-0", "ritorno": "1-2", "qualificata": "BELGIO" }
   ],
   "finale": [
-    { "squadra1": "Spagna", "squadra2": "Belgio", "andata": "", "ritorno": "", "qualificata": "" }
+    { "squadra1": "Spagna", "squadra2": "Belgio", "andata": "0-1", "ritorno": "", "qualificata": "" }
   ]
 }
